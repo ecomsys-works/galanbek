@@ -1,0 +1,294 @@
+/* =========================================================
+   Promo Card
+   ========================================================= */
+
+.promo-card {
+	position: relative;
+	display: block;
+	overflow: hidden;
+
+	color: #fff;
+	text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	border-radius: 10px;
+	padding-inline: 10px;
+	padding-bottom: 10px;
+
+	transition: transform 0.3s ease;
+
+	@include sm {
+		border-radius: 20px;
+		padding-inline: 15px;
+	}
+
+	@include xxl {
+		padding-inline: 30px;
+		padding-bottom: 30px;
+	}
+
+	&:hover {
+		transform: scale(1.01);
+	}
+
+	/* ================= CONTENT ================= */
+
+	&__content {
+		position: relative;
+		z-index: 2;
+	}
+
+	/* ================= TITLE ================= */
+
+	&__title {
+		font-weight: 600;
+		line-height: 1;
+		letter-spacing: -0.02em;
+
+		font-size: 20px;
+		margin-bottom: 12px;
+
+		@include sm {
+			font-size: 28px;
+		}
+
+		@include lg {
+			font-size: 30px;
+		}
+
+		@include xxxl {
+			font-size: 50px;
+			margin-bottom: 15px;
+		}
+
+		&--main {
+			@include lg {
+				font-size: 45px;
+			}
+			@include xl {
+				font-size: 55px;
+			}
+			@include xxxl {
+				font-size: 70px;
+			}
+		}
+	}
+
+	/* ================= PRICE ================= */
+
+	&__price {
+		font-weight: 400;
+		line-height: 1;
+		letter-spacing: -0.02em;
+
+		font-size: 14px;
+
+		@include sm {
+			font-size: 16px;
+		}
+		@include lg {
+			font-size: 24px;
+		}
+		@include xxxl {
+			font-size: 30px;
+		}
+
+		&--main {
+			@include lg {
+				font-size: 30px;
+			}
+			@include xxxl {
+				font-size: 36px;
+			}
+		}
+	}
+
+	/* ================= SIZE MODIFIERS ================= */
+
+	&--large,
+	&--top,
+	&--bottom {
+		padding-top: 10px;
+
+		@include sm {
+			padding-top: 15px;
+		}
+	}
+
+	&--large {
+		@include xxl {
+			padding-top: 30px;
+		}
+
+		.promo-card__button {
+			top: 10px;
+			@include sm {
+				top: 15px;
+			}
+			@include xxl {
+				top: 60px;
+			}
+		}
+	}
+
+	&--top {
+		@include xxl {
+			padding-top: 50px;
+		}
+
+		.promo-card__button {
+			top: 10px;
+			@include sm {
+				top: 15px;
+			}
+			@include xxl {
+				top: 50px;
+			}
+		}
+	}
+
+	&--bottom {
+		@include xxl {
+			padding-top: 20px;
+		}
+
+		.promo-card__button {
+			top: 10px;
+			@include sm {
+				top: 15px;
+			}
+			@include xxl {
+				top: 20px;
+			}
+		}
+	}
+
+	/* ================= BUTTON ================= */
+
+	&__button {
+		position: absolute;
+		right: 10px;
+		z-index: 10;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 33px;
+		height: 33px;
+		border-radius: 50%;
+		background: #fff;
+		color: var(--black);
+		cursor: pointer;
+
+		transition: all 0.3s ease-in-out;
+
+		svg {
+			width: 14px;
+			height: 14px;
+		}
+
+		@include sm {
+			right: 15px;
+			width: 50px;
+			height: 50px;
+
+			svg {
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		@include lg {
+			width: 43px;
+			height: 43px;
+
+			svg {
+				width: 17px;
+				height: 17px;
+			}
+		}
+
+		@include xxxl {
+			right: 30px;
+			width: 50px;
+			height: 50px;
+
+			svg {
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		&:hover {
+			background: #000;
+			color: #fff;
+		}
+	}
+
+	/* ================= LABEL ================= */
+
+	&__label {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+
+		margin-bottom: 20px;
+		padding: 11px;
+		height: 26px;
+
+		border-radius: 56px;
+		border: 0.56px solid #fff;
+
+		font-weight: 500;
+		line-height: 1;
+		letter-spacing: -0.02em;
+		font-size: 12px;
+
+		background: #fff;
+		color: var(--black);
+
+		z-index: 2;
+
+		img {
+			width: 12px;
+			height: 12px;
+		}
+
+		@include sm {
+			background: transparent;
+			color: var(--white);
+			font-size: 19px;
+			height: 44px;
+
+			img {
+				width: 19px;
+				height: 19px;
+			}
+		}
+
+		@include lg {
+			font-size: 20px;
+			height: 45px;
+
+			img {
+				width: 21px;
+				height: 21px;
+			}
+		}
+
+		@include xxxl {
+			font-size: 24px;
+			height: 52px;
+
+			img {
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+}

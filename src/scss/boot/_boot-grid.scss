@@ -43,7 +43,7 @@ $container-paddings: (
 /* =========================================================
    CONTAINER (mobile first)
 ========================================================= */
-
+// [class*="__container"],
 .container,
 .container-fluid,
 .container-xxl,
@@ -68,6 +68,7 @@ $container-paddings: (
 @each $name, $width in $breakpoints {
   @if $width != 0 {
     @media (min-width: $width) {
+      // [class*="__container"], 
       .container,
       .container-fluid,
       .container-xxl,

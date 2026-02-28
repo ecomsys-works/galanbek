@@ -1,0 +1,69 @@
+/* =========================================================
+   Home Promos Section
+   ========================================================= */
+
+.home-promos {
+  padding-top: 0;
+
+  @include sm {
+    padding-top: 10px;
+    padding-bottom: 50px;
+  }
+
+  @include xl {
+    padding-top: 20px;
+    padding-bottom: 75px;
+  }
+
+  /* ================= GRID ================= */
+
+  &__grid {
+    display: grid;
+    gap: 15px;
+
+    /* Mobile layout */
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "large"
+      "top"
+      "bottom";
+
+    .promo-card {
+      aspect-ratio: 600 / 415;
+    }
+
+    /* Tablet+ layout */
+    @include md {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 3fr 2fr;
+      grid-template-areas:
+        "large top"
+        "large bottom";
+
+      height: 500px;
+
+      .promo-card {
+        aspect-ratio: initial;
+      }
+    }
+
+    /* Progressive height scaling */
+    @include lg   { height: 600px; }
+    @include xl   { height: 726px; }
+    @include xxl  { height: 894px; }
+    @include xxxl { height: 1033px; }
+  }
+}
+
+/* =========================================================
+   Grid Areas
+   ========================================================= */
+
+.promo-card--large  { grid-area: large; }
+.promo-card--top    { grid-area: top; }
+.promo-card--bottom { grid-area: bottom; }
+
+/* Ensure cards fill grid cells */
+.promo-card {
+  height: 100%;
+}

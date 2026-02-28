@@ -1,0 +1,99 @@
+/* ------------------------------------------------------------------------------------------------------------------------------
+MAP SECTION
+--------------------------------------------------------------------------------------------------------------------------------*/
+.map {
+	position: relative;
+	background: #131314;
+	border-top-left-radius: 40px;
+	border-top-right-radius: 40px;
+
+	text-align: center;
+	color: #fff;
+
+	padding-top: 30px;
+	padding-bottom: 15px;
+
+	margin-top: auto;
+
+	@include xxl {
+		padding-top: 40px;
+		padding-bottom: 45px;
+	}
+
+	&__title {
+		font-size: 28px;
+		font-weight: 500;
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		text-align: center;
+
+		margin-bottom: 30px;
+		margin-inline: auto;
+		max-width: 472px;
+
+		@include xxl {
+			font-size: 55px;
+			max-width: 972px;
+		}
+	}
+
+	&__box {
+		position: relative;
+		width: 100%;
+		height: 625px;
+		overflow: hidden;
+
+		border-radius: 10px;
+
+		@include xxl {
+			border-radius: 20px;
+		}
+
+		iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+			border-radius: inherit;
+
+			/* Чёрно-белый фильтр */
+			filter: grayscale(100%);
+
+			/* если хочется более "дизайнерский" эффект */
+			// filter: grayscale(100%) contrast(1.1) brightness(0.95);
+			transition: filter 600ms ease 1000ms;
+		}
+
+		/* опционально — при наведении вернуть цвет */
+		&:hover iframe {
+			filter: grayscale(0%);
+		}
+	}
+
+	/* ---------------- Overlay ---------------- */
+	&__overlay {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		font-size: 14px;
+		font-weight: 500;
+
+		color: #fff;
+		background: rgba(0, 0, 0, 0.05);		
+
+		transition: opacity 0.3s ease;
+		cursor: pointer;
+	}
+
+	/* ---------------- Active state ---------------- */
+	&__box.is-active {
+		.map__overlay {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+}

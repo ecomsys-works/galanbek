@@ -27,7 +27,7 @@ html,
 body {
 	inline-size: 100%;
 	block-size: 100%;
-	background: #F4F4F4;
+	background: #f4f4f4;
 	// overflow-x: hidden;
 }
 
@@ -51,11 +51,11 @@ svg.icon {
 
 .ibg {
 	position: relative;
-	img {
+	& > img {
 		display: block;
 		position: absolute;
-		inset-block-start: 0;
-		inset-inline-start: 0;
+		inset-block-start: 0%;
+		inset-inline-start: 0%;
 		object-fit: cover;
 		block-size: 100%;
 		inline-size: 100%;
@@ -74,4 +74,6 @@ svg.icon {
 .main {
 	position: relative;
 	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
 }

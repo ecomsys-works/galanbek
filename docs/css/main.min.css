@@ -406,10 +406,10 @@ aside {
     transform: rotate(0);
   }
   25% {
-    transform: rotate(-3deg);
+    transform: rotate(-1deg);
   }
   75% {
-    transform: rotate(3deg);
+    transform: rotate(1deg);
   }
 }
 /* ===================================================================
@@ -476,7 +476,7 @@ html,
 body {
   inline-size: 100%;
   block-size: 100%;
-  background: #F4F4F4;
+  background: #f4f4f4;
 }
 
 .container {
@@ -501,11 +501,11 @@ svg.icon {
 .ibg {
   position: relative;
 }
-.ibg img {
+.ibg > img {
   display: block;
   position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
+  inset-block-start: 0%;
+  inset-inline-start: 0%;
   -o-object-fit: cover;
      object-fit: cover;
   block-size: 100%;
@@ -523,6 +523,8 @@ svg.icon {
 .main {
   position: relative;
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------
@@ -593,9 +595,9 @@ CONTENT
  --------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
   position: relative;
-  background: #000;
+  background: #131314;
   color: #fff;
-  padding-top: 1.25rem;
+  padding-top: 0.9375rem;
   padding-bottom: 4.375rem;
   /* ================= TOP ROW ================= */
   /* ================= MENUS ================= */
@@ -850,14 +852,33 @@ CATALOG PRODUCTS PAGE
 CATALOG SUBCATEGORIES PAGE
 --------------------------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------------------------------------------------
-CATALOG CATEGORIES SECTION
---------------------------------------------------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------------------------------------------------
 CATALOG FILTERS SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------------------------------------------------
 CATALOG PRODUCTS SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------------------------------------------------
+CATALOG CATEGORIES SECTION
+--------------------------------------------------------------------------------------------------------------------------------*/
+.categories {
+  padding-top: 2.1875rem;
+  padding-bottom: 3.125rem;
+}
+.categories__title {
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 1.875rem;
+}
+.categories__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------
 CATALOG HIGHLIGHTS SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
@@ -865,35 +886,231 @@ CATALOG HIGHLIGHTS SECTION
 FEATURED PRODUCTS SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------------------------------------------------
-NEW ARRIVALS SECTION
+MAP SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
+.map {
+  position: relative;
+  background: #131314;
+  border-top-left-radius: 2.5rem;
+  border-top-right-radius: 2.5rem;
+  text-align: center;
+  color: #fff;
+  padding-top: 1.875rem;
+  padding-bottom: 0.9375rem;
+  margin-top: auto;
+  /* ---------------- Overlay ---------------- */
+  /* ---------------- Active state ---------------- */
+}
+.map__title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 1.875rem;
+  margin-inline: auto;
+  max-width: 29.5rem;
+}
+.map__box {
+  position: relative;
+  width: 100%;
+  height: 39.0625rem;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  /* опционально — при наведении вернуть цвет */
+}
+.map__box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: inherit;
+  /* Чёрно-белый фильтр */
+  filter: grayscale(100%);
+  /* если хочется более "дизайнерский" эффект */
+  transition: filter 600ms ease 1000ms;
+}
+.map__box:hover iframe {
+  filter: grayscale(0%);
+}
+.map__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.05);
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+.map__box.is-active .map__overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+NEW PRODUCTS SECTION
+--------------------------------------------------------------------------------------------------------------------------------*/
+.new-products {
+  padding: 4.6875rem 0;
+  /* ---------------- Header ---------------- */
+  /* ---------------- Arrows ---------------- */
+  /* ---------------- Slider ---------------- */
+}
+.new-products__header {
+  position: relative;
+  padding-bottom: 3.4375rem;
+  margin-bottom: 1.25rem;
+}
+.new-products__title {
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  font-size: 1.75rem;
+  text-align: center;
+}
+.new-products__nav {
+  position: absolute;
+  right: 0;
+  bottom: 0%;
+  display: flex;
+  gap: 0.75rem;
+}
+.new-products__arrow {
+  width: 1.875rem;
+  height: 1.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.new-products__arrow.swiper-button-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.new-products .icon--slider-angle-left {
+  width: 0.5rem;
+  height: 1.0625rem;
+}
+.new-products .icon--slider-angle-right {
+  width: 0.5rem;
+  height: 1.0625rem;
+}
+.new-products__slider {
+  overflow: visible;
+}
+.new-products__slider .swiper-wrapper {
+  align-items: stretch;
+}
+.new-products__slider .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------
 PRODUCT GALLERY SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
+/* =========================================================
+   Home Promos Section
+   ========================================================= */
+.home-promos {
+  padding-top: 0;
+  /* ================= GRID ================= */
+}
+.home-promos__grid {
+  display: grid;
+  gap: 0.9375rem;
+  /* Mobile layout */
+  grid-template-columns: 1fr;
+  grid-template-areas: "large" "top" "bottom";
+  /* Tablet+ layout */
+  /* Progressive height scaling */
+}
+.home-promos__grid .promo-card {
+  aspect-ratio: 600/415;
+}
+
+/* =========================================================
+   Grid Areas
+   ========================================================= */
+.promo-card--large {
+  grid-area: large;
+}
+
+.promo-card--top {
+  grid-area: top;
+}
+
+.promo-card--bottom {
+  grid-area: bottom;
+}
+
+/* Ensure cards fill grid cells */
+.promo-card {
+  height: 100%;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------
 RELATED PRODUCTS SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------------------------------------------------
-WHY CHOOSE US SECTION
+TRUST SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
+.trust {
+  padding-top: 3.125rem;
+  padding-bottom: 6.25rem;
+}
+.trust__title {
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 0.9375rem;
+  font-size: 1.75rem;
+}
+.trust__description {
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--black);
+  font-size: 0.875rem;
+  margin-bottom: 1.875rem;
+  margin-inline: auto;
+  max-width: 42rem;
+}
+.trust__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
 .btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   /* Базовый padding, автоширина */
-  padding-inline: 5.125rem;
-  height: 3.375rem;
-  border-radius: 1.25rem;
   border: none;
   overflow: hidden;
   align-self: flex-start;
-  font-size: 1rem;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
+  height: 2.0625rem;
+  border-radius: 0.8125rem;
   cursor: pointer;
   color: #fff;
+  padding-inline: 1.875rem;
   transition: transform 0.08s ease, box-shadow 0.2s ease;
   /* ================= GRADIENT LAYER ================= */
   /* ================= TEXT ================= */
@@ -920,7 +1137,7 @@ WHY CHOOSE US SECTION
   position: relative;
   z-index: 2;
   font-weight: 500;
-  font-size: 1.125rem;
+  font-size: 0.6875rem;
   line-height: 100%;
   letter-spacing: -0.02em;
   color: #fff;
@@ -969,13 +1186,21 @@ WHY CHOOSE US SECTION
   width: 100%;
 }
 .btn--tg {
+  height: 3.3125rem;
   width: 100%;
   max-width: 24.5rem;
-  border-radius: 6.25rem;
+  border-radius: 6.25rem !important;
+}
+.btn--tg .btn__text {
+  font-size: 1rem;
 }
 .btn--tg-full {
   width: 100%;
-  border-radius: 6.25rem;
+  height: 3.3125rem;
+  border-radius: 6.25rem !important;
+}
+.btn--tg-full .btn__text {
+  font-size: 1rem;
 }
 .btn--dark {
   background-color: #6c537b;
@@ -988,8 +1213,68 @@ WHY CHOOSE US SECTION
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------
-CATEGORY CARD
+CATALOG CARD
 --------------------------------------------------------------------------------------------------------------------------------*/
+.categories-card {
+  display: block;
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5625rem 1.5625rem;
+  border: 0.0625rem solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 370/257;
+  transition: box-shadow 0.3s ease;
+}
+.categories-card img {
+  inset-block-start: 10%;
+  inset-inline-start: 10%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  block-size: 90%;
+  inline-size: 90%;
+}
+.categories-card:hover {
+  animation: lift 0.3s forwards;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.08);
+}
+.categories-card__title {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  font-size: 1.125rem;
+}
+.categories-card__button {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.6875rem;
+  height: 2.6875rem;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 0.0625rem solid #ddd;
+  background: #ddd;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.categories-card__button svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.categories-card__button:hover {
+  background: #000;
+  color: #fff;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------
 FILTER
 --------------------------------------------------------------------------------------------------------------------------------*/
@@ -1197,10 +1482,177 @@ FILTER
 /* ------------------------------------------------------------------------------------------------------------------------------
 PRODUCT CARD
 --------------------------------------------------------------------------------------------------------------------------------*/
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* ---------------- Image Wrapper ---------------- */
+  /* ---------------- Content ---------------- */
+}
+.product-card__image-wrapper {
+  position: relative;
+  border: 0.0625rem solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.8125rem;
+  background: #fff;
+  aspect-ratio: 1/1;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  /* Hover эффект: масштаб изображения */
+  transition: transform 0.4s ease;
+}
+.product-card__image-wrapper:hover .product-card__image {
+  transform: scale(1.05);
+}
+.product-card__image {
+  block-size: 100%;
+  inline-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease; /* плавный переход для hover */
+}
+.product-card__content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* растягиваем */
+  justify-content: space-between;
+  padding-top: 0.625rem;
+}
+.product-card__group {
+  margin-top: auto; /* прижимает к низу */
+}
+.product-card__title {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  font-size: 0.5rem;
+  margin-bottom: 0.625rem;
+}
+.product-card__title a {
+  color: #000;
+  text-decoration: none;
+}
+.product-card__price {
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  font-size: 0.6875rem;
+}
+.product-card__button {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+/* =========================================================
+   Promo Card
+   ========================================================= */
+.promo-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.625rem;
+  padding-inline: 0.625rem;
+  padding-bottom: 0.625rem;
+  transition: transform 0.3s ease;
+  /* ================= CONTENT ================= */
+  /* ================= TITLE ================= */
+  /* ================= PRICE ================= */
+  /* ================= SIZE MODIFIERS ================= */
+  /* ================= BUTTON ================= */
+  /* ================= LABEL ================= */
+}
+.promo-card:hover {
+  transform: scale(1.01);
+}
+.promo-card__content {
+  position: relative;
+  z-index: 2;
+}
+.promo-card__title {
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.promo-card__price {
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-size: 0.875rem;
+}
+.promo-card--large, .promo-card--top, .promo-card--bottom {
+  padding-top: 0.625rem;
+}
+.promo-card--large .promo-card__button {
+  top: 0.625rem;
+}
+.promo-card--top .promo-card__button {
+  top: 0.625rem;
+}
+.promo-card--bottom .promo-card__button {
+  top: 0.625rem;
+}
+.promo-card__button {
+  position: absolute;
+  right: 0.625rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.0625rem;
+  height: 2.0625rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--black);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.promo-card__button svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.promo-card__button:hover {
+  background: #000;
+  color: #fff;
+}
+.promo-card__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  margin-bottom: 1.25rem;
+  padding: 0.6875rem;
+  height: 1.625rem;
+  border-radius: 3.5rem;
+  border: 0.035rem solid #fff;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-size: 0.75rem;
+  background: #fff;
+  color: var(--black);
+  z-index: 2;
+}
+.promo-card__label img {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
 .search-block {
   width: 100%;
   max-width: 59.375rem;
   margin-inline: auto;
+  margin-bottom: 1.25rem;
   /* =========================
       Верхний ряд: форма
    ========================== */
@@ -1339,9 +1791,60 @@ PRODUCT CARD
 /* ------------------------------------------------------------------------------------------------------------------------------
 SORTING
 --------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------------------------------------------------
+TRUST CARD
+--------------------------------------------------------------------------------------------------------------------------------*/
+.trust-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.25rem;
+  border-radius: 1.0625rem;
+  overflow: hidden;
+  background-color: #5e4b8b; /* фиолетовый fallback */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 37/24;
+  color: #fff;
+}
+.trust-card__header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+.trust-card__title {
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  font-size: 1.25rem;
+}
+.trust-card__number {
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: rgba(244, 244, 244, 0.7);
+  font-size: 1.6875rem;
+}
+.trust-card__text {
+  position: relative;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  max-width: 60%;
+  font-size: 0.875rem;
+}
 @media (min-width: 370px){
   .header__burger {
     margin-left: 2.1875rem;
+  }
+}
+@media (min-width: 440px){
+  .trust-card__title {
+    font-size: 1.875rem;
   }
 }
 @media (min-width: 441px){
@@ -1362,10 +1865,99 @@ SORTING
   .footer__subtitle {
     display: block;
   }
+  .categories__title {
+    font-size: 1.875rem;
+    margin-bottom: 1.25rem;
+  }
+  .new-products__title {
+    font-size: 1.875rem;
+  }
+  .home-promos {
+    padding-top: 0.625rem;
+    padding-bottom: 3.125rem;
+  }
+  .trust__title {
+    font-size: 1.875rem;
+    margin-bottom: 1.25rem;
+  }
+  .trust__description {
+    margin-bottom: 2.8125rem;
+    font-size: 1rem;
+    max-width: 48.25rem;
+  }
+  .btn__text {
+    font-size: 0.9375rem;
+  }
+  .categories-card {
+    aspect-ratio: 600/274;
+  }
+  .categories-card__title {
+    font-size: 1.75rem;
+  }
+  .product-card__content {
+    padding-top: 0.9375rem;
+  }
+  .product-card__title {
+    font-size: 0.875rem;
+  }
+  .product-card__price {
+    font-size: 0.875rem;
+  }
+  .promo-card {
+    border-radius: 1.25rem;
+    padding-inline: 0.9375rem;
+  }
+  .promo-card__title {
+    font-size: 1.75rem;
+  }
+  .promo-card__price {
+    font-size: 1rem;
+  }
+  .promo-card--large, .promo-card--top, .promo-card--bottom {
+    padding-top: 0.9375rem;
+  }
+  .promo-card--large .promo-card__button {
+    top: 0.9375rem;
+  }
+  .promo-card--top .promo-card__button {
+    top: 0.9375rem;
+  }
+  .promo-card--bottom .promo-card__button {
+    top: 0.9375rem;
+  }
+  .promo-card__button {
+    right: 0.9375rem;
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+  .promo-card__button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .promo-card__label {
+    background: transparent;
+    color: var(--white);
+    font-size: 1.1875rem;
+    height: 2.75rem;
+  }
+  .promo-card__label img {
+    width: 1.1875rem;
+    height: 1.1875rem;
+  }
+  .trust-card {
+    aspect-ratio: 43/28;
+    border-radius: 1.25rem;
+  }
+  .trust-card__number {
+    font-size: 1.875rem;
+  }
+  .trust-card__text {
+    font-size: 1rem;
+  }
 }
 @media (min-width: 768px){
   .footer {
-    padding-top: 1.25rem;
+    padding-top: 2.8125rem;
     padding-bottom: 2.8125rem;
   }
   .footer__subtitle {
@@ -1379,6 +1971,65 @@ SORTING
   }
   .footer .min-md-width-50 {
     width: initial;
+  }
+  .categories__title {
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .new-products__header {
+    padding-bottom: 0;
+    margin-bottom: 1.25rem;
+  }
+  .new-products__title {
+    font-size: 2.75rem;
+  }
+  .new-products__arrow {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .new-products .icon--slider-angle-left {
+    width: 0.75rem;
+    height: 1.5rem;
+  }
+  .new-products .icon--slider-angle-right {
+    width: 0.75rem;
+    height: 1.5rem;
+  }
+  .home-promos__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3fr 2fr;
+    grid-template-areas: "large top" "large bottom";
+    height: 31.25rem;
+  }
+  .home-promos__grid .promo-card {
+    aspect-ratio: initial;
+  }
+  .trust__title {
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .trust__description {
+    font-size: 1.625rem;
+    max-width: 60.75rem;
+  }
+  .trust__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9375rem;
+  }
+  .btn {
+    border-radius: 1.25rem;
+    height: 3.375rem;
+  }
+  .categories-card {
+    border-radius: 1.0625rem;
+    aspect-ratio: 500/348;
+  }
+  .product-card__image-wrapper {
+    border-radius: 1.25rem;
   }
 }
 @media (min-width: 992px){
@@ -1405,6 +2056,58 @@ SORTING
   .footer__copyright {
     display: block;
   }
+  .home-promos__grid {
+    height: 37.5rem;
+  }
+  .categories-card img {
+    inset-block-start: 0%;
+    inset-inline-start: 0%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    block-size: 100%;
+    inline-size: 100%;
+  }
+  .product-card__content {
+    padding-top: 1.5625rem;
+  }
+  .product-card__title {
+    font-size: 1rem;
+    margin-bottom: 0.9375rem;
+  }
+  .product-card__price {
+    font-size: 1.25rem;
+  }
+  .product-card__button {
+    margin-top: 1.25rem;
+  }
+  .promo-card__title {
+    font-size: 1.875rem;
+  }
+  .promo-card__title--main {
+    font-size: 2.8125rem;
+  }
+  .promo-card__price {
+    font-size: 1.5rem;
+  }
+  .promo-card__price--main {
+    font-size: 1.875rem;
+  }
+  .promo-card__button {
+    width: 2.6875rem;
+    height: 2.6875rem;
+  }
+  .promo-card__button svg {
+    width: 1.0625rem;
+    height: 1.0625rem;
+  }
+  .promo-card__label {
+    font-size: 1.25rem;
+    height: 2.8125rem;
+  }
+  .promo-card__label img {
+    width: 1.3125rem;
+    height: 1.3125rem;
+  }
 }
 @media (min-width: 1200px){
   .header__right {
@@ -1412,6 +2115,33 @@ SORTING
   }
   .header__location {
     margin-right: 1.5625rem;
+  }
+  .categories__title {
+    font-size: 3.4375rem;
+    margin-bottom: 2.5rem;
+  }
+  .new-products__header {
+    margin-bottom: 2.5rem;
+  }
+  .new-products__title {
+    font-size: 3.4375rem;
+  }
+  .new-products__slider {
+    overflow: hidden;
+  }
+  .home-promos {
+    padding-top: 1.25rem;
+    padding-bottom: 4.6875rem;
+  }
+  .home-promos__grid {
+    height: 45.375rem;
+  }
+  .trust__title {
+    font-size: 3.4375rem;
+    margin-bottom: 1.875rem;
+  }
+  .promo-card__title--main {
+    font-size: 3.4375rem;
   }
   .search-block__top {
     gap: 2.8125rem;
@@ -1452,7 +2182,6 @@ SORTING
     height: 1.3125rem;
   }
   .footer {
-    padding-top: 2.8125rem;
     padding-bottom: 2.1875rem;
   }
   .footer::after {
@@ -1507,6 +2236,43 @@ SORTING
   .header__icon-btn {
     font-size: 1.25rem;
   }
+  .categories {
+    padding-top: 4.6875rem;
+    padding-bottom: 4.6875rem;
+  }
+  .categories__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .map {
+    padding-top: 2.5rem;
+    padding-bottom: 2.8125rem;
+  }
+  .map__title {
+    font-size: 3.4375rem;
+    max-width: 60.75rem;
+  }
+  .map__box {
+    border-radius: 1.25rem;
+  }
+  .home-promos__grid {
+    height: 55.875rem;
+  }
+  .trust {
+    padding-top: 4.6875rem;
+    padding-bottom: 5.625rem;
+  }
+  .trust__description {
+    margin-bottom: 3.75rem;
+    font-size: 2rem;
+  }
+  .trust__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .btn__text {
+    font-size: 1.125rem;
+  }
   .btn__icon {
     top: 0;
     right: 0;
@@ -1518,6 +2284,9 @@ SORTING
     height: 100%;
     width: auto;
   }
+  .categories-card__title {
+    font-size: 1.875rem;
+  }
   .nav__list {
     gap: 1.5625rem;
   }
@@ -1528,6 +2297,37 @@ SORTING
     font-size: 0.875rem;
     padding-block: 0.625rem;
   }
+  .promo-card {
+    padding-inline: 1.875rem;
+    padding-bottom: 1.875rem;
+  }
+  .promo-card--large {
+    padding-top: 1.875rem;
+  }
+  .promo-card--large .promo-card__button {
+    top: 3.75rem;
+  }
+  .promo-card--top {
+    padding-top: 3.125rem;
+  }
+  .promo-card--top .promo-card__button {
+    top: 3.125rem;
+  }
+  .promo-card--bottom {
+    padding-top: 1.25rem;
+  }
+  .promo-card--bottom .promo-card__button {
+    top: 1.25rem;
+  }
+  .trust-card__header {
+    margin-bottom: 1.5625rem;
+  }
+  .trust-card__number {
+    font-size: 1.6875rem;
+  }
+  .trust-card__text {
+    font-size: 0.8125rem;
+  }
 }
 @media (min-width: 1680px){
   .footer::after {
@@ -1536,6 +2336,64 @@ SORTING
   }
   .footer__info {
     max-width: 17.5rem;
+  }
+  .home-promos__grid {
+    height: 64.5625rem;
+  }
+  .categories-card {
+    border-radius: 1.25rem;
+    aspect-ratio: 580/404;
+  }
+  .categories-card__title {
+    font-size: 2rem;
+  }
+  .product-card__title {
+    font-size: 1.5rem;
+  }
+  .product-card__price {
+    font-size: 1.5rem;
+  }
+  .product-card__button {
+    margin-top: 1.5625rem;
+  }
+  .promo-card__title {
+    font-size: 3.125rem;
+    margin-bottom: 0.9375rem;
+  }
+  .promo-card__title--main {
+    font-size: 4.375rem;
+  }
+  .promo-card__price {
+    font-size: 1.875rem;
+  }
+  .promo-card__price--main {
+    font-size: 2.25rem;
+  }
+  .promo-card__button {
+    right: 1.875rem;
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+  .promo-card__button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .promo-card__label {
+    font-size: 1.5rem;
+    height: 3.25rem;
+  }
+  .promo-card__label img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .trust-card__title {
+    font-size: 2rem;
+  }
+  .trust-card__number {
+    font-size: 2rem;
+  }
+  .trust-card__text {
+    font-size: 1rem;
   }
 }
 @media (max-width: 1120px){

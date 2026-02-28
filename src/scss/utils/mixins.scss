@@ -170,3 +170,10 @@
 		@content;
 	}
 }
+
+@mixin xxxl () {
+	// ≥1680px
+	@media (min-width: 1680px) {
+		@content;
+	}
+}

@@ -3,19 +3,18 @@
  --------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
 	position: relative;
-	background: #000;
+	background: #131314;
 	color: #fff;
 
 	// Общие паддинги
-	padding-top: 20px;
+	padding-top: 15px;
 	padding-bottom: 70px;
 
 	@include md {
-		padding-top: 20px;
-		padding-bottom: 45px;
-	}
-	@include xxl {
 		padding-top: 45px;
+		padding-bottom: 45px;
+	}	
+	@include xxl {	
 		padding-bottom: 35px;
 	}
 
