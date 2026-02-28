@@ -1,0 +1,113 @@
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+CATALOG CARD
+--------------------------------------------------------------------------------------------------------------------------------*/
+.categories-card {
+	display: block;
+	background: #fff;
+	border-radius: 12px;
+	padding: 25px 25px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+
+	cursor: pointer;
+	aspect-ratio: 370/257;
+
+	transition: box-shadow 0.3s ease;
+	img {
+		inset-block-start: 10%;
+		inset-inline-start: 10%;
+		object-fit: contain;
+		block-size: 90%;
+		inline-size: 90%;
+	}
+
+	@include sm {
+		aspect-ratio: 600/274;
+	}
+	@include md {
+		border-radius: 17px;
+		aspect-ratio: 500/348;
+	}
+
+	@include lg {
+		img {
+			inset-block-start: 0%;
+			inset-inline-start: 0%;
+			object-fit: cover;
+			block-size: 100%;
+			inline-size: 100%;
+		}
+	}
+
+	@include xxxl {
+		border-radius: 20px;
+		aspect-ratio: 580/404;
+	}
+
+	&:hover {
+		animation: lift 0.3s forwards;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	}
+
+	&__title {
+		position: relative;
+		width: 100%;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
+
+		font-weight: 600;
+
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		color: var(--black);
+
+		font-size: 18px;
+
+		@include sm {
+			font-size: 28px;
+		}
+		@include xxl {
+			font-size: 30px;
+		}
+
+		@include xxxl {
+			font-size: 32px;
+		}
+	}
+
+	&__button {
+		position: relative;
+		flex-shrink: 0;
+
+		width: 43px;
+		height: 43px;
+		color: var(--black);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 50%;
+		border: 1px solid #ddd;
+		background: #ddd;
+		cursor: pointer;
+
+		transition:
+			background 0.3s ease,
+			color 0.3s ease;
+
+		svg {
+			width: 18px;
+			height: 18px;
+		}
+
+		&:hover {
+			background: #000;
+			color: #fff;
+		}
+	}
+}

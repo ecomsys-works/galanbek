@@ -43,6 +43,12 @@
 		"body": ["@include xxl{", "    ${1}", "}"],
 		"description": "media-XXL",
 	},
+	"media-XXXL": {
+		"scope": "css,scss",
+		"prefix": "xxxl",
+		"body": ["@include xxxl{", "    ${1}", "}"],
+		"description": "media-XXXL",
+	},
 	"media: min-width SM": {
 		"scope": "css,scss",
 		"prefix": "msm",

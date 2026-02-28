@@ -1,0 +1,118 @@
+/* ------------------------------------------------------------------------------------------------------------------------------
+NEW PRODUCTS SECTION
+--------------------------------------------------------------------------------------------------------------------------------*/
+.new-products {
+	padding: 75px 0;
+
+	/* ---------------- Header ---------------- */
+	&__header {
+		position: relative;
+
+		padding-bottom: 55px;
+		margin-bottom: 20px;
+
+		@include md {
+			padding-bottom: 0;
+			margin-bottom: 20px;
+		}
+		@include xl {
+			margin-bottom: 40px;
+		}
+	}
+
+	&__title {
+		font-weight: 500;
+
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		color: var(--black);
+
+		font-size: 28px;
+		text-align: center;
+
+		@include sm {
+			font-size: 30px;
+		}
+
+		@include md {
+			font-size: 44px;
+		}
+
+		@include xl {
+			font-size: 55px;
+		}
+	}
+
+	/* ---------------- Arrows ---------------- */
+	&__nav {
+		position: absolute;
+		right: 0;
+		bottom: 0%;
+
+		display: flex;
+		gap: 12px;
+	}
+
+	&__arrow {
+		width: 30px;
+		height: 30px;
+		@include md {
+			width: 44px;
+			height: 44px;
+		}
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 50%;
+		background: #e0e0e0;
+		border: none;
+		cursor: pointer;
+
+		transition: opacity 0.3s ease;
+
+		&.swiper-button-disabled {
+			opacity: 0.4;
+			pointer-events: none;
+		}
+	}
+
+	.icon--slider-angle-left {
+		width: 8px;
+		height: 17px;
+
+		@include md {
+			width: 12px;
+			height: 24px;
+		}
+	}
+	.icon--slider-angle-right {
+		width: 8px;
+		height: 17px;
+
+		@include md {
+			width: 12px;
+			height: 24px;
+		}
+	}
+
+	/* ---------------- Slider ---------------- */
+	&__slider {
+		overflow: visible;
+		@include xl {
+			overflow: hidden;
+		}
+	}
+
+	&__slider {
+		.swiper-wrapper {
+			align-items: stretch;
+		}
+
+		.swiper-slide {
+			height: auto;
+			display: flex;
+		}
+	}
+}

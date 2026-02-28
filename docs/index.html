@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Главная</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <link rel="stylesheet" href="./css/boot.min.css">
     <link rel="stylesheet" href="./css/main.min.css">
@@ -56,15 +57,15 @@
                                         </a>
 
                                         <ul class="scrollbar-none nav__sub-dropdown">
-                                            <li><a href="#">iPhone 17 Pro Max</a></li>
-                                            <li><a href="#">iPhone 17 Pro</a></li>
-                                            <li><a href="#">iPhone 17</a></li>
-                                            <li><a href="#">iPhone 17 Air</a></li>
-                                            <li><a href="#">iPhone 16 Pro Max</a></li>
-                                            <li><a href="#">iPhone 16 Pro</a></li>
-                                            <li><a href="#">iPhone 16</a></li>
-                                            <li><a href="#">iPhone 16 Plus</a></li>
-                                            <li><a href="#">iPhone 16 E</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 17 Pro Max</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 17 Pro</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 17</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 17 Air</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 16 Pro Max</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 16 Pro</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 16</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 16 Plus</a></li>
+                                            <li class="nav__item"><a href="#">iPhone 16 E</a></li>
                                         </ul>
                                     </li>
 
@@ -223,9 +224,351 @@
             </div>
         </div>
         <main class="main">
-            <div class="container">
-                Главная
-            </div>
+            <section class="home-promos">
+                <div class="container">
+                    <div class="home-promos__grid">
+                        <!-- Левая большая -->
+                        <!-- 1 -->
+                        <a href="#" class="ibg promo-card promo-card--large">
+                            <img src="./images/webp/featured-products/Iphone17ProMax.webp" alt="">
+                            <div class="promo-card__content">
+                                <div class="promo-card__label">
+                                    <span>Хит продаж </span>
+                                    <img src="./images/webp/fire.webp" alt="Fire icon">
+                                </div>
+
+                                <h3 class="promo-card__title promo-card__title--main">
+                                    iPhone 17 <br>
+                                    Pro Max
+                                </h3>
+                                <div class="promo-card__price promo-card__price--main">от 104 990 ₽</div>
+                            </div>
+
+                            <span class="promo-card__button" aria-label="Перейти">
+                                <svg class="icon icon--component">
+                                    <use href="./icons/symbol/sprite.svg#component"></use>
+                                </svg>
+                            </span>
+                        </a>
+
+                        <!-- Правая колонка -->
+                        <!-- 2 -->
+                        <a href="#" class="ibg promo-card promo-card--top">
+                            <img src="./images/webp/featured-products/Iphone17Air.webp" alt="">
+                            <div class="promo-card__content">
+                                <h3 class="promo-card__title">
+                                    iPhone 17 <br>
+                                    Air
+                                </h3>
+                                <div class="promo-card__price">от 88 990 ₽</div>
+                            </div>
+
+                            <span class="promo-card__button" aria-label="Перейти">
+                                <svg class="icon icon--component">
+                                    <use href="./icons/symbol/sprite.svg#component"></use>
+                                </svg>
+                            </span>
+                        </a>
+                        <!-- 3 -->
+                        <a href="#" class="ibg promo-card promo-card--bottom">
+                            <img src="./images/webp/featured-products/AppleWatchUltra2.webp" alt="">
+                            <div class="promo-card__content">
+                                <h3 class="promo-card__title">
+                                    Apple Watch <br>
+                                    Ultra 2
+                                </h3>
+                                <div class="promo-card__price">от 66 990 ₽</div>
+                            </div>
+
+                            <span class="promo-card__button" aria-label="Перейти">
+                                <svg class="icon icon--component">
+                                    <use href="./icons/symbol/sprite.svg#component"></use>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="new-products">
+                <div class="container">
+                    <div class="new-products__header">
+                        <h2 class="new-products__title">Новинки месяца</h2>
+
+                        <div class="new-products__nav">
+                            <button class="new-products__arrow new-products__arrow--prev">
+                                <svg class="icon icon--slider-angle-left">
+                                    <use href="./icons/symbol/sprite.svg#angle-left"></use>
+                                </svg>
+                            </button>
+
+                            <button class="new-products__arrow new-products__arrow--next">
+                                <svg class="icon icon--slider-angle-right">
+                                    <use href="./icons/symbol/sprite.svg#angle-right"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="new-products__slider swiper">
+                        <div class="swiper-wrapper">
+                            <!-- 1 -->
+                            <div class="new-products__slide swiper-slide">
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/new-products/AppleMacBook13.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">99 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- 2 -->
+                            <div class="new-products__slide swiper-slide">
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/new-products/AppleWatchUltra2.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple Watch Ultra 2, 49 мм, Black Titanium Case Ice Blue Ocean Band</a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">66 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- 3 -->
+                            <div class="new-products__slide swiper-slide">
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/new-products/AppleIPadAir11.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple iPad Air 11 M3 (2025) WiFi 128 Gb Purple</a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- 4 -->
+                            <div class="new-products__slide swiper-slide">
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/new-products/IphoneAir256GB.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">iPhone Air 256GB Light Gold </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">88 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- 5 -->
+                            <div class="new-products__slide swiper-slide">
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/new-products/AppleMacBook13.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">99 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="categories">
+                <div class="container">
+                    <h2 class="categories__title">Каталог товаров</h2>
+
+                    <div class="categories__grid">
+                        <a href="#" class="ibg categories-card">
+                            <img src="./images/webp/categories/ApplePhone.webp" alt="">
+                            <h3 class="categories-card__title">
+                                <span>Apple iPhone</span>
+                                <span class="categories-card__button" aria-label="Перейти">
+                                    <svg class="icon icon--component">
+                                        <use href="./icons/symbol/sprite.svg#component"></use>
+                                    </svg>
+                                </span>
+                            </h3>
+                        </a>
+
+                        <a href="#" class="ibg categories-card">
+                            <img src="./images/webp/categories/AppleMacBook.webp" alt="">
+                            <h3 class="categories-card__title">
+                                <span>Apple MacBook</span>
+                                <span class="categories-card__button" aria-label="Перейти">
+                                    <svg class="icon icon--component">
+                                        <use href="./icons/symbol/sprite.svg#component"></use>
+                                    </svg>
+                                </span>
+                            </h3>
+                        </a>
+
+                        <a href="#" class="ibg categories-card">
+                            <img src="./images/webp/categories/AppleIpad.webp" alt="">
+                            <h3 class="categories-card__title">
+                                <span>Apple iPad</span>
+                                <span class="categories-card__button" aria-label="Перейти">
+                                    <svg class="icon icon--component">
+                                        <use href="./icons/symbol/sprite.svg#component"></use>
+                                    </svg>
+                                </span>
+                            </h3>
+                        </a>
+
+                        <a href="#" class="ibg categories-card">
+                            <img src="./images/webp/categories/AppleWatch.webp" alt="">
+                            <h3 class="categories-card__title">
+                                <span>Apple Watch</span>
+                                <span class="categories-card__button" aria-label="Перейти">
+                                    <svg class="icon icon--component">
+                                        <use href="./icons/symbol/sprite.svg#component"></use>
+                                    </svg>
+                                </span>
+                            </h3>
+                        </a>
+
+                        <a href="#" class="ibg categories-card">
+                            <img src="./images/webp/categories/AppleAirPods.webp" alt="">
+                            <h3 class="categories-card__title">
+                                <span>Apple AirPods</span>
+                                <span class="categories-card__button" aria-label="Перейти">
+                                    <svg class="icon icon--component">
+                                        <use href="./icons/symbol/sprite.svg#component"></use>
+                                    </svg>
+                                </span>
+                            </h3>
+                        </a>
+
+                        <a href="#" class="ibg categories-card">
+                            <img src="./images/webp/categories/acessories.webp" alt="">
+                            <h3 class="categories-card__title">
+                                <span>Aксессуары</span>
+                                <span class="categories-card__button" aria-label="Перейти">
+                                    <svg class="icon icon--component">
+                                        <use href="./icons/symbol/sprite.svg#component"></use>
+                                    </svg>
+                                </span>
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="trust">
+                <div class="container">
+                    <h2 class="trust__title">Почему выбирают нас</h2>
+                    <p class="trust__description">
+                        Cтиль, инновации и безупречное качество в одном месте. Мы продаём исключительно оригинальные устройства. Нам важнее ваше
+                        доверие, чем быстрая выгода.
+                    </p>
+                    <div class="trust__grid">
+                        <!-- 1 -->
+                        <div class="ibg trust-card">
+                            <img src="./images/webp/trust/split.webp" alt="">
+                            <div class="trust-card__header">
+                                <h3 class="trust-card__title">Сплит оплата</h3>
+                                <span class="trust-card__number">01</span>
+                            </div>
+
+                            <p class="trust-card__text">Покупайте сейчас — платите комфортно!</p>
+                        </div>
+                        <!-- 2 -->
+                        <div class="ibg trust-card">
+                            <img src="./images/webp/trust/original.webp" alt="">
+                            <div class="trust-card__header">
+                                <h3 class="trust-card__title">Оригинальная продукция</h3>
+                                <span class="trust-card__number">02</span>
+                            </div>
+
+                            <p class="trust-card__text">Мы продаём исключительно оригинальные устройства.</p>
+                        </div>
+                        <!-- 3 -->
+                        <div class="ibg trust-card">
+                            <img src="./images/webp/trust/delivery.webp" alt="">
+                            <div class="trust-card__header">
+                                <h3 class="trust-card__title">Доставка по России и не только</h3>
+                                <span class="trust-card__number">03</span>
+                            </div>
+
+                            <p class="trust-card__text">Бесплатная доставка при покупке от 10 000 рублей</p>
+                        </div>
+                        <!-- 4 -->
+                        <div class="ibg trust-card">
+                            <img src="./images/webp/trust/garantee.webp" alt="">
+                            <div class="trust-card__header">
+                                <h3 class="trust-card__title">Гарантия на все</h3>
+                                <span class="trust-card__number">04</span>
+                            </div>
+
+                            <p class="trust-card__text">Гарантия и обслуживание каждого устройства.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container map">
+                <h2 class="map__title">Филиалы магазинов Ambassador Retail</h2>
+
+                <div class="map__box">
+                    <div class="map__overlay"></div>
+
+                    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=37.6156%2C55.7558%2C37.6356%2C55.7658&layer=mapnik" allowfullscreen loading="lazy" title="Карта"></iframe>
+                </div>
+            </section>
+
         </main>
         <footer class="footer">
             <div class="container">
@@ -354,6 +697,7 @@
             </div>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/main.min.js"></script>
 
 </body>
