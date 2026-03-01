@@ -13,8 +13,8 @@
 	@include md {
 		padding-top: 45px;
 		padding-bottom: 45px;
-	}	
-	@include xxl {	
+	}
+	@include xxl {
 		padding-bottom: 35px;
 	}
 
@@ -92,28 +92,23 @@
 
 	// Логотип
 	&__logo {
-		width: 232px;
-		height: 97px;
-		margin-bottom: 10px;
-		transition: var(--transition);
+		width: 231px;
+		height: 96px;
 
-		&:hover {
-			transform: scale(1.025);
+		img {
+			transition: var(--transition);
 		}
 
-		@include xxl {
-			width: 360px;
-			height: 150px;
+		&:hover img {
+			transform: scale(1.025);
+
 			margin-bottom: 10px;
 		}
 
-		svg {
-			width: 232px;
-			height: 97px;
-			@include xxl {
-				width: 360px;
-				height: 150px;
-			}
+		@include xxl {
+			width: 359px;
+			height: 150px;
+			margin-bottom: 10px;
 		}
 	}
 

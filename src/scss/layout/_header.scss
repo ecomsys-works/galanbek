@@ -25,28 +25,23 @@
 
     /* Логотип */
     &__logo {
-        width: 85px;
-        height: 34px;
-
-        transition: var(--transition);
-		&:hover {
+       
+        img{
+transition: var(--transition);
+        }
+        
+		&:hover img{
 			transform: scale(1.025);
 		}
 
+         width: 85px;   
+        height: 34px;             
+
+
         @include xxl {
-            width: 206px;
+            width: 206px;            
             height: 83px;
-        }
-
-        svg {
-            width: 85px;
-            height: 34px;
-
-            @include xxl {
-                width: 206px;
-                height: 83px;
-            }
-        }
+        }       
     }
 
     /* Навигация по центру */

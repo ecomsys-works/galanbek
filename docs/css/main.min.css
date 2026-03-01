@@ -638,17 +638,15 @@ CONTENT
   gap: 1.5rem;
 }
 .footer__logo {
-  width: 14.5rem;
-  height: 6.0625rem;
-  margin-bottom: 0.625rem;
+  width: 14.4375rem;
+  height: 6rem;
+}
+.footer__logo img {
   transition: var(--transition);
 }
-.footer__logo:hover {
+.footer__logo:hover img {
   transform: scale(1.025);
-}
-.footer__logo svg {
-  width: 14.5rem;
-  height: 6.0625rem;
+  margin-bottom: 0.625rem;
 }
 .footer__title {
   font-weight: 500;
@@ -789,14 +787,12 @@ CONTENT
 .header__logo {
   width: 5.3125rem;
   height: 2.125rem;
+}
+.header__logo img {
   transition: var(--transition);
 }
-.header__logo:hover {
+.header__logo:hover img {
   transform: scale(1.025);
-}
-.header__logo svg {
-  width: 5.3125rem;
-  height: 2.125rem;
 }
 .header__nav {
   flex: 1;
@@ -2196,13 +2192,9 @@ TRUST CARD
     width: 50%;
   }
   .footer__logo {
-    width: 22.5rem;
+    width: 22.4375rem;
     height: 9.375rem;
     margin-bottom: 0.625rem;
-  }
-  .footer__logo svg {
-    width: 22.5rem;
-    height: 9.375rem;
   }
   .footer__title {
     font-size: 3.4375rem;
@@ -2226,10 +2218,6 @@ TRUST CARD
     height: 6.4375rem;
   }
   .header__logo {
-    width: 12.875rem;
-    height: 5.1875rem;
-  }
-  .header__logo svg {
     width: 12.875rem;
     height: 5.1875rem;
   }
