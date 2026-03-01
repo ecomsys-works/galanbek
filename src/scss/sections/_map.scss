@@ -60,12 +60,14 @@ MAP SECTION
 
 			/* если хочется более "дизайнерский" эффект */
 			// filter: grayscale(100%) contrast(1.1) brightness(0.95);
-			transition: filter 600ms ease 1000ms;
+			transition: filter 500ms ease;
 		}
 
 		/* опционально — при наведении вернуть цвет */
-		&:hover iframe {
-			filter: grayscale(0%);
+		@include md {
+			&:hover iframe {
+				filter: grayscale(0%);
+			}
 		}
 	}
 
@@ -83,7 +85,7 @@ MAP SECTION
 		font-weight: 500;
 
 		color: #fff;
-		background: rgba(0, 0, 0, 0.05);		
+		background: rgba(0, 0, 0, 0.05);
 
 		transition: opacity 0.3s ease;
 		cursor: pointer;
@@ -94,6 +96,9 @@ MAP SECTION
 		.map__overlay {
 			opacity: 0;
 			pointer-events: none;
+		}
+		iframe {
+			filter: grayscale(0%);
 		}
 	}
 }

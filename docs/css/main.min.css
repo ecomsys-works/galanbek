@@ -923,10 +923,7 @@ MAP SECTION
   /* Чёрно-белый фильтр */
   filter: grayscale(100%);
   /* если хочется более "дизайнерский" эффект */
-  transition: filter 600ms ease 1000ms;
-}
-.map__box:hover iframe {
-  filter: grayscale(0%);
+  transition: filter 500ms ease;
 }
 .map__overlay {
   position: absolute;
@@ -945,6 +942,9 @@ MAP SECTION
 .map__box.is-active .map__overlay {
   opacity: 0;
   pointer-events: none;
+}
+.map__box.is-active iframe {
+  filter: grayscale(0%);
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------
@@ -1975,6 +1975,9 @@ TRUST CARD
   .categories__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+  }
+  .map__box:hover iframe {
+    filter: grayscale(0%);
   }
   .new-products__header {
     padding-bottom: 0;

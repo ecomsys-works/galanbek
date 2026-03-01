@@ -13,14 +13,20 @@ Modules import
 import { initDesktopMenu } from "./modules/initDesktopMenu";
 import { initOffcanvasMenu } from "./modules/initOffcanvasMenu";
 import { initSearchForm } from "./modules/initSearchForm";
-import { initMapOverlay } from "./modules/initMapOverlay";
+
+import { initMapOverlayDesktop } from "./modules/initMapOverlayDesktop";
+import { initMapOverlayMobile } from "./modules/initMapOverlayMobile";
+
 import { initNewProductsSlider } from "./modules/initNewProductsSlider";
 
 document.addEventListener('DOMContentLoaded', () => {
     initDesktopMenu();
     initOffcanvasMenu();
     initSearchForm();
-    initMapOverlay();
     initNewProductsSlider();
+
+    initMapOverlayDesktop();
+    initMapOverlayMobile();
+
 })
 
