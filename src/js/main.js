@@ -14,22 +14,22 @@ import { initDesktopMenu } from "./modules/DesktopMenu";
 import { initOffcanvasMenu } from "./modules/OffcanvasMenu";
 import { initSearchForm } from "./modules/SearchForm";
 
-import { initMapOverlayDesktop } from "./modules/MapOverlayDesktop";
-import { initMapOverlayMobile } from "./modules/MapOverlayMobile";
+import { initMapOverlayDesktop } from "./modules/map/MapOverlayDesktop.js";
+import { initMapOverlayMobile } from "./modules/map/MapOverlayMobile.js";
 
 import { initNewProductsSlider } from "./modules/NewProductsSlider";
-import { initFilterCanvas } from "./modules/FilterCanvas";
+import { initFilterCanvas } from "./modules/filter/FilterCanvas.js";
 import { breadcrumbsColorizator } from "./modules/BreadcrumbsColorizator";
 
-import { initFilterSidebarAccordion } from "./modules/FilterSidebarAccordion";
-import { initFilterCanvasAccordion } from "./modules/FilterCanvasAccordion.js";
+import { initFilterSidebarAccordion } from "./modules/filter/FilterSidebarAccordion.js";
+import { initFilterCanvasAccordion } from "./modules/filter/FilterCanvasAccordion.js";
 
-import { initSortMobileCanvas } from "./modules/SortMobileCanvas.js";
+import { initSortMobileCanvas } from "./modules/filter/SortMobileCanvas.js";
 import { initSortDesktopCore } from "./modules/SortDesktopCore";
 
 
 import { initPriceSliders } from './modules/PriceSlider.js';
-import { useSidebarScrollSync } from "./hooks/useSidebarScroll.js";
+// import { useSidebarScrollSync } from "./hooks/useSidebarScroll.js";
 
 
 const home = document.getElementById('home-page');
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         initFilterCanvas();
         initFilterSidebarAccordion();
-        useSidebarScrollSync();
+        // useSidebarScrollSync();
 
         initSortDesktopCore({ selectId: 'sortCatalog', dropdownClass: 'default' });
         initSortDesktopCore({ selectId: 'sortTypes', dropdownClass: 'short' });
