@@ -1,3 +1,231 @@
 /* ------------------------------------------------------------------------------------------------------------------------------
-PRODUCT GALLERY SECTION
---------------------------------------------------------------------------------------------------------------------------------*/
+PRODUCT GALLERY
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.product-gallery {
+	width: 100%;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		@include lg {
+			flex-direction: row;
+		}
+
+		@include xl {
+			gap: 15px;
+		}
+	}
+
+	&__thumbs {
+		order: 2;
+		@include lg {
+			order: 1;
+		}
+	}
+
+	&__main {
+		order: 1;
+		@include lg {
+			order: 2;
+		}
+	}
+}
+
+/* === Main slider квадратный === */
+.product-gallery {
+	&__main {
+		width: 100%;
+		position: relative;
+
+		border: 1.06px solid rgba(0, 0, 0, 0.2);
+
+		overflow: hidden;
+
+		border-radius: 16px;
+		@include xxl {
+			border-radius: 21px;
+		}
+	}
+
+	@include lg {
+		&__main {
+			height: 100%;
+			height: 0;
+			width: 84%;
+		}
+	}
+
+	&__slide {
+		width: 100%;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
+}
+
+// для паралакса
+.product-gallery__main {
+	[data-fancybox] {
+		cursor: zoom-in;
+		cursor:
+			url("../icons/search-cursor.svg") 16 16,
+			zoom-in;
+	}
+
+	img {
+		transition: transform 0.2s ease;
+		transform-origin: center;
+		will-change: transform; /* для производительности */
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+PRODUCT GALLERY THUMBS
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.product-gallery__thumbs {
+	width: 100%;
+	height: inherit;
+
+	@include lg {
+		width: 16%;
+	}
+}
+.product-gallery__thumb {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+
+	border: 1px solid rgba(0, 0, 0, 0.2);
+
+	overflow: hidden;
+	cursor: pointer;
+
+	border-radius: 10px;
+	@include xxl {
+		border-radius: 16px;
+	}
+
+	&:hover img {
+		transform: scale(1.05);
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		transition: var(--transition);
+	}
+
+	/* === Активный thumbnail — внутренний бордер === */
+	&.swiper-slide-thumb-active::after {
+		content: "";
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		background-color: rgb(0, 0, 0, 0.04);
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+ Swiper arrows
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.product-gallery__nav {
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	height: 1px;
+	width: 100%;
+	display: flex;
+	gap: 8px;
+}
+
+.product-gallery__arrow {
+	position: absolute;
+	top: 0;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.8);
+	border: none;
+
+	cursor: pointer;
+
+	background-color: #ddd;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 50%;
+
+	width: 26px;
+	height: 26px;
+
+	svg {
+		width: 4px;
+		height: 8px;
+	}
+
+	@include md {
+		width: 44px;
+		height: 44px;
+
+		svg {
+			width: 7px;
+			height: 13px;
+		}
+	}
+
+	@include xxl {
+		width: 46px;
+		height: 46px;
+
+		svg {
+			width: 7px;
+			height: 13px;
+		}
+	}
+
+	@include xxxl {
+		width: 52px;
+		height: 52px;
+
+		svg {
+			width: 8px;
+			height: 15px;
+		}
+	}
+
+	&--prev {
+		left: 15px;
+		@include md {
+			left: 20px;
+		}
+		@include xxl {
+			left: 25px;
+		}
+		@include xxxl {
+			left: 30px;
+		}
+	}
+
+	&--next {
+		right: 15px;
+		@include md {
+			right: 20px;
+		}
+		@include xxl {
+			right: 25px;
+		}
+		@include xxxl {
+			right: 30px;
+		}
+	}
+}

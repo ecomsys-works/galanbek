@@ -1,16 +1,23 @@
 <!doctype html>
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
-	@@include('html/components/head.html', { 'title': 'Катaлог: товары' })
+	@@include('html/components/head.html', { 'title': 'Товар' })
 
-	<body id="catalog-products-page">
+	<body id="product-page">
 		<div class="overlay" data-overlay></div>
 		<div class="wrapper">
 			@@include('html/parts/header.html')
 			<main class="main">
-				@@include('html/components/breadcrumbs/breadcrumbs-catalog-products.html') 				
+				<div class="product-page container">
+					<!-- LEFT COLUMN (Gallery) -->
+					<div class="product-page__gallery">@@include('html/sections/product/gallery.html')</div>
 
-				@@include('html/sections/catalog/catalog-products.html') 								
-				
+					<!-- RIGHT COLUMN (Product Info) -->
+					<div class="product-page__info">
+						<h1>Название товара</h1>
+						<p class="price">$199</p>
+						<!-- тут дальше чекбоксы, цвета и тд -->
+					</div>
+				</div>
 			</main>
 			@@include('html/parts/footer.html')
 		</div>
