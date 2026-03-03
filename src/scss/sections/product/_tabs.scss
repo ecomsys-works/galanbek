@@ -1,70 +1,233 @@
+/* ------------------------------------------------------------------------------------------------------------------------------
+PRODUCT TABS SECTION
+--------------------------------------------------------------------------------------------------------------------------------*/
+
 .product-tabs {
-  margin-top: 40px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	@include sm {
+		padding-top: 0;
+		padding-bottom: 25px;
+	}
+
+	@include xxl {
+		padding-top: 15px;
+	}
+
+	@include xxxl {
+		padding-top: 60px;
+		padding-bottom: 75px;
+	}
 }
 
-/* NAV */
+/* ------------------------------------------------------------------------------------------------------------------------------
+NAV
+--------------------------------------------------------------------------------------------------------------------------------*/
 .product-tabs__nav {
-  display: flex;
-  gap: 20px;
+	display: flex;
+	justify-content: space-between;
+	gap: 0;
+	margin-bottom: 40px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+	@include sm {
+		margin-bottom: 25px;
+	}
+
+	@include md {
+		gap: 20px;
+		border-bottom: none;
+	}
 }
 
 .product-tabs__btn {
-  flex: 1;
-  height: 73px;
-  border-radius: 20px;
-  border: 1px solid rgba(0,0,0,0.2);
-  background: #fff;
-  font-size: 18px;
-  color: #000;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
+	position: relative;
+	height: auto;
+	margin-left: 12px;
+	padding: 5px 0;
 
-.product-tabs__btn.is-active {
-  background: transparent;
-}
+	background: transparent;
+	border: none;
+	border-radius: 0;
 
-/* CONTENT */
+	text-align: left;
+	font-size: 14px;
+
+	/* Layout rules (mobile) */
+
+	&:first-child {
+		margin-left: 0;
+		width: 37%;
+	}
+
+	&:nth-child(2) {
+		flex: 1;
+	}
+
+	&:last-child {
+		flex: 0;
+		padding-right: 45px;
+	}
+
+	/* Active state (mobile underline) */
+
+	&.is-active {
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			border-bottom: 2px solid #000;
+
+			@include md {
+				content: none;
+			}
+		}
+
+		@include md {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	@include sm {
+		font-size: 16px;
+	}
+
+	/* Desktop style */
+
+	@include md {
+		flex: 1;
+		margin-left: 0;
+		height: 73px;
+
+		text-align: center;
+		font-weight: 500;
+		color: #000;
+		cursor: pointer;
+
+		border-radius: 20px;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		background: #fff;
+		transition: background 0.2s ease;
+
+		&:first-child {
+			width: auto;
+		}
+
+		&:last-child {
+			flex: 1;
+			padding-right: 0;
+		}
+
+		&.is-active {
+			background: transparent;
+		}
+	}
+
+	@include xxxl {
+		font-size: 18px;
+	}
+}
+/* ------------------------------------------------------------------------------------------------------------------------------
+CONTENT
+--------------------------------------------------------------------------------------------------------------------------------*/
+
 .product-tabs__content {
-  margin-top: 30px;
-  position: relative;
+	position: relative;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	color: #000;
+
+	span {
+		margin-right: 0.3rem;
+	}
 }
 
-.product-tabs__pane {
-  display: none;
-  opacity: 0;
-}
-
-.product-tabs__pane.is-active {
-  display: block;
-  animation: fadeIn 0.3s ease forwards;
-}
+/* ------------------------------------------------------------------------------------------------------------------------------
+ANIMATION
+--------------------------------------------------------------------------------------------------------------------------------*/
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
+/* ------------------------------------------------------------------------------------------------------------------------------
+PRODUCT TABS TYPOGRAPHY
+--------------------------------------------------------------------------------------------------------------------------------*/
 
-  .product-tabs__nav {
-    gap: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-  }
+.product-tabs__pane {
+	display: none;
+	opacity: 0;
+	color: #000;
 
-  .product-tabs__btn {
-    height: auto;
-    padding: 15px 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    font-size: 16px;
-    text-align: left;
-  }
+	&.is-active {
+		display: block;
+		animation: fadeIn 0.3s ease forwards;
+	}
 
-  .product-tabs__btn.is-active {
-    border-bottom: 2px solid #000;
-  }
+	h3 {
+		font-weight: 600;
+		line-height: 120%;
+		letter-spacing: -0.02em;
+		margin-bottom: 10px;
+		font-size: 24px;
 
+		@include sm {
+			font-size: 26px;
+			margin-bottom: 12px;
+		}
+
+		@include xxl {
+			font-size: 28px;
+			margin-bottom: 15px;
+		}
+	}
+
+	p {
+		font-weight: 400;
+		line-height: 120%;
+		letter-spacing: -0.02em;
+		margin-bottom: 15px;
+		font-size: 14px;
+
+		@include sm {
+			font-size: 16px;
+			margin-bottom: 18px;
+		}
+
+		@include xxl {
+			font-size: 20px;
+			margin-bottom: 22px;
+		}
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 20px 0;
+
+		li {
+			font-weight: 400;
+			line-height: 120%;
+			letter-spacing: -0.02em;
+			font-size: 14px;
+
+			@include sm {
+				font-size: 16px;
+			}
+
+			@include xxl {
+				font-size: 20px;
+			}
+		}
+	}
 }

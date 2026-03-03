@@ -38,6 +38,7 @@ import { hoverParallax } from './modules/product/HoverParallax.js';
 import { ProductCounter } from "./modules/product/Counter.js";
 import { Tabs } from "./modules/product/Tabs.js";
 import { RecommendedSwiper } from "./modules/product/RecommendedSwiper.js";
+import { initFancy } from "./modules/FancyBox.js";
 
 const homePage = document.getElementById('home-page');      // главная
 // const catalogPage = document.getElementById('catalog-page');    // страница основных категорий
@@ -140,30 +141,21 @@ document.addEventListener('DOMContentLoaded', () => {
             mainSelector: ".product-gallery__main",
             thumbsSelector: ".product-gallery__thumbs"
         });
-        hoverParallax({ selector: '.product-gallery__main' });
-
-        Fancybox.bind('[data-fancybox="product-gallery"]', {
-            animated: true,
-            showClass: "fancybox-fadeIn",
-            hideClass: "fancybox-fadeOut",
-
-            Toolbar: {
-                display: [
-                    { id: "counter", position: "center" },
-                    "zoom",
-                    "fullscreen",
-                    "close"
-                ]
-            },
-
-            Thumbs: {
-                autoStart: true
-            }
+        
+        hoverParallax({
+            selector: '.product-gallery__main'
         });
+
+        initFancy({
+            dataAttr: '[data-fancybox="product-gallery"]'
+        })
 
         ProductCounter({ id: 'productForm' });
         Tabs();
-        RecommendedSwiper();
+
+        RecommendedSwiper({
+            selector: '.recommended__slider'
+        });
     }
 })
 

@@ -1,69 +1,86 @@
 /* ------------------------------------------------------------------------------------------------------------------------------
 RECOMMENDED PRODUCTS SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
-.recommended-products {
-	margin-top: 50px;
+.recommended {
+	padding: 50px 0 100px;
 	user-select: none;
+
+	@include xxxl {
+		padding: 75px 0 150px;
+	}
 
 	&__title {
 		line-height: 100%;
 		letter-spacing: -0.02em;
 		color: var(--black);
-
 		text-align: left;
-
 		font-weight: 500;
-		font-size: 28px;
-		margin-bottom: 25px;
+		font-size: 24px;
+		margin-bottom: 22px;
 
-		@include xxl {
+		@include sm {
+			font-size: 30px;
+		}
+
+		@include xl {
 			display: block;
 			font-weight: 600;
-			font-size: 50px;
+			font-size: 55px;
 		}
 	}
+
 	&__slider {
-		position: relative;
+		.swiper-wrapper {
+			align-items: stretch;
+		}
+
+		.swiper-slide {
+			display: flex;
+			height: auto;
+		}
 	}
+
 	&__card {
-		background: #fff;
-		border-radius: 20px;
-		padding: 15px;
-		text-align: center;
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+		padding: 15px;
+		background: #fff;
+		border-radius: 20px;
+		text-align: center;
 	}
 }
+
 /* ------------------------------------------------------------------------------------------------------------------------------
- Swiper arrows
- --------------------------------------------------------------------------------------------------------------------------------*/
-.recommended-products__nav {
-	z-index: 1;
+Swiper arrows
+--------------------------------------------------------------------------------------------------------------------------------*/
+
+.recommended__nav {
 	position: absolute;
-	top: 50%;
-	height: 1px;
+	top: 37%;
 	width: 100%;
+	height: 1px;
 	display: flex;
 	gap: 8px;
+	z-index: 1;
+
+	@include sm {
+		display: none;
+	}
 }
 
-.recommended-products__arrow {
+.recommended__arrow {
 	position: absolute;
 	top: 0;
 	transform: translateY(-50%);
-	background: rgba(255, 255, 255, 0.8);
-	border: none;
-
-	cursor: pointer;
-
-	background-color: #ddd;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 
+	border: none;
 	border-radius: 50%;
+	background: #ddd;
 
 	width: 26px;
 	height: 26px;
@@ -73,6 +90,7 @@ RECOMMENDED PRODUCTS SECTION
 		height: 8px;
 	}
 
+	/* 375px */
 	@media (min-width: 375px) {
 		width: 44px;
 		height: 44px;
@@ -83,6 +101,7 @@ RECOMMENDED PRODUCTS SECTION
 		}
 	}
 
+	/* 640px */
 	@media (min-width: 640px) {
 		width: 26px;
 		height: 26px;
@@ -106,11 +125,6 @@ RECOMMENDED PRODUCTS SECTION
 	@include xxl {
 		width: 46px;
 		height: 46px;
-
-		svg {
-			width: 7px;
-			height: 13px;
-		}
 	}
 
 	@include xxxl {
@@ -125,27 +139,17 @@ RECOMMENDED PRODUCTS SECTION
 
 	&--prev {
 		left: 15px;
-		@include md {
-			left: 20px;
-		}
-		@include xxl {
-			left: 25px;
-		}
-		@include xxxl {
-			left: 30px;
-		}
+
+		@include md { left: 20px; }
+		@include xxl { left: 25px; }
+		@include xxxl { left: 30px; }
 	}
 
 	&--next {
 		right: 15px;
-		@include md {
-			right: 20px;
-		}
-		@include xxl {
-			right: 25px;
-		}
-		@include xxxl {
-			right: 30px;
-		}
+
+		@include md { right: 20px; }
+		@include xxl { right: 25px; }
+		@include xxxl { right: 30px; }
 	}
 }

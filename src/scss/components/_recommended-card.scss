@@ -1,119 +1,130 @@
 /* ------------------------------------------------------------------------------------------------------------------------------
-КАРТОЧКА ТОВАРА \ RECOMMENDED PRODUCT CARD
+КАРТОЧКА ТОВАРА | RECOMMENDED PRODUCT CARD
 --------------------------------------------------------------------------------------------------------------------------------*/
+
 .recommended-card {
-	display: flex; // или block
+	display: flex;
 	flex-direction: column;
 	height: 100%;
 
 	/* ---------------- Image Wrapper ---------------- */
+
 	&__image-wrapper {
 		position: relative;
-		border: 1px solid rgba(0, 0, 0, 0.2);
-		border-radius: 13px;
-		background: #fff;
-		aspect-ratio: 1 / 1;
+		display: block;
 		width: 100%;
 		overflow: hidden;
-		display: block;
+
+		background: #fff;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		border-radius: 13px;
+
+		aspect-ratio: 368 / 385;
+		transition: transform 0.4s ease;
 
 		@include md {
 			border-radius: 20px;
 		}
 
-		/* Hover эффект: масштаб изображения */
-		transition: transform 0.4s ease;
-
-		&:hover .product-card__image {
+		&:hover .recommended-card__image {
 			transform: scale(1.05);
 		}
 	}
 
 	&__image {
-		block-size: 100%;
-		inline-size: 100%;
-		object-fit: cover;
 		display: block;
-		transition: transform 0.4s ease; /* плавный переход для hover */
+		inline-size: 100%;
+		block-size: 100%;
+		object-fit: cover;
+		transition: transform 0.4s ease;
 	}
 
 	/* ---------------- Content ---------------- */
-	&__content {
-		text-align: center;
 
+	&__content {
 		display: flex;
 		flex-direction: column;
-		flex: 1; /* растягиваем */
 		justify-content: space-between;
+		flex: 1;
 
-		padding-top: 10px;
-		@include sm{
-			padding-top: 15px;
-		}
-		@include lg {
-			padding-top: 25px;
+		text-align: center;
+		padding-top: 15px;
+
+		@include xxxl {
+			padding-top: 20px;
 		}
 	}
 
 	&__group {
-		margin-top: auto; /* прижимает к низу */
+		margin-top: auto;
 	}
 
 	&__title {
-		font-size: 20px;
 		font-weight: 400;
 		line-height: 100%;
 		letter-spacing: -0.02em;
+
+		font-size: 14px;
+		margin-bottom: 10px;
+		padding-inline: 20px;
 
 		a {
 			color: #000;
 			text-decoration: none;
 		}
 
-		font-size: 8px;
-		margin-bottom: 10px;
 		@include sm {
-			font-size: 14px;
-		}
-		@include lg {
-			font-size: 16px;
-			margin-bottom: 15px;
+			font-size: 12px;
 		}
 
-		@include xxxl {
-			font-size: 20px;
+		@include md {
+			font-size: 13px;
+		}
+
+		@include xxl {
+			font-size: 14px;
+			margin-bottom: 15px;
 		}
 	}
 
 	&__price {
+		display: none;
 		font-weight: 500;
 		line-height: 100%;
 		letter-spacing: -0.02em;
 		color: var(--black);
+		font-size: 18px;
 
-		font-size: 11px;
 		@include sm {
-			font-size: 14px;
+			display: block;
+			font-size: 15px;
+		}
+
+		@include md {
+			font-size: 16px;
 		}
 
 		@include lg {
-			font-size: 20px;
-		}
-
-		@include xxxl {
-			font-size: 24px;
+			font-size: 18px;
 		}
 	}
 
-	&__button {
-		width: 100%;
+	&__buttons {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 10px;
 
 		margin-top: 12px;
-		@include lg {
+
+		@include sm {
+			flex-direction: row;
+			gap: 8px;
 			margin-top: 20px;
 		}
-		@include xxxl {
-			margin-top: 25px;
+
+		@include xxl {
+			margin-top: 15px;
 		}
 	}
 }
