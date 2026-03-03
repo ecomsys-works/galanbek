@@ -5,18 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Катaлог: товары</title>
+    <title>Товар</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
     <link rel="stylesheet" href="./css/main.min.css">
-
 </head>
 
 
-
-<body id="catalog-products-page">
+<body id="product-page">
     <div class="overlay" data-overlay></div>
     <div class="wrapper">
         <header class="header">
@@ -217,819 +216,104 @@
         </div>
 
         <main class="main">
-            <nav class="breadcrumbs" aria-label="Хлебные крошки">
-                <div class="container">
-                    <ul class="breadcrumbs__list">
-                        <li class="breadcrumbs__item">
-                            <a href="/" class="breadcrumbs__link">Главная</a>
-                        </li>
+            <div class="container product-page">
+                <!-- LEFT COLUMN (Gallery) -->
+                <div class="product-page__gallery">
+                    <div class="product-gallery">
+                        <div class="product-gallery__container">
 
-                        <li class="breadcrumbs__separator">/</li>
-
-                        <li class="breadcrumbs__item">
-                            <a href="/" class="breadcrumbs__link">Каталог</a>
-                        </li>
-
-                        <li class="breadcrumbs__separator">/</li>
-
-                        <li class="breadcrumbs__item">
-                            <a href="/" class="breadcrumbs__link">Apple iPhone</a>
-                        </li>
-
-                        <li class="breadcrumbs__separator">/</li>
-
-                        <li class="breadcrumbs__item">
-                            <span class="breadcrumbs__current">Apple iPhone 17 Pro Max</span>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-
-            <section class="catalog">
-                <div class="container">
-                    <h2 class="catalog__title">Apple iPhone 17 Pro Max</h2>
-
-                    <!-- Canvas фильтра (mobile) -->
-                    <div class="filter-c" id="filterCanvas">
-                        <!-- Parent controller -->
-                        <div class="filter-c-section filter-c-section--parent">
-                            <span class="filter-c-header filter-c-header--parent">
-                                <button class="filter-c-group" data-parent-toggle>
-                                    <svg class="icon icon--filter-c">
-                                        <use href="./icons/symbol/sprite.svg#filter"></use>
-                                    </svg>
-                                    <span>Фильтр</span>
-                                </button>
-
-                                <button class="filter-c-close" id="filter-c-close">
-                                    <svg class="icon icon--close-c">
-                                        <use href="./icons/symbol/sprite.svg#close"></use>
-                                    </svg>
-                                </button>
-                            </span>
-                        </div>
-
-                        <div class="scrollbar-none filter-c-wrap--parent">
-                            <!-- SORTING -->
-                            <div class="filter-c-section filter-c-section--child filter-c-section--sort" data-sort-id="sortCatalogCanvas">
-                                <!-- Place for inject -->
-                            </div>
-
-                            <div class="filter-c-wrap--child">
-                                <!-- Child Цена -->
-                                <div class="filter-c-section filter-c-section--child">
-                                    <button class="filter-c-header" data-toggle>
-                                        <span class="filter-c-label">Цена</span>
-                                        <span class="filter-c-caret">▼</span>
-                                    </button>
-                                    <div class="filter-c-content">
-                                        <div class="filter-c-inner">
-                                            <!-- Price slider -->
-                                            <div class="filter-price">
-                                                <div class="filter-price__boxes">
-                                                    <div class="filter-price__box">
-                                                        <span id="price-c-min-label">68390</span>
-                                                    </div>
-                                                    <div class="filter-price__box">
-                                                        <span id="price-c-max-label">140990</span>
-                                                    </div>
-                                                </div>
-                                                <div id="price-slider-c" class="filter-price__slider"></div>
-                                            </div>
-                                        </div>
+                            <!-- Thumbnails -->
+                            <div class="swiper product-gallery__thumbs">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide product-gallery__thumb">
+                                        <img src="./images/webp/product-gallery/pic-1.webp" alt="Product image 1">
                                     </div>
-                                </div>
-
-                                <!-- Child Память -->
-                                <div class="filter-c-section filter-c-section--child">
-                                    <button class="filter-c-header" data-toggle>
-                                        <span class="filter-c-label">Память</span>
-                                        <span class="filter-c-caret">▼</span>
-                                    </button>
-                                    <div class="filter-c-content">
-                                        <div class="filter-c-inner">
-                                            <!-- 1 -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input type="checkbox" class="filter-check__input" data-filter-group="memory" value="256">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">256</span>
-                                                    <span class="filter-check__count">(10)</span>
-                                                </label>
-                                            </div>
-                                            <!-- 2 -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input type="checkbox" class="filter-check__input" data-filter-group="memory" value="512">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">512</span>
-                                                    <span class="filter-check__count">(5)</span>
-                                                </label>
-                                            </div>
-                                        </div>
+                                    <div class="swiper-slide product-gallery__thumb">
+                                        <img src="./images/webp/product-gallery/pic-2.webp" alt="Product image 2">
                                     </div>
-                                </div>
-
-                                <!-- Child section "Модель" -->
-                                <div class="filter-c-section filter-c-section--child">
-                                    <button class="filter-c-header" data-toggle>
-                                        <span class="filter-c-label">Модель</span>
-                                        <span class="filter-c-caret">▼</span>
-                                    </button>
-                                    <div class="filter-c-content">
-                                        <div class="filter-c-inner">
-                                            <!-- iPhone 14 -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="model" value="Iphone 14">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">iPhone 14</span>
-                                                </label>
-                                            </div>
-                                            <!-- iPhone 13 -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="model" value="Iphone 13">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">iPhone 13</span>
-                                                </label>
-                                            </div>
-                                            <!-- iPhone 12 -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="model" value="Iphone 12">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">iPhone 12</span>
-                                                </label>
-                                            </div>
-                                        </div>
+                                    <div class="swiper-slide product-gallery__thumb">
+                                        <img src="./images/webp/product-gallery/pic-3.webp" alt="Product image 3">
                                     </div>
-                                </div>
-
-                                <!-- Child section "Цвет" -->
-                                <div class="filter-c-section filter-c-section--child">
-                                    <button class="filter-c-header" data-toggle>
-                                        <span class="filter-c-label">Цвет</span>
-                                        <span class="filter-c-caret">▼</span>
-                                    </button>
-                                    <div class="filter-c-content">
-                                        <div class="filter-c-inner">
-                                            <!-- Черный -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="color" value="Черный">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">Черный</span>
-                                                </label>
-                                            </div>
-                                            <!-- Белый -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="color" value="Белый">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">Белый</span>
-                                                </label>
-                                            </div>
-                                            <!-- Оранжевый -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="color" value="Оранжевый">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">Оранжевый</span>
-                                                </label>
-                                            </div>
-                                        </div>
+                                    <div class="swiper-slide product-gallery__thumb">
+                                        <img src="./images/webp/product-gallery/pic-4.webp" alt="Product image 4">
                                     </div>
-                                </div>
-
-                                <!-- Child section "СИМ" -->
-                                <div class="filter-c-section filter-c-section--child">
-                                    <button class="filter-c-header" data-toggle>
-                                        <span class="filter-c-label">Sim</span>
-                                        <span class="filter-c-caret">▼</span>
-                                    </button>
-                                    <div class="filter-c-content">
-                                        <div class="filter-c-inner">
-                                            <!-- Single SIM -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="sim" value="Single SIM">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">Single SIM</span>
-                                                </label>
-                                            </div>
-                                            <!-- Dual SIM -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="sim" value="Dual SIM">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">Dual SIM</span>
-                                                </label>
-                                            </div>
-                                            <!-- eSIM -->
-                                            <div class="filter-check">
-                                                <label class="filter-check__label">
-                                                    <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="sim" value="eSIM">
-                                                    <span class="filter-check__custom">
-                                                        <svg class="icon--checkmark-small">
-                                                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="filter-check__text">eSIM</span>
-                                                </label>
-                                            </div>
-                                        </div>
+                                    <div class="swiper-slide product-gallery__thumb">
+                                        <img src="./images/webp/product-gallery/pic-5.webp" alt="Product image 5">
+                                    </div>
+                                    <div class="swiper-slide product-gallery__thumb">
+                                        <img src="./images/webp/product-gallery/pic-1.webp" alt="Product image 6">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Footer -->
-                        <div class="filter-c-footer">
-                            <button class="btn btn--dark btn--fullheight">Показать</button>
-                        </div>
-                    </div>
 
+                            <!-- Main slider -->
+                            <div class="swiper product-gallery__main">
+                                <div class="swiper-wrapper">
 
-                    <!-- catalog layout -->
-                    <div class="catalog__layout">
-                        <!-- sidebar -->
-                        <aside class="catalog__sidebar">
-                            <div class="scrollbar-none sidebar">
-                                <div class="filter-s">
-                                    <div class="filter-s-section parent">
-                                        <!-- Parent -->
-                                        <button class="filter-s-header filter-s-header--parent" data-parent-toggle>
-                                            <div class="filter-s-group">
-                                                <svg class="icon icon--filter-s">
-                                                    <use href="./icons/symbol/sprite.svg#filter"></use>
-                                                </svg>
-                                                <span class="filter-s-label--parent">Фильтр</span>
-                                            </div>
-
-                                            <span class="caret">
-                                                <svg class="icon--caret-s">
-                                                    <use href="./icons/symbol/sprite.svg#caret"></use>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <!-- Children -->
-                                        <div class="filter-s-children">
-                                            <!-- Аккордеонный пункт "Цена - Слайдер" -->
-                                            <div class="filter-s-section child">
-                                                <button class="filter-s-header" data-toggle>
-                                                    <span class="filter-s-label">Цена </span>
-                                                    <span class="filter-s-caret">▼</span>
-                                                </button>
-                                                <div class="filter-s-content">
-                                                    <div class="filter-s-inner">
-                                                        <!-- Price slider -->
-                                                        <div class="filter-price">
-                                                            <div class="filter-price__boxes">
-                                                                <div class="filter-price__box">
-                                                                    <span id="price-s-min-label">68390</span>
-                                                                </div>
-                                                                <div class="filter-price__box">
-                                                                    <span id="price-s-max-label">140990</span>
-                                                                </div>
-                                                            </div>
-                                                            <div id="price-slider-s" class="filter-price__slider"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Чекбоксы -->
-
-                                            <!-- Child section "Память" -->
-                                            <div class="filter-s-section child">
-                                                <button class="filter-s-header" data-toggle>
-                                                    <span class="filter-s-label">Память</span>
-                                                    <span class="filter-s-caret">▼</span>
-                                                </button>
-                                                <div class="filter-s-content">
-                                                    <div class="filter-s-inner">
-                                                        <!-- 1 -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input type="checkbox" class="filter-check__input" data-filter-group="memory" value="256">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">256</span>
-                                                                <span class="filter-check__count">(10)</span>
-                                                            </label>
-                                                        </div>
-                                                        <!-- 2 -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input type="checkbox" class="filter-check__input" data-filter-group="memory" value="512">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">512</span>
-                                                                <span class="filter-check__count">(5)</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Child section "Модель" -->
-                                            <div class="filter-s-section child">
-                                                <button class="filter-s-header" data-toggle>
-                                                    <span class="filter-s-label">Модель</span>
-                                                    <span class="filter-s-caret">▼</span>
-                                                </button>
-                                                <div class="filter-s-content">
-                                                    <div class="filter-s-inner">
-                                                        <!-- iPhone 14 -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="model" value="iPhone 14">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">iPhone 14</span>
-                                                            </label>
-                                                        </div>
-                                                        <!-- iPhone 13 -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="model" value="iPhone 13">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">iPhone 13</span>
-                                                            </label>
-                                                        </div>
-                                                        <!-- iPhone 12 -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="model" value="iPhone 12">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">iPhone 12</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Child section "Цвет" -->
-                                            <div class="filter-s-section child">
-                                                <button class="filter-s-header" data-toggle>
-                                                    <span class="filter-s-label">Цвет</span>
-                                                    <span class="filter-s-caret">▼</span>
-                                                </button>
-                                                <div class="filter-s-content">
-                                                    <div class="filter-s-inner">
-                                                        <!-- Черный -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="color" value="Черный">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">Черный</span>
-                                                            </label>
-                                                        </div>
-                                                        <!-- Белый -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="color" value="Белый">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">Белый</span>
-                                                            </label>
-                                                        </div>
-                                                        <!-- Оранжевый -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="color" value="Оранжевый">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">Оранжевый</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Child section "СИМ" -->
-                                            <div class="filter-s-section child">
-                                                <button class="filter-s-header" data-toggle>
-                                                    <span class="filter-s-label">Sim</span>
-                                                    <span class="filter-s-caret">▼</span>
-                                                </button>
-                                                <div class="filter-s-content">
-                                                    <div class="filter-s-inner">
-                                                        <!-- Single SIM -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="sim" value="Single SIM">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">Single SIM</span>
-                                                            </label>
-                                                        </div>
-                                                        <!-- Dual SIM -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="sim" value="Dual SIM">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">Dual SIM</span>
-                                                            </label>
-                                                        </div>
-                                                        <!-- eSIM -->
-                                                        <div class="filter-check">
-                                                            <label class="filter-check__label">
-                                                                <input class="filter-check__input filter-checkbox" type="checkbox" data-filter-group="sim" value="eSIM">
-                                                                <span class="filter-check__custom">
-                                                                    <svg class="icon--checkmark-small">
-                                                                        <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
-                                                                    </svg>
-                                                                </span>
-                                                                <span class="filter-check__text">eSIM</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="swiper-slide product-gallery__slide">
+                                        <a href="./images/webp/product-gallery/pic-1.webp" data-fancybox="product-gallery" data-caption="Product image 1">
+                                            <img src="./images/webp/product-gallery/pic-1.webp" alt="Product image 1">
+                                        </a>
                                     </div>
-                                </div>
-                            </div>
-                        </aside>
 
-                        <!-- content -->
-                        <div class="catalog__content">
-                            <!-- Скрытый нативный селект для сортировки по цене / по умолчанию -->
-                            <select class="sort-native" name="sort" id="sortCatalog" data-sort-select data-sort-id="sortCatalog" aria-label="Сортировка товаров">
-                                <option value="default-desc" selected="selected">Сначала популярные</option>
-                                <option value="default-asc">Сначала новые</option>
-                                <option value="price-asc">Цена: по возрастанию</option>
-                                <option value="price-desc">Цена: по убыванию</option>
-                                <option value="discount-desc">Сначала со скидкой</option>
-                                <option value="rating-desc">Лучшие по рейтингу</option>
-                            </select>
+                                    <div class="swiper-slide product-gallery__slide">
+                                        <a href="./images/webp/product-gallery/pic-2.webp" data-fancybox="product-gallery" data-caption="Product image 2">
+                                            <img src="./images/webp/product-gallery/pic-2.webp" alt="Product image 2">
+                                        </a>
+                                    </div>
 
-                            <!-- Скрытый нативный селект для сортировки по популярности / новизне / всем товарам -->
-                            <select class="sort-native" name="sort-types" id="sortTypes" data-sort-select data-sort-id="sortTypes" aria-label="Сортировка по типам">
-                                <option value="all" selected="selected">Все типы</option>
-                                <option value="newest">Новые поступления</option>
-                                <option value="popular">Популярные</option>
-                                <option value="sale">Со скидкой</option>
-                                <option value="recommended">Рекомендовано</option>
-                            </select>
+                                    <div class="swiper-slide product-gallery__slide">
+                                        <a href="./images/webp/product-gallery/pic-3.webp" data-fancybox="product-gallery" data-caption="Product image 3">
+                                            <img src="./images/webp/product-gallery/pic-3.webp" alt="Product image 3">
+                                        </a>
+                                    </div>
 
-                            <!-- Группа селектов для сортировкаи десктопная версия -->
-                            <div class="catalog__sorts-group">
-                                <!-- Контейнер для кастомного десктопного UI -->
-                                <div class="sort-desktop sort-desktop--catalog" data-sort-desktop data-sort-id="sortCatalog">
-                                    <!-- Core вставит сюда <div class="sort-desktop__current"> и <ul> с пунктами -->
-                                </div>
-                                <!-- Контейнер для кастомного десктопного UI -->
-                                <div class="sort-desktop sort-desktop--types" data-sort-desktop data-sort-id="sortTypes">
-                                    <!-- Core вставит сюда <div class="sort-desktop__current"> и <ul> с пунктами -->
+                                    <div class="swiper-slide product-gallery__slide">
+                                        <a href="./images/webp/product-gallery/pic-4.webp" data-fancybox="product-gallery" data-caption="Product image 4">
+                                            <img src="./images/webp/product-gallery/pic-4.webp" alt="Product image 4">
+                                        </a>
+                                    </div>
+
+                                    <div class="swiper-slide product-gallery__slide">
+                                        <a href="./images/webp/product-gallery/pic-5.webp" data-fancybox="product-gallery" data-caption="Product image 5">
+                                            <img src="./images/webp/product-gallery/pic-5.webp" alt="Product image 5">
+                                        </a>
+                                    </div>
+
+                                    <div class="swiper-slide product-gallery__slide">
+                                        <a href="./images/webp/product-gallery/pic-1.webp" data-fancybox="product-gallery" data-caption="Product image 6">
+                                            <img src="./images/webp/product-gallery/pic-1.webp" alt="Product image 6">
+                                        </a>
+                                    </div>
+
                                 </div>
 
-                                <!-- filter canvas button -->
-                                <button class="filter-toggle" id="filterBtn">
-                                    <svg class="icon icon--filter-toggle">
-                                        <use href="./icons/symbol/sprite.svg#filter"></use>
-                                    </svg>
-                                    <span>Фильтр</span>
-                                </button>
-                            </div>
+                                <!-- Navigation -->
+                                <div class="product-gallery__nav">
+                                    <button class="product-gallery__arrow product-gallery__arrow--prev">
+                                        <svg class="icon icon--angle-left">
+                                            <use href="./icons/symbol/sprite.svg#angle-left"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="product-gallery__arrow product-gallery__arrow--next">
+                                        <svg class="icon icon--angle-right">
+                                            <use href="./icons/symbol/sprite.svg#angle-right"></use>
+                                        </svg>
+                                    </button>
+                                </div>
 
-                            <!-- Сетка с товарами -->
-                            <div class="products__grid">
-                                <!-- 1 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Orange.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 2 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Orange.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 3 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13White.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 4 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13White.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 5 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 6 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 7 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Orange.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 8 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Orange.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 9 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13White.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 10 -->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13White.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 11-->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- 12-->
-                                <article class="product-card">
-                                    <a href="#" class="product-card__image-wrapper">
-                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="" class="product-card__image">
-                                    </a>
-
-                                    <div class="product-card__content">
-                                        <h3 class="product-card__title">
-                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
-                                        </h3>
-
-                                        <div class="product-card__group">
-                                            <div class="product-card__price">71 990 ₽</div>
-
-                                            <a href="#" class="btn btn--dark btn--full product-card__button">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-
+                <!-- RIGHT COLUMN (Product Info) -->
+                <div class="product-page__info">
+                    <h1>Название товара</h1>
+                    <p class="price">$199</p>
+                    <!-- тут дальше чекбоксы, цвета и тд -->
+                </div>
+            </div>
         </main>
         <footer class="footer">
             <div class="container">
@@ -1149,6 +433,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
     <script src="./js/main.min.js"></script>
 
