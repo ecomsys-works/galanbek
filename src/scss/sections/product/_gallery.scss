@@ -7,27 +7,37 @@ PRODUCT GALLERY
 	&__container {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 15px;
 
-		@media (min-width: 640px) {
-			flex-direction: row;
+		@include sm {
+			gap: 10px;
 		}
 
 		@include xl {
 			gap: 15px;
 		}
+		@include xxl {
+			flex-direction: row;
+		}
+
+		
 	}
 
 	&__thumbs {
 		order: 2;
-		@media (min-width: 640px) {
+		@include xxl {
 			order: 1;
+			padding-block: 10px;
+		}
+
+		@include xxxl {
+			padding-block: 0;
 		}
 	}
 
 	&__main {
 		order: 1;
-		@media (min-width: 640px) {
+		@include xxl {
 			order: 2;
 		}
 	}
@@ -44,19 +54,12 @@ PRODUCT GALLERY
 		overflow: hidden;
 
 		border-radius: 16px;
-		@media (min-width: 640px) {
-			border-radius: 10px;
-		}
+		aspect-ratio: 368/385;
+	
 		@include xxl {
-			border-radius: 21px;
-		}
-	}
-
-	@media (min-width: 640px) {
-		&__main {
 			height: 100%;
 			height: 0;
-			width: 84%;
+			width: 85%;
 		}
 	}
 
@@ -93,9 +96,9 @@ PRODUCT GALLERY THUMBS
 .product-gallery__thumbs {
 	width: 100%;
 	height: inherit;
-
-	@media (min-width: 640px) {
-		width: 16%;
+	
+	@include xxl {
+		width: 15%;
 	}
 }
 .product-gallery__thumb {
@@ -110,13 +113,10 @@ PRODUCT GALLERY THUMBS
 	cursor: pointer;
 
 	border-radius: 10px;
-	@media (min-width: 640px) {
-		border-radius: 5px;
-	}
-	@include xxl {
+
+	@include sm {
 		border-radius: 16px;
 	}
-
 	&:hover img {
 		transform: scale(1.05);
 	}
@@ -179,7 +179,7 @@ PRODUCT GALLERY THUMBS
 		height: 8px;
 	}
 
-	@media (min-width: 375px) {
+	@media (min-width: 440px) {
 		width: 44px;
 		height: 44px;
 
@@ -189,17 +189,7 @@ PRODUCT GALLERY THUMBS
 		}
 	}
 
-	@media (min-width: 640px) {
-		width: 26px;
-		height: 26px;
-
-		svg {
-			width: 4px;
-			height: 8px;
-		}
-	}
-
-	@include lg{
+	@include lg {
 		width: 44px;
 		height: 44px;
 

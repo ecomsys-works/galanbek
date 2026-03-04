@@ -127,6 +127,17 @@
 		border-radius: 20px;
 	}
 
+	&--info{
+		flex: 1;
+		height: 54px;	
+		font-size: 16px;		
+		border-radius: 20px;	
+		@include xxl{			
+			font-size: 18px;			
+			height: 58px;
+		}
+	}
+
 	&--tg {
 		height: 53px;
 		width: 100%;

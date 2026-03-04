@@ -39,7 +39,7 @@ export function initDesktopMenu(options) {
         const rect = link.getBoundingClientRect();
         const subWidth = getSubMenuWidth(subMenu);
 
-        let left = rect.right + GAP + 10; // небольшой дополнительный GAP
+        let left = rect.right + GAP + 25; // небольшой дополнительный GAP
 
         if (left + subWidth > window.innerWidth) {
             left = rect.left - subWidth - GAP; // если справа не помещается — сдвигаем влево
@@ -47,7 +47,7 @@ export function initDesktopMenu(options) {
 
         if (left < GAP) left = GAP; // не вылезаем за левый край
 
-        let top = rect.top - 10; // смещение вверх
+        let top = rect.top - 27; // смещение вверх
         if (top < GAP) top = GAP;
 
         const maxHeight = window.innerHeight - top - GAP;

@@ -1,155 +1,390 @@
-/* ------------------------------------------------------------------------------------------------------------------------------
-PRODUCT INFO
- --------------------------------------------------------------------------------------------------------------------------------*/
+/* ===========================================================================================================================
+   PRODUCT INFO
+============================================================================================================================ */
 .product-info {
 	background: #fff;
 	border-radius: 20px;
-	padding: 30px;
+
 	display: flex;
 	flex-direction: column;
-	gap: 25px;
 	min-height: 100%;
-}
 
-fieldset {
-	border: none;
-	padding: 0;
-	margin: 0;
-}
+	padding: 20px 25px 15px;
 
-.product-info__label {
-	font-size: 20px;
-	margin-bottom: 15px;
-}
+	@include sm {
+		padding-bottom: 65px;
+	}
+	@include md {
+		padding-bottom: 20px;
+	}
+	@include lg {
+		padding: 30px;
+	}
+	@include xxl {
+		padding-top: 40px;
+	}
 
-/* PRICE */
-.product-info__price-row {
-	display: flex;
-	align-items: center;
-}
+	@include xxxl {
+		padding: 40px;
+	}
 
-.price-old,
-.price-new {
-	font-size: 45px;
-	font-weight: 600;
-}
+	/* ---------------------------------------------------------------
+	Ограничительная обвертка для адаптива
+ ----------------------------------------------------------*/
+	&__wrapper {
+		@include xxl {
+			max-width: 492px;
+		}
+	}
+	/* ---------------------------------------------------------------
+	Главный заголовок
+ ----------------------------------------------------------*/
+	&__title {
+		font-weight: 400;
+		line-height: 120%;
+		letter-spacing: -0.02em;
+		color: #000;
 
-.price-new-wrapper {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	margin-left: 20px;
-}
+		font-size: 14px;
+		margin-bottom: 15px;
+		@include md {
+			font-size: 16px;
+		}
 
-.price-new {
-	color: #593c6d;
-}
+		@include xxl {
+			font-size: 20px;
+			margin-bottom: 15px;
+		}
+		
+	}
+	/* ---------------------------------------------------------------
+	Секции (отступы для адаптива)
+ ----------------------------------------------------------*/
+	fieldset {
+		border: none;
+		padding: 0;
+		margin-inline: 0;
+		margin-top: 0;
+	}
+	&__section {
+		// для секции цвета
+		&--color {
+			margin-bottom: 30px;
+			@include sm {
+				margin-bottom: 28px;
+			}
+			@include xxl {
+				margin-bottom: 25px;
+			}
+			@include xxxl {
+				margin-bottom: 25px;
+			}
+		}
+		// для секции память
+		&--memory {
+			margin-bottom: 15px;
+			@include sm {
+				margin-bottom: 17px;
+			}
+			@include xxl {
+				margin-bottom: 27px;
+			}
+			@include xxxl {
+				margin-bottom: 30px;
+			}
+		}
+		// для секции сим
+		&--sim {
+			margin-bottom: 42px;
+			@include sm {
+				margin-bottom: 60px;
+			}
+			@include lg {
+				margin-bottom: 35px;
+			}
+			@include xxl {
+				margin-bottom: 25px;
+			}
+			@include xxxl {
+				margin-bottom: 53px;
+			}
+		}
+	}
+	/* ---------------------------------------------------------------
+	Цена
+ ----------------------------------------------------------*/
+	&__price {
+		display: flex;
+		flex-direction: column; // mobile first
+		align-items: flex-start;
+		gap: 5px;
+		margin-bottom: 25px;
+		font-weight: 600;
 
-.price-badge {
-	background: #593c6d;
-	color: #fff;
-	font-size: 20px;
-	padding: 10px 20px;
-	border-radius: 100px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-}
+		@media (min-width: 820px) {
+			flex-direction: row;
+			align-items: center;
+			gap: 20px;
+		}
 
-/* COLOR RADIO */
-.color-grid {
-	display: grid;
-	grid-template-columns: repeat(6, 40px);
-	gap: 10px;
-}
+		@include xxl {
+			gap: 20px;
+		}
 
-.color-option input {
-	display: none;
-}
+		@include xxxl {
+			margin-bottom: 50px;
+		}
 
-.color {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	border: 1px solid #ddd;
-	display: block;
-	cursor: pointer;
-}
+		&-new,
+		&-old {
+			font-weight: 500;
+			line-height: 100%;
+			letter-spacing: -0.02em;
+			font-size: 20px;
 
-.color-option input:checked + .color {
-	outline: 3px solid #593c6d;
-}
+			@include md {
+				font-size: 30px;
+			}
 
-/* OPTIONS RADIO */
-.option-row {
-	display: flex;
-	gap: 15px;
-}
+			@include xxl {
+				font-size: 40px;
+			}
+		}
 
-.option input {
-	display: none;
-}
+		// выгодная цена
+		&-new {
+			color: #6c537b;
+		}
 
-.option span {
-	padding: 20px 25px;
-	border-radius: 10px;
-	border: 1px solid #ddd;
-	display: inline-block;
-	cursor: pointer;
-	font-size: 16px;
-}
+		// обвертка
+		&-current {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			margin-left: 0; // важно для column
 
-.option input:checked + span {
-	border-color: #593c6d;
-	background: #f3edf7;
-}
+			@include xxl {
+				gap: 10px;
+				margin-left: 20px;
+			}
+		}
+		// бейджик
+		&-badge {
+			background: #b584d3;
+			color: #fff;
+			font-size: 14px;
+			padding: 0 35px;
+			height: 25px;
+			border-radius: 100px;
+			display: flex;
+			align-items: center;
+			font-weight: 500;
 
-/* CART */
-.product-info__cart-row {
-	display: flex;
-	gap: 10px;
-}
+			@include sm {
+				height: 25px;
+				font-size: 14px;
+			}
 
-.quantity {
-	min-width: 226px;
-	height: 58px;
-	border: 1px solid #000;
-	border-radius: 20px;
-	padding: 10px 20px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
+			@include xxl {
+				height: 40px;
+				font-size: 20px;
+			}
+		}
+	}
 
-.quantity__input {
-	width: 40px;
-	text-align: center;
-	border: none;
-	font-size: 18px;
-}
+	/* ---------------------------------------------------------------
+	Выбор цвета
+ ----------------------------------------------------------*/
+	//  сетка
+	&__color-list {
+		display: grid;
+		grid-template-columns: repeat(6, auto); // ВАЖНО
+		gap: 8px; // mobile / <3xl
+		justify-items: center; // центрируем кружки в ячейке
+		width: fit-content;
 
-.quantity__btn {
-	background: none;
-	border: none;
-	font-size: 20px;
-	cursor: pointer;
-}
+		@include xxxl {
+			gap: 10px;
+		}
+	}
 
-.btn-primary {
-	flex: 1;
-	height: 58px;
-	border-radius: 20px;
-	background: #593c6d;
-	color: #fff;
-	border: none;
-	font-size: 18px;
-}
+	// кружок
+	&__color-swatch {
+		border-radius: 50%;
+		border: 1px solid rgb(0, 0, 0, 0.65);
+		display: block;
+		cursor: pointer;
+		background: var(--color);
+		transition: 0.2s;
 
-.btn-secondary {
-	height: 58px;
-	border-radius: 20px;
-	border: 1px solid rgba(89, 60, 109, 0.3);
-	background: transparent;
-	font-size: 18px;
-	color: #666;
+		width: 30px;
+		height: 30px;
+
+		@include xxxl {
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+	// инпут
+	&__color-item input {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+	}
+	&__color-item input:checked + .product-info__color-swatch {
+		outline: 2px solid #593c6d;
+	}
+
+	/* ---------------------------------------------------------------
+	Опции (Память, Тип Sim и др.)
+ ----------------------------------------------------------*/
+	&__options {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 13px 10px;
+	}
+
+	&__option {
+		&-label {
+			height: 56px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 10px;
+			border: 1px solid rgb(0, 0, 0, 0.65);
+			cursor: pointer;
+			transition: 0.2s;
+			text-align: center;
+
+			min-width: 103px;
+
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 100%;
+			letter-spacing: -0.02em;
+			color: #000;
+		}
+
+		input {
+			position: absolute;
+			opacity: 0;
+			width: 0;
+			height: 0;
+			pointer-events: none;
+		}
+		input:checked + .product-info__option-label {
+			border-color: #593c6d;
+			// outline: 1px solid #593c6d;
+			background: #f4f4f4;
+		}
+	}
+	/* ---------------------------------------------------------------
+	Обвертка для кнопок
+ ----------------------------------------------------------*/
+	&__actions {
+		display: flex; // ширина по контенту
+		align-items: center;
+		gap: 10px;
+	}
+	/* ---------------------------------------------------------------
+	Элемент для выбора кол-ва товара( + 1 - )
+ ----------------------------------------------------------*/
+	&__quantity {
+		border: 1px solid #000;
+		border-radius: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #f6f6f6;
+		min-height: 54px;
+
+		width: 100%;
+		width: 114px;
+		padding: 12px;
+
+		@include sm {
+			height: 54px;
+			width: 219px;
+		}
+		@include lg {
+			width: 114px;
+		}
+
+		@include xl {
+			width: 219px;
+		}
+
+		@include xxl {
+			height: 58px;
+			width: 226px;
+			padding: 17px;
+		}
+
+		// инпут со значением
+		&-input {
+			width: 40px;
+			text-align: center;
+			border: none;
+			font-size: 18px;
+			background: #f6f6f6;
+		}
+
+		// кнопки "плюс и минус"
+		&-btn {
+			background: none;
+			border: none;
+			font-size: 20px;
+			cursor: pointer;
+		}
+
+		.icon--count-minus,
+		.icon--count-plus {
+			color: #374957;
+			width: 18px;
+			height: 18px;
+			@include xxl {
+				width: 24px;
+				height: 24px;
+			}
+			transition: color 0.3s ease-in-out;
+
+			&:hover {
+				color: black;
+			}
+		}
+	}
+
+	/* ---------------------------------------------------------------
+	 Нижняя кнопка "запрос"
+ ----------------------------------------------------------*/
+	&__request-btn {
+		height: 58px;
+		border-radius: 20px;
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+
+		cursor: pointer;
+
+		border: 1px solid rgba(89, 60, 109, 0.3);
+		background: transparent;
+		color: #593c6d;
+
+		margin-top: 12px;
+
+		height: 54px;
+		font-size: 18px;
+		@include xxl {
+			height: 58px;
+		}
+
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			background-color: #f4f4f4;
+		}
+	}
 }

@@ -3,7 +3,7 @@ PRODUCT TABS SECTION
 --------------------------------------------------------------------------------------------------------------------------------*/
 
 .product-tabs {
-	padding-top: 50px;
+	padding-top: 25px;
 	padding-bottom: 50px;
 
 	@include sm {
@@ -11,8 +11,8 @@ PRODUCT TABS SECTION
 		padding-bottom: 25px;
 	}
 
-	@include xxl {
-		padding-top: 15px;
+	@include md {
+		padding-top: 30px;
 	}
 
 	@include xxxl {
@@ -213,7 +213,7 @@ PRODUCT TABS TYPOGRAPHY
 	ul {
 		list-style: none;
 		padding: 0;
-		margin: 0 0 20px 0;
+		margin: 0 0 10px 0;
 
 		li {
 			font-weight: 400;
@@ -229,5 +229,5 @@ PRODUCT TABS TYPOGRAPHY
 				font-size: 20px;
 			}
 		}
-	}
+	}	
 }

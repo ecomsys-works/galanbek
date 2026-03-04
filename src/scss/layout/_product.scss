@@ -9,31 +9,96 @@
 	text-align: left;
 
 	font-weight: 500;
-	font-size: 28px;
-	margin-bottom: 25px;
+	font-size: 24px;
+
+	display: block;
+
+	padding-top: 10px;
+	margin-bottom: 20px;
+
+	@include sm {
+		font-size: 30px;
+	}
 
 	@include xxl {
-		display: block;
+		display: none;
 		font-weight: 600;
-		font-size: 50px;
+		font-size: 50px;		
+	}
+
+	@include xxxl {
+		padding-top: 0px;
+		margin-bottom:30px;
+		display: block;
 	}
 }
 
 .product__layout {
 	display: flex;
 	flex-direction: column; /* mobile-first */
-	gap: 20px;
+
+	padding-bottom: 25px;
+	gap: 40px;
+
+	@include sm {
+		gap: 65px;
+		padding-bottom: 0;
+	}
+
+	@include md {
+		padding-top: 20px;
+		padding-bottom: 30px;
+	}
+
+	@include lg {
+		gap: 20px;
+	}
+
+	@include xxl {
+		gap: 15px;
+	}
+	@include xxxl {
+		gap: 20px;
+		padding-top: 0;
+		padding-bottom: 60px;
+	}
 
 	&--gallery {
 		width: 100%;
 	}
 
+	// 	$breakpoints: (
+	//   xs: 0,
+	//   sm: 576px,
+	//   md: 768px,
+	//   lg: 992px,
+	//   xl: 1200px,
+	//   xxl: 1400px
+	// );
+
+	// $container-paddings: (
+	//   xs: 10px,
+	//   sm: 20px,
+	//   md: 32px,
+	//   lg: 40px,
+	//   xl: 45px,
+	//   xxl: 50px
+	// );
+
 	&--info {
-		width: 100%;
+		width: calc(100% + 20px);
+
+		margin-left: -10px;
+		margin-right: -10px;
+
+		@include sm {
+			width: 100%;
+			margin-inline: 0;
+		}
 	}
 
 	/* === Desktop layout >= 640px === */
-	@media (min-width: 640px) {
+	@media (min-width: 992px) {
 		flex-direction: row;
 
 		&--gallery {

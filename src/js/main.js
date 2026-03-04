@@ -6,7 +6,6 @@ BaseHelpers.addLoadedClass();
 BaseHelpers.calcScrollbarWidth();
 BaseHelpers.addTouchClass();
 
-
 /* ------------------------------------------------------------------------------------------------------------------------------
 Modules import
 --------------------------------------------------------------------------------------------------------------------------------*/
@@ -39,6 +38,7 @@ import { ProductCounter } from "./modules/product/Counter.js";
 import { Tabs } from "./modules/product/Tabs.js";
 import { RecommendedSwiper } from "./modules/product/RecommendedSwiper.js";
 import { initFancy } from "./modules/FancyBox.js";
+import { handleForm } from "./modules/product/handleForm.js";
 
 const homePage = document.getElementById('home-page');      // главная
 // const catalogPage = document.getElementById('catalog-page');    // страница основных категорий
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainSelector: ".product-gallery__main",
             thumbsSelector: ".product-gallery__thumbs"
         });
-        
+
         hoverParallax({
             selector: '.product-gallery__main'
         });
@@ -156,6 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
         RecommendedSwiper({
             selector: '.recommended__slider'
         });
+
+
+        handleForm({
+            log: true
+        });
+
     }
 })
 
