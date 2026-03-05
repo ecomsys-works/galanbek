@@ -26,7 +26,7 @@
         })();
     </script>
 
-    <title>Товар</title>
+    <title>Катaлог: товары</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css">
@@ -36,7 +36,7 @@
 </head>
 
 
-<body id="product-page">
+<body id="catalog-products-page">
     <div class="overlay" data-overlay></div>
     <div class="wrapper">
         <header class="header">
@@ -259,519 +259,549 @@
                         <li class="breadcrumbs__separator">/</li>
 
                         <li class="breadcrumbs__item">
-                            <span class="breadcrumbs__current">Apple iPhone 17 Pro Max eSIM 256GB Cosmic Orange</span>
+                            <span class="breadcrumbs__current">Apple iPhone 17 Pro Max</span>
                         </li>
                     </ul>
                 </div>
             </nav>
 
-            <div class="container product">
-                <h2 class="product__title">Apple iPhone 17 Pro Max 256 Gb (Cosmic Orange)</h2>
-                <div class="product__layout">
-                    <!-- LEFT COLUMN (Gallery) -->
-                    <div class="product__layout--gallery">
-                        <div class="product-gallery">
-                            <div class="product-gallery__container">
 
-                                <!-- Thumbnails -->
-                                <div class="swiper product-gallery__thumbs">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide product-gallery__thumb">
-                                            <img src="./images/webp/product-gallery/pic-1.webp" alt="Product image 1">
-                                        </div>
-                                        <div class="swiper-slide product-gallery__thumb">
-                                            <img src="./images/webp/product-gallery/pic-2.webp" alt="Product image 2">
-                                        </div>
-                                        <div class="swiper-slide product-gallery__thumb">
-                                            <img src="./images/webp/product-gallery/pic-3.webp" alt="Product image 3">
-                                        </div>
-                                        <div class="swiper-slide product-gallery__thumb">
-                                            <img src="./images/webp/product-gallery/pic-4.webp" alt="Product image 4">
-                                        </div>
-                                        <div class="swiper-slide product-gallery__thumb">
-                                            <img src="./images/webp/product-gallery/pic-5.webp" alt="Product image 5">
-                                        </div>
-                                        <div class="swiper-slide product-gallery__thumb">
-                                            <img src="./images/webp/product-gallery/pic-1.webp" alt="Product image 6">
+            <section class="catalog">
+                <div class="container">
+                    <h2 class="catalog__title">Apple iPhone 17 Pro Max</h2>
+
+                    <!-- Canvas фильтра (mobile) -->
+                    <div class="filter-c" id="filterCanvas">
+                        <!-- Parent controller -->
+                        <div class="filter-c-section filter-c-section--parent">
+                            <span class="filter-c-header filter-c-header--parent">
+                                <button class="filter-c-group" data-parent-toggle>
+                                    <svg class="icon icon--filter-c">
+                                        <use href="./icons/symbol/sprite.svg#filter"></use>
+                                    </svg>
+                                    <span>Фильтр</span>
+                                </button>
+
+                                <button class="filter-c-close" id="filter-c-close">
+                                    <svg class="icon icon--close-c">
+                                        <use href="./icons/symbol/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="scrollbar-none filter-c-wrap--parent">
+                            <!-- SORTING -->
+                            <div class="filter-c-section filter-c-section--child filter-c-section--sort" data-sort-id="sortCatalogCanvas">
+                                <!-- Place for inject -->
+                            </div>
+
+                            <div class="filter-c-wrap--child">
+                                <!-- Child Цена -->
+                                <div class="filter-c-section filter-c-section--child">
+                                    <button class="filter-c-header" data-toggle>
+                                        <span class="filter-c-label">Цена</span>
+                                        <span class="filter-c-caret">▼</span>
+                                    </button>
+                                    <div class="filter-c-content">
+                                        <div class="filter-c-inner">
+                                            <!-- Price slider -->
+                                            <div class="filter-price">
+                                                <div class="filter-price__boxes">
+                                                    <div class="filter-price__box">
+                                                        <span id="price-c-min-label"></span>
+                                                    </div>
+                                                    <div class="filter-price__box">
+                                                        <span id="price-c-max-label"></span>
+                                                    </div>
+                                                </div>
+                                                <div id="price-slider-c" class="filter-price__slider"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Main slider -->
-                                <div class="swiper product-gallery__main">
-                                    <div class="swiper-wrapper">
-
-                                        <div class="swiper-slide product-gallery__slide">
-                                            <a href="./images/webp/product-gallery/pic-1.webp" data-fancybox="product-gallery" data-caption="Product image 1">
-                                                <img src="./images/webp/product-gallery/pic-1.webp" alt="Product image 1">
-                                            </a>
-                                        </div>
-
-                                        <div class="swiper-slide product-gallery__slide">
-                                            <a href="./images/webp/product-gallery/pic-2.webp" data-fancybox="product-gallery" data-caption="Product image 2">
-                                                <img src="./images/webp/product-gallery/pic-2.webp" alt="Product image 2">
-                                            </a>
-                                        </div>
-
-                                        <div class="swiper-slide product-gallery__slide">
-                                            <a href="./images/webp/product-gallery/pic-3.webp" data-fancybox="product-gallery" data-caption="Product image 3">
-                                                <img src="./images/webp/product-gallery/pic-3.webp" alt="Product image 3">
-                                            </a>
-                                        </div>
-
-                                        <div class="swiper-slide product-gallery__slide">
-                                            <a href="./images/webp/product-gallery/pic-4.webp" data-fancybox="product-gallery" data-caption="Product image 4">
-                                                <img src="./images/webp/product-gallery/pic-4.webp" alt="Product image 4">
-                                            </a>
-                                        </div>
-
-                                        <div class="swiper-slide product-gallery__slide">
-                                            <a href="./images/webp/product-gallery/pic-5.webp" data-fancybox="product-gallery" data-caption="Product image 5">
-                                                <img src="./images/webp/product-gallery/pic-5.webp" alt="Product image 5">
-                                            </a>
-                                        </div>
-
-                                        <div class="swiper-slide product-gallery__slide">
-                                            <a href="./images/webp/product-gallery/pic-1.webp" data-fancybox="product-gallery" data-caption="Product image 6">
-                                                <img src="./images/webp/product-gallery/pic-1.webp" alt="Product image 6">
-                                            </a>
-                                        </div>
-
+                                <!-- Child Память -->
+                                <div class="filter-c-section filter-c-section--child">
+                                    <button class="filter-c-header" data-toggle>
+                                        <span class="filter-c-label">Память</span>
+                                        <span class="filter-c-caret">▼</span>
+                                    </button>
+                                    <div class="filter-c-content">
+                                        <div class="filter-c-inner" data-filter-ui="memory"></div>
                                     </div>
+                                </div>
 
-                                    <!-- Navigation -->
-                                    <div class="product-gallery__nav">
-                                        <button class="product-gallery__arrow product-gallery__arrow--prev">
-                                            <svg class="icon icon--angle-left">
-                                                <use href="./icons/symbol/sprite.svg#angle-left"></use>
-                                            </svg>
-                                        </button>
-                                        <button class="product-gallery__arrow product-gallery__arrow--next">
-                                            <svg class="icon icon--angle-right">
-                                                <use href="./icons/symbol/sprite.svg#angle-right"></use>
-                                            </svg>
-                                        </button>
+                                <!-- Child section "Модель" -->
+                                <div class="filter-c-section filter-c-section--child">
+                                    <button class="filter-c-header" data-toggle>
+                                        <span class="filter-c-label">Модель</span>
+                                        <span class="filter-c-caret">▼</span>
+                                    </button>
+                                    <div class="filter-c-content">
+                                        <div class="filter-c-inner" data-filter-ui="model"></div>
                                     </div>
+                                </div>
 
+                                <!-- Child section "Цвет" -->
+                                <div class="filter-c-section filter-c-section--child">
+                                    <button class="filter-c-header" data-toggle>
+                                        <span class="filter-c-label">Цвет</span>
+                                        <span class="filter-c-caret">▼</span>
+                                    </button>
+                                    <div class="filter-c-content">
+                                        <div class="filter-c-inner" data-filter-ui="color"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Child section "СИМ" -->
+                                <div class="filter-c-section filter-c-section--child">
+                                    <button class="filter-c-header" data-toggle>
+                                        <span class="filter-c-label">Sim</span>
+                                        <span class="filter-c-caret">▼</span>
+                                    </button>
+                                    <div class="filter-c-content">
+                                        <div class="filter-c-inner" data-filter-ui="sim"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Footer -->
+                        <div class="filter-c-footer">
+                            <button class="btn btn--dark btn--fullheight">Показать</button>
+                        </div>
                     </div>
 
-                    <!-- RIGHT COLUMN (Product Info) -->
-                    <div class="product__layout--info">
-                        <form class="product-info" id="productForm" data-product-id="123" data-product-title="Apple iPhone 17 Pro Max 256 Gb (Cosmic Orange)">
-                            <!-- PRICE -->
-                            <div class="product-info__price">
-                                <div class="product-info__price-old">110 000 ₽</div>
-                                <div class="product-info__price-current">
-                                    <div class="product-info__price-new">93 990 ₽</div>
-                                    <div class="product-info__price-badge">Акция</div>
+
+                    <!-- catalog layout -->
+                    <div class="catalog__layout">
+                        <!-- sidebar -->
+                        <aside class="catalog__sidebar">
+                            <div class="scrollbar-none sidebar">
+                                <div class="filter-s">
+                                    <div class="filter-s-section parent">
+                                        <!-- Parent -->
+                                        <button class="filter-s-header filter-s-header--parent" data-parent-toggle>
+                                            <div class="filter-s-group">
+                                                <svg class="icon icon--filter-s">
+                                                    <use href="./icons/symbol/sprite.svg#filter"></use>
+                                                </svg>
+                                                <span class="filter-s-label--parent">Фильтр</span>
+                                            </div>
+
+                                            <span class="caret">
+                                                <svg class="icon--caret-s">
+                                                    <use href="./icons/symbol/sprite.svg#caret"></use>
+                                                </svg>
+                                            </span>
+                                        </button>
+
+                                        <!-- Children -->
+                                        <div class="filter-s-children">
+                                            <!-- Аккордеонный пункт "Цена - Слайдер" -->
+                                            <div class="filter-s-section child">
+                                                <button class="filter-s-header" data-toggle>
+                                                    <span class="filter-s-label">Цена </span>
+                                                    <span class="filter-s-caret">▼</span>
+                                                </button>
+                                                <div class="filter-s-content">
+                                                    <div class="filter-s-inner">
+                                                        <!-- Price slider -->
+                                                        <div class="filter-price">
+                                                            <div class="filter-price__boxes">
+                                                                <div class="filter-price__box">
+                                                                    <span id="price-s-min-label"></span>
+                                                                </div>
+                                                                <div class="filter-price__box">
+                                                                    <span id="price-s-max-label"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div id="price-slider-s" class="filter-price__slider"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Чекбоксы -->
+
+                                            <!-- Child section "Память" -->
+                                            <div class="filter-s-section child">
+                                                <button class="filter-s-header" data-toggle>
+                                                    <span class="filter-s-label">Память</span>
+                                                    <span class="filter-s-caret">▼</span>
+                                                </button>
+                                                <div class="filter-s-content">
+                                                    <div class="filter-s-inner" data-filter-ui="memory"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Child section "Модель" -->
+                                            <div class="filter-s-section child">
+                                                <button class="filter-s-header" data-toggle>
+                                                    <span class="filter-s-label">Модель</span>
+                                                    <span class="filter-s-caret">▼</span>
+                                                </button>
+                                                <div class="filter-s-content">
+                                                    <div class="filter-s-inner" data-filter-ui="model"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Child section "Цвет" -->
+                                            <div class="filter-s-section child">
+                                                <button class="filter-s-header" data-toggle>
+                                                    <span class="filter-s-label">Цвет</span>
+                                                    <span class="filter-s-caret">▼</span>
+                                                </button>
+                                                <div class="filter-s-content">
+                                                    <div class="filter-s-inner" data-filter-ui="color"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Child section "СИМ" -->
+                                            <div class="filter-s-section child">
+                                                <button class="filter-s-header" data-toggle>
+                                                    <span class="filter-s-label">Sim</span>
+                                                    <span class="filter-s-caret">▼</span>
+                                                </button>
+                                                <div class="filter-s-content">
+                                                    <div class="filter-s-inner" data-filter-ui="sim"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </aside>
 
-                            <div class="product-info__wrapper">
-                                <!-- COLOR -->
-                                <fieldset class="product-info__section product-info__section--color">
-                                    <legend class="product-info__title">Цвет</legend>
-                                    <div class="product-info__color-list">
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="1" required checked="checked">
-                                            <span class="product-info__color-swatch" style="--color: #f0eae0"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="2">
-                                            <span class="product-info__color-swatch" style="--color: #30d5c8"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="3">
-                                            <span class="product-info__color-swatch" style="--color: #ffffff"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="4">
-                                            <span class="product-info__color-swatch" style="--color: #6ab3d8"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="5">
-                                            <span class="product-info__color-swatch" style="--color: #85d542"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="6">
-                                            <span class="product-info__color-swatch" style="--color: #f9e3cc"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="7">
-                                            <span class="product-info__color-swatch" style="--color: #ff8d73"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="8">
-                                            <span class="product-info__color-swatch" style="--color: #8e4f24"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="9">
-                                            <span class="product-info__color-swatch" style="--color: #bb4443"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="10">
-                                            <span class="product-info__color-swatch" style="--color: #ff8522"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="11">
-                                            <span class="product-info__color-swatch" style="--color: #eeeff1"></span>
-                                        </label>
-                                        <label class="product-info__color-item">
-                                            <input type="radio" name="color" value="12">
-                                            <span class="product-info__color-swatch" style="--color: #2680d3"></span>
-                                        </label>
-                                    </div>
-                                </fieldset>
+                        <!-- content -->
+                        <div class="catalog__content">
+                            <!-- ФОРМА СО СКРЫТЫМИ ПОЛЯМИ (ИСТОЧНИК ИСТИНЫ - ОТВЕТ СЕРВЕРА НАЧАЛО) -->
+
+                            <form id="catalogForm" class="catalog__form" action="/catalog" method="GET">
+                                <!-- Сортировка каталога -->
+                                <select class="sort-native" name="sort" id="sortCatalog" data-sort-select data-sort-id="sortCatalog" hidden>
+                                    <option value="default-desc" selected="selected">Сначала популярные</option>
+                                    <option value="default-asc">Сначала новые</option>
+                                    <option value="price-asc">Цена: по возрастанию</option>
+                                    <option value="price-desc">Цена: по убыванию</option>
+                                    <option value="discount-desc">Сначала со скидкой</option>
+                                    <option value="rating-desc">Лучшие по рейтингу</option>
+                                </select>
+
+                                <!-- Тип сортировки -->
+                                <select class="sort-native" name="sort_type" id="sortTypes" data-sort-select data-sort-id="sortTypes" hidden>
+                                    <option value="all" selected="selected">Все типы</option>
+                                    <option value="newest">Новые поступления</option>
+                                    <option value="popular">Популярные</option>
+                                    <option value="sale">Со скидкой</option>
+                                    <option value="recommended">Рекомендовано</option>
+                                </select>
+
+                                <input type="hidden" name="price_min" value="68390" data-price-min>
+                                <input type="hidden" name="price_max" value="140990" data-price-max>
 
                                 <!-- MEMORY -->
-                                <fieldset class="product-info__section product-info__section--memory">
-                                    <legend class="product-info__title">Объём памяти</legend>
-                                    <div class="product-info__options">
-                                        <label class="product-info__option">
-                                            <input type="radio" name="memory" value="256" required checked="checked">
-                                            <span class="product-info__option-label">256 ГБ</span>
-                                        </label>
-                                        <label class="product-info__option">
-                                            <input type="radio" name="memory" value="512">
-                                            <span class="product-info__option-label">512 ГБ</span>
-                                        </label>
-                                        <label class="product-info__option">
-                                            <input type="radio" name="memory" value="1024">
-                                            <span class="product-info__option-label">1024 ГБ</span>
-                                        </label>
-                                        <label class="product-info__option">
-                                            <input type="radio" name="memory" value="2048">
-                                            <span class="product-info__option-label">2048 ГБ</span>
-                                        </label>
-                                    </div>
-                                </fieldset>
+                                <input type="checkbox" name="memory[]" value="256" hidden>
+                                <input type="checkbox" name="memory[]" value="512" hidden>
+
+                                <!-- Model -->
+                                <input type="checkbox" name="model[]" value="iPhone 14" hidden>
+                                <input type="checkbox" name="model[]" value="iPhone 13" hidden>
+                                <input type="checkbox" name="model[]" value="iPhone 12" hidden>
+
+                                <!-- COLOR -->
+                                <input type="checkbox" name="color[]" value="black" hidden>
+                                <input type="checkbox" name="color[]" value="white" hidden>
+                                <input type="checkbox" name="color[]" value="gold" hidden>
 
                                 <!-- SIM -->
-                                <fieldset class="product-info__section product-info__section--sim">
-                                    <legend class="product-info__title">Тип SIM</legend>
-                                    <div class="product-info__options">
-                                        <label class="product-info__option">
-                                            <input type="radio" name="sim" value="sim" required checked="checked">
-                                            <span class="product-info__option-label">SIM</span>
-                                        </label>
-                                        <label class="product-info__option">
-                                            <input type="radio" name="sim" value="esim">
-                                            <span class="product-info__option-label">eSIM</span>
-                                        </label>
-                                    </div>
-                                </fieldset>
+                                <input type="checkbox" name="sim[]" value="single" hidden>
+                                <input type="checkbox" name="sim[]" value="dual" hidden>
+                                <input type="checkbox" name="sim[]" value="esim" hidden>
+                            </form>
+                            <!-- ФОРМА СО СКРЫТЫМИ ПОЛЯМИ (ИСТОЧНИК ИСТИНЫ - ОТВЕТ СЕРВЕРА КОНЕЦ) -->
 
-                                <!-- CART -->
-                                <div class="product-info__actions">
-                                    <div class="product-info__quantity">
-                                        <button type="button" class="product-info__quantity-btn" data-action="plus">
-                                            <svg class="icon--count-plus">
-                                                <use href="./icons/symbol/sprite.svg#plus"></use>
-                                            </svg>
-                                        </button>
-                                        <input type="number" name="quantity" value="1" min="1" class="product-info__quantity-input">
-                                        <button type="button" class="product-info__quantity-btn" data-action="minus">
-                                            <svg class="icon--count-minus">
-                                                <use href="./icons/symbol/sprite.svg#minus"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <button type="submit" class="btn btn--dark btn--info">В корзину</button>
+
+                            <!-- UI ИНТЕРФЕЙСЫ ДЛЯ МОБИЛЬНОЙ И ДЕСКТОПНГОЙ ВЕРСИЙ ! -->
+                            <div class="catalog__sorts-group">
+                                <!-- Контейнер для кастомного десктопного UI -->
+                                <div class="sort-desktop sort-desktop--catalog" data-sort-desktop data-sort-id="sortCatalog">
+                                    <!-- Core вставит сюда <div class="sort-desktop__current"> и <ul> с пунктами -->
+                                </div>
+                                <!-- Контейнер для кастомного десктопного UI -->
+                                <div class="sort-desktop sort-desktop--types" data-sort-desktop data-sort-id="sortTypes">
+                                    <!-- Core вставит сюда <div class="sort-desktop__current"> и <ul> с пунктами -->
                                 </div>
 
-                                <button type="button" class="product-info__request-btn">Запросить наличие товара</button>
+                                <!-- filter canvas button -->
+                                <button class="filter-toggle" id="filterBtn">
+                                    <svg class="icon icon--filter-toggle">
+                                        <use href="./icons/symbol/sprite.svg#filter"></use>
+                                    </svg>
+                                    <span>Фильтр</span>
+                                </button>
                             </div>
-                        </form>
+
+                            <!-- Сетка с товарами -->
+                            <div class="products__grid">
+                                <!-- 1 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Orange.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 2 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Orange.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 3 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13White.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 4 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13White.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 5 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 6 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 7 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Orange.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 8 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Orange.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 9 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13White.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 10 -->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13White.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 11-->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- 12-->
+                                <article class="product-card">
+                                    <a href="#" class="product-card__image-wrapper">
+                                        <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="" class="product-card__image">
+                                    </a>
+
+                                    <div class="product-card__content">
+                                        <h3 class="product-card__title">
+                                            <a href="#">Apple MacBook Air 13" (M2, 8C CPU/8C GPU, 2022), 8 ГБ, 256 ГБ </a>
+                                        </h3>
+
+                                        <div class="product-card__group">
+                                            <div class="product-card__price">71 990 ₽</div>
+
+                                            <a href="#" class="btn btn--dark btn--full product-card__button">
+                                                <span class="btn__text">Подробнее</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="product-tabs" data-tabs>
-                    <div class="product-tabs__nav">
-                        <button class="product-tabs__btn is-active" data-tab="specs">Характеристики</button>
-
-                        <button class="product-tabs__btn" data-tab="delivery">Доставка</button>
-
-                        <button class="product-tabs__btn" data-tab="payment">Оплата</button>
-                    </div>
-
-                    <div class="product-tabs__content">
-                        <div class="product-tabs__pane is-active" data-content="specs">
-                            <ul class="specs-list">
-                                <li><span>Бренд:</span> Apple</li>
-                                <li><span>Цвет:</span> Cosmic Orange</li>
-                                <li><span>Хранилище:</span> 256 Gb</li>
-                                <li><span>Версия:</span> Dual: nano SIM + eSIM</li>
-                                <li><span>Система:</span> на платформе iOS</li>
-                                <li><span>Процессор:</span> Apple A19 Pro</li>
-                                <li><span>Тип дисплея:</span> Super Retina XDR</li>
-                                <li><span>Размер дисплея:</span> 6.9"</li>
-                                <li><span>Разрешение дисплея:</span> 2868x1320</li>
-                                <li><span>Частота обновления дисплея:</span> 120 Гц</li>
-                                <li><span>Количество модулей основной камеры:</span> 3</li>
-                                <li><span>Основная камера:</span> 48 МП</li>
-                                <li><span>Дополнительные камеры:</span> Сверхширокоугольная 48 МП / Телефото 48 МП / Лидар</li>
-                                <li><span>Фронтальная камера:</span> 18 МП</li>
-                                <li><span>Быстрая зарядка:</span> 30 Вт</li>
-                                <li><span>Беспроводная зарядка:</span> Да</li>
-                                <li><span>5G:</span> Да</li>
-                                <li><span>Защита:</span> IP68</li>
-                                <li><span>Гарантия:</span> 14 дней на проверку от магазина, 1 год — гарантия от производителя Apple</li>
-                            </ul>
-                        </div>
-
-                        <div class="product-tabs__pane" data-content="delivery">
-                            <h3>Доставка по городу</h3>
-                            <p>
-                                Мы осуществляем курьерскую доставку в течение 1–2 рабочих дней после подтверждения заказа. Доставка осуществляется ежедневно
-                                с 10:00 до 21:00.
-                            </p>
-
-                            <ul>
-                                <li>Стоимость доставки — 490 ₽</li>
-                                <li>Бесплатно при заказе от 100 000 ₽</li>
-                                <li>Возможна экспресс-доставка в день заказа</li>
-                            </ul>
-
-                            <h3>Самовывоз</h3>
-                            <p>
-                                Вы можете самостоятельно забрать заказ из нашего магазина. После оформления заказа с вами свяжется менеджер для
-                                подтверждения готовности товара.
-                            </p>
-
-                            <ul>
-                                <li>Бесплатно</li>
-                                <li>Резерв товара — до 3 дней</li>
-                            </ul>
-
-                            <h3>Доставка по стране</h3>
-                            <p>
-                                Отправка осуществляется транспортными компаниями и курьерскими службами. Сроки доставки зависят от региона и обычно
-                                составляют от 2 до 7 рабочих дней.
-                            </p>
-
-                            <ul>
-                                <li>Стоимость рассчитывается индивидуально</li>
-                                <li>Предоставляется трек-номер для отслеживания</li>
-                                <li>Возможна страховка отправления</li>
-                            </ul>
-                        </div>
-
-                        <div class="product-tabs__pane" data-content="payment">
-                            <h3>Оплата картой</h3>
-                            <p>
-                                Мы принимаем оплату всеми популярными банковскими картами: Visa, Mastercard, Мир. Транзакции безопасны и проходят через
-                                защищённые платёжные шлюзы.
-                            </p>
-                            <ul>
-                                <li>Оплата сразу при оформлении заказа</li>
-                                <li>Средства списываются только после подтверждения заказа</li>
-                                <li>Чек и электронная квитанция приходят на e-mail</li>
-                            </ul>
-
-                            <h3>Наличные при получении</h3>
-                            <p>
-                                Возможна оплата наличными при получении товара в магазине или курьеру. Пожалуйста, подготовьте точную сумму для удобства
-                                курьера.
-                            </p>
-                            <ul>
-                                <li>Бесплатная оплата</li>
-                                <li>Доступно только для городских заказов</li>
-                                <li>Только при наличии подтверждения заказа</li>
-                            </ul>
-
-                            <h3>Рассрочка и кредит</h3>
-                            <p>Вы можете оформить рассрочку или кредит через наших партнёров. Процентная ставка и сроки зависят от выбранного банка.</p>
-                            <ul>
-                                <li>Без первоначального взноса (по акциям)</li>
-                                <li>Сроки от 3 до 12 месяцев</li>
-                                <li>Быстрое одобрение онлайн</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            </section>
 
 
-                <section class="recommended">
-                    <h2 class="recommended__title">С этим товаром покупают</h2>
-
-                    <div class="swiper recommended__slider">
-                        <div class="swiper-wrapper">
-                            <!-- 1 -->
-                            <article class="swiper-slide recommended-card">
-                                <a href="#" class="recommended-card__image-wrapper">
-                                    <img src="./images/webp/recommended-products/AppleAirTag.webp" alt="" class="recommended-card__image">
-                                </a>
-
-                                <div class="recommended-card__content">
-                                    <h3 class="recommended-card__title">
-                                        <a href="#">Трекер Apple AirTag (1 Pack)</a>
-                                    </h3>
-
-                                    <div class="recommended-card__group">
-                                        <div class="recommended-card__price">4 990 ₽</div>
-
-                                        <div class="recommended-card__buttons">
-                                            <a href="#" class="btn btn--recommended_white btn-full">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                            <a href="#" class="btn btn--full btn--recommended_dark">
-                                                <span class="btn__text">В корзину</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- 2 -->
-                            <article class="swiper-slide recommended-card">
-                                <a href="#" class="recommended-card__image-wrapper">
-                                    <img src="./images/webp/recommended-products/HocoIphone.webp" alt="" class="recommended-card__image">
-                                </a>
-
-                                <div class="recommended-card__content">
-                                    <h3 class="recommended-card__title">
-                                        <a href="#">Защитное стекло для iPhone Антишпион</a>
-                                    </h3>
-
-                                    <div class="recommended-card__group">
-                                        <div class="recommended-card__price">700 ₽</div>
-
-                                        <div class="recommended-card__buttons">
-                                            <a href="#" class="btn btn--recommended_white btn-full">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                            <a href="#" class="btn btn--full btn--recommended_dark">
-                                                <span class="btn__text">В корзину</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- 3 -->
-                            <article class="swiper-slide recommended-card">
-                                <a href="#" class="recommended-card__image-wrapper">
-                                    <img src="./images/webp/recommended-products/Magnetic.webp" alt="" class="recommended-card__image">
-                                </a>
-
-                                <div class="recommended-card__content">
-                                    <h3 class="recommended-card__title">
-                                        <a href="#">Чехол Magnetic для iPhone 17 Pro Max Прозрачный</a>
-                                    </h3>
-
-                                    <div class="recommended-card__group">
-                                        <div class="recommended-card__price">890 ₽</div>
-
-                                        <div class="recommended-card__buttons">
-                                            <a href="#" class="btn btn--recommended_white btn-full">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                            <a href="#" class="btn btn--full btn--recommended_dark">
-                                                <span class="btn__text">В корзину</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- 4 -->
-                            <article class="swiper-slide recommended-card">
-                                <a href="#" class="recommended-card__image-wrapper">
-                                    <img src="./images/webp/recommended-products/GlassForIphone.webp" alt="" class="recommended-card__image">
-                                </a>
-
-                                <div class="recommended-card__content">
-                                    <h3 class="recommended-card__title">
-                                        <a href="#">Чехол Hoco iPhone 16 Plus</a>
-                                    </h3>
-
-                                    <div class="recommended-card__group">
-                                        <div class="recommended-card__price">800 ₽</div>
-
-                                        <div class="recommended-card__buttons">
-                                            <a href="#" class="btn btn--recommended_white btn-full">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                            <a href="#" class="btn btn--full btn--recommended_dark">
-                                                <span class="btn__text">В корзину</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- 5 -->
-                            <article class="swiper-slide recommended-card">
-                                <a href="#" class="recommended-card__image-wrapper">
-                                    <img src="./images/webp/recommended-products/Block20W.webp" alt="" class="recommended-card__image">
-                                </a>
-
-                                <div class="recommended-card__content">
-                                    <h3 class="recommended-card__title">
-                                        <a href="#">Блок питания 20w</a>
-                                    </h3>
-
-                                    <div class="recommended-card__group">
-                                        <div class="recommended-card__price">2 600 ₽</div>
-
-                                        <div class="recommended-card__buttons">
-                                            <a href="#" class="btn btn--recommended_white btn-full">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                            <a href="#" class="btn btn--full btn--recommended_dark">
-                                                <span class="btn__text">В корзину</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- 6 -->
-                            <article class="swiper-slide recommended-card">
-                                <a href="#" class="recommended-card__image-wrapper">
-                                    <img src="./images/webp/recommended-products/AppleAirTag.webp" alt="" class="recommended-card__image">
-                                </a>
-
-                                <div class="recommended-card__content">
-                                    <h3 class="recommended-card__title">
-                                        <a href="#">Трекер Apple AirTag (1 Pack) </a>
-                                    </h3>
-
-                                    <div class="recommended-card__group">
-                                        <div class="recommended-card__price">4 990 ₽</div>
-
-                                        <div class="recommended-card__buttons">
-                                            <a href="#" class="btn btn--recommended_white btn-full">
-                                                <span class="btn__text">Подробнее</span>
-                                            </a>
-                                            <a href="#" class="btn btn--full btn--recommended_dark">
-                                                <span class="btn__text">В корзину</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Navigation -->
-                        <div class="recommended__nav">
-                            <button class="recommended__arrow recommended__arrow--prev">
-                                <svg class="icon icon--angle-left">
-                                    <use href="./icons/symbol/sprite.svg#angle-left"></use>
-                                </svg>
-                            </button>
-                            <button class="recommended__arrow recommended__arrow--next">
-                                <svg class="icon icon--angle-right">
-                                    <use href="./icons/symbol/sprite.svg#angle-right"></use>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
         </main>
         <footer class="footer">
             <div class="container">

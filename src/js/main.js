@@ -28,7 +28,10 @@ import { initSortMobileCanvas } from "./modules/filter/SortMobileCore.js";   // 
 import { initSortDesktopCore } from "./modules/filter/SortDesktopCore.js";   // Обработчик UI для десктопной сортировки
 import { initPriceSliders } from './modules/filter/PriceSlider.js';   // Инициализирует слайдеры цен (мобильный, десктопный)
 
-import { FilterStore } from './modules/filter/FilterStore.js'  // Стор состояния фильтра 
+// import { FilterStore } from './modules/filter/FilterStore.js'  // Стор состояния фильтра 
+
+import { FilterStore } from './modules/filter/FilterStore.js'
+import { initFilterUI, syncUIFromForm } from './modules/filter/initFilterUI.js'
 
 // import { buildCatalogFormDataFromState } from './modules/filter/CatalogRequestBuilder.js'  // формируем FormData из стора
 
@@ -62,76 +65,156 @@ document.addEventListener('DOMContentLoaded', () => {
         initMapOverlayMobile();
     }
 
-
     /* ------------------------------------------------------------------------------------------------------------------------------
     CATALOG PRODUCTS PAGE
     --------------------------------------------------------------------------------------------------------------------------------*/
     if (catalogProductsPage) {
-
-        const PRICE_RANGE_MIN = 68390;
-        const PRICE_RANGE_MAX = 140990;
+        // -------------------------
+        // ИНПУТЫ СЛАЙДЕРА
+        // -------------------------
+        const priceMinInput = document.querySelector('[data-price-min]');
+        const priceMaxInput = document.querySelector('[data-price-max]');
+        const DEFAULT_MIN = priceMinInput ? parseInt(priceMinInput.value, 10) : 68390;
+        const DEFAULT_MAX = priceMaxInput ? parseInt(priceMaxInput.value, 10) : 140990;
         const PRICE_STEP = 500;
 
+        // -------------------------
+        // STORE ФОРМЫ
+        // -------------------------
+        const formId = 'catalogForm';
+        const store = new FilterStore({ formId });
+        const form = document.getElementById(formId);
+
+        // -------------------------
+        // ВЗЯТИЕ СОХРАНЕННЫХ ЗНАЧЕНИЙ ИЗ LocalStorage
+        // -------------------------
+        const savedData = store.getFormData ? Object.fromEntries(store.getFormData()) : {};
+        const startMin = savedData.price_min ? parseInt(savedData.price_min, 10) : DEFAULT_MIN;
+        const startMax = savedData.price_max ? parseInt(savedData.price_max, 10) : DEFAULT_MAX;
+
+        // Подставляем значения в hidden inputs
+        if (priceMinInput) priceMinInput.value = startMin;
+        if (priceMaxInput) priceMaxInput.value = startMax;
+
+        // Подставляем сохранённые значения для селектов
+        ['sortCatalog', 'sortTypes'].forEach(id => {
+            const select = document.getElementById(id);
+            if (!select) return;
+            const savedValue = savedData[select.name];
+            if (savedValue) select.value = savedValue;
+        });
+
+        // -------------------------
+        // UI ФИЛЬТРОВ
+        // -------------------------
         breadcrumbsColorizator({
             page: 'catalog-products-page',
-            color: '#ffffff',        // цвет фона
-            startBreakpoint: 576,  // min-width
-            endBreakpoint: 992     // max-width
+            color: '#ffffff',
+            startBreakpoint: 576,
+            endBreakpoint: 992
         });
 
         initFilterCanvasToggle();
 
-        // стор для фильтра (с сохранением в локалсторадже)
-        const storeFilter = new FilterStore({
-            rangeMin: PRICE_RANGE_MIN,
-            rangeMax: PRICE_RANGE_MAX
-        })
-
-        // инит UI обеих сортировок для десктопного фильтра
+        // Десктопные сортировки
         const sortCatalog = initSortDesktopCore({ selectId: 'sortCatalog', dropdownClass: 'default' });
         const sortTypes = initSortDesktopCore({ selectId: 'sortTypes', dropdownClass: 'short' });
 
-        // инит UI сортировки sortCatalog для мобильного фильтра
-        initSortMobileCanvas({
-            selectId: 'sortCatalog',
-            canvasId: 'filterCanvas'
-        });
+        // Мобильная сортировка в канвасе
+        initSortMobileCanvas({ selectId: 'sortCatalog', canvasId: 'filterCanvas' });
 
         initFilterSidebarAccordion();
         initFilterCanvasAccordion();
 
-        // инит мобильного слайдера цен
+        // -------------------------
+        // СЛАЙДЕРЫ ЦЕН
+        // -------------------------
         const sliderCanvas = initPriceSliders({
             sliderId: "price-slider-c",
             minLabelId: "price-c-min-label",
             maxLabelId: "price-c-max-label",
-            rangeMin: PRICE_RANGE_MIN,
-            rangeMax: PRICE_RANGE_MAX,
-            startMin: PRICE_RANGE_MIN,
-            startMax: PRICE_RANGE_MAX,
+            rangeMin: DEFAULT_MIN,
+            rangeMax: DEFAULT_MAX,
+            startMin,
+            startMax,
             step: PRICE_STEP
         });
 
-        // инит десктопного слайдера цен
         const sliderSidebar = initPriceSliders({
             sliderId: "price-slider-s",
             minLabelId: "price-s-min-label",
             maxLabelId: "price-s-max-label",
-            rangeMin: PRICE_RANGE_MIN,
-            rangeMax: PRICE_RANGE_MAX,
-            startMin: PRICE_RANGE_MIN,
-            startMax: PRICE_RANGE_MAX,
+            rangeMin: DEFAULT_MIN,
+            rangeMax: DEFAULT_MAX,
+            startMin,
+            startMax,
             step: PRICE_STEP
         });
 
-        // снхронизируем мобильный и десктопный фильтры
-        if (sliderCanvas) storeFilter.registerSlider(sliderCanvas);
-        if (sliderSidebar) storeFilter.registerSlider(sliderSidebar);
+        // -------------------------
+        // ДЕБАУНС СИНХРОНИЗАЦИИ СЛАЙДЕРОВ
+        // -------------------------
+        const debounceSync = (() => {
+            let syncTimeout;
+            return () => {
+                clearTimeout(syncTimeout);
+                syncTimeout = setTimeout(() => {
+                    const min = parseInt(priceMinInput.value, 10);
+                    const max = parseInt(priceMaxInput.value, 10);
 
-        // снхронизируем мобильную и десктопную сортировки
-        if (sortCatalog) storeFilter.registerSort('sortCatalog', 'catalog');
-        if (sortTypes) storeFilter.registerSort('sortTypes', 'type');
+                    // Подтягиваем значения в оба слайдера
+                    if (sliderCanvas) {
+                        const [cMin, cMax] = sliderCanvas.get().map(v => Math.round(v));
+                        if (cMin !== min || cMax !== max) sliderCanvas.set([min, max], false);
+                    }
+                    if (sliderSidebar) {
+                        const [sMin, sMax] = sliderSidebar.get().map(v => Math.round(v));
+                        if (sMin !== min || sMax !== max) sliderSidebar.set([min, max], false);
+                    }
 
+                    // Сохраняем в LocalStorage
+                    store.save();
+                }, 500);
+            };
+        })();
+
+        // -------------------------
+        // ОБРАБОТЧИК ИЗМЕНЕНИЯ СЛАЙДЕРА
+        // -------------------------
+        const onSliderSet = (values) => {
+            const [min, max] = values.map(v => Math.round(v));
+
+            // Обновляем hidden inputs
+            if (priceMinInput) priceMinInput.value = min;
+            if (priceMaxInput) priceMaxInput.value = max;
+
+            // Сохраняем сразу в LocalStorage через store
+            store.save();
+
+            // Дебаунс для второго слайдера
+            debounceSync();
+        };
+
+        if (sliderCanvas) sliderCanvas.on('set', onSliderSet);
+        if (sliderSidebar) sliderSidebar.on('set', onSliderSet);
+
+        // -------------------------
+        // ИНИЦИАЛИЗАЦИЯ UI И СИНХРОНИЗАЦИЯ
+        // -------------------------
+        initFilterUI({ formId });
+        syncUIFromForm(form);
+
+        // -------------------------
+        // СИНХРОНИЗАЦИЯ СЕЛЕКТОВ С STORE
+        // -------------------------
+        ['sortCatalog', 'sortTypes'].forEach(id => {
+            const selects = document.querySelectorAll(`#${id}`);
+            selects.forEach(select => {
+                select.addEventListener('change', () => {
+                    store.save(); // синхронизируем с LocalStorage через store
+                });
+            });
+        });
     }
 
     /* ------------------------------------------------------------------------------------------------------------------------------

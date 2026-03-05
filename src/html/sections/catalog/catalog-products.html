@@ -14,40 +14,54 @@
 
 			<!-- content -->
 			<div class="catalog__content">
-				<!-- Скрытый нативный селект для сортировки по цене / по умолчанию -->
-				<select
-					class="sort-native"
-					name="sort"
-					id="sortCatalog"
-					data-sort-select
-					data-sort-id="sortCatalog"
-					aria-label="Сортировка товаров"
-				>
-					<option value="default-desc" selected>Сначала популярные</option>
-					<option value="default-asc">Сначала новые</option>
-					<option value="price-asc">Цена: по возрастанию</option>
-					<option value="price-desc">Цена: по убыванию</option>
-					<option value="discount-desc">Сначала со скидкой</option>
-					<option value="rating-desc">Лучшие по рейтингу</option>
-				</select>
+				<!-- ФОРМА СО СКРЫТЫМИ ПОЛЯМИ (ИСТОЧНИК ИСТИНЫ - ОТВЕТ СЕРВЕРА НАЧАЛО) -->
 
-				<!-- Скрытый нативный селект для сортировки по популярности / новизне / всем товарам -->
-				<select
-					class="sort-native"
-					name="sort-types"
-					id="sortTypes"
-					data-sort-select
-					data-sort-id="sortTypes"
-					aria-label="Сортировка по типам"
-				>
-					<option value="all" selected>Все типы</option>
-					<option value="newest">Новые поступления</option>
-					<option value="popular">Популярные</option>
-					<option value="sale">Со скидкой</option>
-					<option value="recommended">Рекомендовано</option>
-				</select>
+				<form id="catalogForm" class="catalog__form" action="/catalog" method="GET">
+					<!-- Сортировка каталога -->
+					<select class="sort-native" name="sort" id="sortCatalog" data-sort-select data-sort-id="sortCatalog" hidden>
+						<option value="default-desc" selected>Сначала популярные</option>
+						<option value="default-asc">Сначала новые</option>
+						<option value="price-asc">Цена: по возрастанию</option>
+						<option value="price-desc">Цена: по убыванию</option>
+						<option value="discount-desc">Сначала со скидкой</option>
+						<option value="rating-desc">Лучшие по рейтингу</option>
+					</select>
 
-				<!-- Группа селектов для сортировкаи десктопная версия -->
+					<!-- Тип сортировки -->
+					<select class="sort-native" name="sort_type" id="sortTypes" data-sort-select data-sort-id="sortTypes" hidden>
+						<option value="all" selected>Все типы</option>
+						<option value="newest">Новые поступления</option>
+						<option value="popular">Популярные</option>
+						<option value="sale">Со скидкой</option>
+						<option value="recommended">Рекомендовано</option>
+					</select>
+
+					<input type="hidden" name="price_min" value="68390" data-price-min />
+					<input type="hidden" name="price_max" value="140990" data-price-max />
+
+					<!-- MEMORY -->
+					<input type="checkbox" name="memory[]" value="256" hidden />
+					<input type="checkbox" name="memory[]" value="512" hidden />
+
+					<!-- Model -->
+					<input type="checkbox" name="model[]" value="iPhone 14" hidden />
+					<input type="checkbox" name="model[]" value="iPhone 13" hidden />
+					<input type="checkbox" name="model[]" value="iPhone 12" hidden />
+
+					<!-- COLOR -->
+					<input type="checkbox" name="color[]" value="black" hidden />
+					<input type="checkbox" name="color[]" value="white" hidden />
+					<input type="checkbox" name="color[]" value="gold" hidden />
+
+					<!-- SIM -->
+					<input type="checkbox" name="sim[]" value="single" hidden />
+					<input type="checkbox" name="sim[]" value="dual" hidden />
+					<input type="checkbox" name="sim[]" value="esim" hidden />
+				</form>
+				<!-- ФОРМА СО СКРЫТЫМИ ПОЛЯМИ (ИСТОЧНИК ИСТИНЫ - ОТВЕТ СЕРВЕРА КОНЕЦ) -->
+
+				
+				<!-- UI ИНТЕРФЕЙСЫ ДЛЯ МОБИЛЬНОЙ И ДЕСКТОПНГОЙ ВЕРСИЙ ! -->
 				<div class="catalog__sorts-group">
 					<!-- Контейнер для кастомного десктопного UI -->
 					<div class="sort-desktop sort-desktop--catalog" data-sort-desktop data-sort-id="sortCatalog">
