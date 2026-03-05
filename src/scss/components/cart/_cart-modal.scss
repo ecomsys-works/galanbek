@@ -1,0 +1,704 @@
+/* ------------------------------------------------------------------------------------------------------------------------------
+=== Overlay и модалка === 
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.cart-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh; /* Полная высота окна */
+	background: rgba(0, 0, 0, 0.4);
+
+	display: none;
+	justify-content: center;
+	align-items: flex-start; /* Чтобы модалка шла сверху */
+	overflow-y: auto; /* Скролл всей страницы оверлея */
+	z-index: 10000;
+	animation: fade-up 0.25s ease forwards;
+
+	padding: 75px 10px;
+	@include sm {
+		padding: 75px 15px;
+	}
+	@include md {
+		padding: 75px 20px;
+	}
+}
+
+.cart-modal-overlay.active {
+	display: flex;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+=== модалка === 
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.cart-modal {
+	background: #fff;
+	width: 100%;
+	max-width: 748px;
+	margin: 0 auto 60px auto;
+	box-sizing: border-box;
+
+	border-radius: 20px;
+
+	padding: 20px;
+	@include sm {
+		padding: 25px;
+	}
+	@include md {
+		border-radius: 20px;
+		padding: 40px;
+	}
+	// контейнер хедера
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		margin-bottom: 13px;
+		@include sm {
+			margin-bottom: 17px;
+		}
+		@include md {
+			margin-bottom: 25px;
+		}
+	}
+	// заголовок
+	&__title {
+		font-weight: 500;
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		color: #000;
+
+		font-size: 20px;
+
+		@include sm {
+			font-size: 30px;
+		}
+
+		@include md {
+			font-size: 32px;
+		}
+	}
+	// кнопка закрыть модалку
+	&__close {
+		flex-shrink: 0;
+		border-radius: 50%;
+		border: 1px solid rgba(0, 0, 0);
+		background: none;
+		cursor: pointer;
+		color: rgb(0, 0, 0, 1);
+		transition: all 0.3s ease-in-out;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			border: 1px solid rgba(0, 0, 0, 0.45);
+			color: rgb(0, 0, 0, 0.45);
+		}
+
+		width: 28px;
+		height: 28px;
+		svg {
+			width: 12px;
+			height: 12px;
+		}
+
+		@include sm {
+			width: 33px;
+			height: 33px;
+			svg {
+				width: 14px;
+				height: 14px;
+			}
+		}
+
+		@include md {
+			width: 40px;
+			height: 40px;
+			svg {
+				width: 18px;
+				height: 18px;
+			}
+		}
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+=== Карточки товаров === 
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.cart-cards {
+	display: flex;
+	flex-direction: column;
+	// @include md {
+	// 	padding-top: 25px;
+	// }
+}
+
+.cart-card {
+	display: block;
+	&:first-child {
+		border-top: 1px solid rgba(0, 0, 0, 0.2);
+	}
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+	padding-block: 10px;
+	padding-inline: 10px;
+	@include sm {
+		padding-block: 15px;
+		padding-inline: 15px;
+	}
+	@include md {
+		padding-inline: 10px;
+		padding-block: 10px;
+	}
+
+	&__row {
+		display: flex;
+		gap: 5px;
+		@include sm {
+			gap: 16px;
+		}
+
+		@include md {
+			gap: 10px;
+		}
+	}
+
+	// сама карточка
+	&__inner {
+		display: flex;
+		gap: 10px;
+
+		flex-direction: column;
+
+		@include sm {
+			gap: 15px;
+		}
+
+		@include md {
+			flex-direction: row;
+		}
+	}
+
+	// информация о товаре
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex: 1;
+
+		@include md {
+			justify-content: start;
+		}
+
+		&-header {
+			display: flex;
+			align-items: start;
+			justify-content: space-between;
+			gap: 10px;
+
+			margin-bottom: 10px;
+		}
+	}
+
+	//  картинка
+	&__image {
+		overflow: hidden;
+		flex-shrink: 0;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+
+		width: 66px;
+		height: 66px;
+
+		@include sm {
+			border-radius: 16px;
+			width: 114px;
+			height: 114px;
+		}
+
+		@include md {
+			width: 134px;
+			height: 134px;
+		}
+
+		img {
+			display: block;
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all 0.3s ease-in-out;
+		}
+		&:hover img {
+			transform: scale(1.025);
+		}
+	}
+
+	// заголовок
+	&__title {
+		font-weight: 500;
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		color: #000;
+
+		font-size: 12px;
+
+		@include sm {
+			padding-right: 15%;
+			font-size: 16px;
+		}
+
+		@include md {
+			font-size: 18px;
+		}
+	}
+
+	// опции товара
+	&__options {
+		li {
+			font-weight: 400;
+			line-height: 100%;
+			letter-spacing: -0.02em;
+			color: rgba(0, 0, 0, 0.5);
+
+			font-size: 12px;
+			@include sm {
+				font-size: 16px;
+			}
+			@include md {
+				font-size: 14px;
+			}
+		}
+	}
+
+	// кнопки карточки (каунтер и др.)
+	&__actions {
+		flex-shrink: 0;
+		margin-inline: auto;
+		align-self: start;
+		display: inline-flex;
+		align-items: center;
+		gap: 40px;
+
+		@include md {
+			display: flex;
+			align-self: initial;
+			margin-inline: initial;
+			margin-bottom: 0px;
+		}
+	}
+
+	// кнопки actions
+	&__counter button,
+	&__remove {
+		flex-shrink: 0;
+
+		border-radius: 50%;
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		background: none;
+		cursor: pointer;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: rgb(0, 0, 0, 0.5);
+		transition: all 0.3s ease-in-out;
+
+		width: 13px;
+		height: 13px;
+		svg {
+			width: 7px;
+			height: 7px;
+		}
+
+		@include sm {
+			width: 20px;
+			height: 20px;
+			svg {
+				width: 8px;
+				height: 8px;
+			}
+		}
+
+		&:hover {
+			color: rgb(0, 0, 0);
+		}
+	}
+
+	&__remove {
+		&--md {
+			display: none;
+			@include md {
+				display: flex;
+			}
+		}
+
+		&--xs {
+			display: flex;
+			@include md {
+				display: none;
+			}
+		}
+	}
+
+	&__counter {
+		display: inline-flex;
+		align-items: center;
+		gap: 0px;
+
+		@include sm {
+			gap: 8px;
+		}
+
+		span {
+			font-weight: 500;
+			line-height: 100%;
+			letter-spacing: -0.02em;
+
+			min-width: 16px;
+			text-align: center;
+
+			color: rgb(0, 0, 0, 0.5);
+			font-size: 7px;
+			@include sm {
+				color: #000;
+				font-size: 12px;
+			}
+		}
+
+		svg {
+			width: 13px;
+			height: 13px;
+		}
+	}
+
+	// цена
+	&__price {
+		font-weight: 400;
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		color: rgba(0, 0, 0, 0.5);
+
+		font-size: 12px;
+		@include sm {
+			font-size: 18px;
+		}
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+=== Тотал и описание === 
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.cart-modal__total {
+	text-align: right;
+	font-weight: 500;
+	line-height: 100%;
+	letter-spacing: -0.02em;
+	color: #000;
+
+	&--top {
+		padding-top: 10px;
+		margin-bottom: 30px;
+		font-size: 14px;
+
+		@include sm {
+			padding-top: 20px;
+			margin-bottom: 20px;
+			font-size: 16px;
+		}
+		@include md {
+			padding-top: 20px;
+			margin-bottom: 30px;
+			font-size: 18px;
+		}
+	}
+
+	&--bottom {
+		font-weight: 400;
+
+		line-height: 120%;
+		letter-spacing: -0.02em;
+		color: #000;
+
+		padding-top: 0px;
+		margin-bottom: 5px;
+		margin-top: -10px;
+
+		font-size: 14px;
+		@include sm {
+			margin-top: 0px;
+			margin-bottom: 15px;
+			font-size: 16px;
+		}
+		@include md {
+			padding-top: 0px;
+			font-size: 20px;
+		}
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+=== Дополнительно (две колонки) === 
+ --------------------------------------------------------------------------------------------------------------------------------*/
+
+.cart-modal__description {
+	font-weight: 400;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	color: #000;
+
+	font-size: 14px;
+	margin-bottom: 25px;
+
+	@include sm {
+		font-size: 16px;
+		margin-bottom: 30px;
+	}
+	@include md {
+		margin-bottom: 40px;
+		font-size: 18px;
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+ИНПУТЫ  - Телефон и Имя
+ --------------------------------------------------------------------------------------------------------------------------------*/
+
+/* === Форма === */
+.cart-modal__form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	input[type="text"],
+	input[type="tel"] {
+		border: none;
+		background: none;
+		width: 100%;
+		outline: none;
+		font-weight: 400;
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		color: rgba(0, 0, 0);
+
+		&::placeholder {
+			color: rgba(0, 0, 0, 0.5);
+		}
+
+		height: 53px;
+		font-size: 14px;
+		@include sm {
+			height: 72px;
+			font-size: 16px;
+		}
+		@include md {
+			font-size: 18px;
+		}
+	}
+
+	&-inputs {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-bottom: 50px;
+
+		@include sm {
+			margin-bottom: 0px;
+			gap: 5px;
+		}
+		@include md {
+			gap: 20px;
+		}
+	}
+
+	&-input {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		border-radius: 20px;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		padding: 0 20px;
+		background: #f9f9f9;
+
+		height: 53px;
+		@include sm {
+			height: 72px;
+		}
+
+		img {
+			width: 25px;
+			height: 17px;
+			object-fit: cover;
+		}
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+===  радио кнопки
+ --------------------------------------------------------------------------------------------------------------------------------*/
+
+.cart-radio__title {
+	font-weight: 400;
+	line-height: 100%;
+	letter-spacing: -0.02em;
+	color: #000;
+
+	margin-bottom: 20px;
+	font-size: 14px;
+	@include sm {
+		margin-bottom: 10px;
+		font-size: 18px;
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+=== Дополнительно (две колонки) === 
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.cart-additional {
+	&__title {
+		font-weight: 500;
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		color: #000;
+
+		padding-top: 10px;
+		margin-bottom: 15px;
+		font-size: 20px;
+		@include sm {
+			margin-bottom: 20px;
+			padding-top: 0;
+			font-size: 30px;
+		}
+
+		@include md {
+			margin-bottom: 30px;
+			font-size: 32px;
+		}
+	}
+
+	&__card {
+		display: flex;
+		gap: 10px;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		border-radius: 20px;
+		padding: 8px;
+		align-items: center;
+
+		&-image {
+			overflow: hidden;
+			flex-shrink: 0;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+
+			border-radius: 16px;
+
+			width: 134px;
+			height: 134px;
+
+			img {
+				display: block;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: all 0.3s ease-in-out;
+			}
+			&:hover img {
+				transform: scale(1.025);
+			}
+		}
+
+		&-info {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		&-group {
+			display: flex;
+			width: 100%;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
+		}
+
+		&-title {
+			font-weight: 500;
+
+			line-height: 100%;
+			letter-spacing: -0.02em;
+			color: #000;
+
+			padding-top: 5px;
+			margin-bottom: 10px;
+
+			font-size: 14px;
+			@include sm {
+				font-size: 14px;
+			}
+		}
+
+		&-bottom {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			align-items: center;
+			color: white;
+			padding-bottom: 10px;
+		}
+
+		&-add {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 12px;
+
+			flex-shrink: 0;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			background: none;
+			cursor: pointer;
+
+			background-color: #b584d3;
+			transition: all 0.3s ease-in-out;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+
+			svg {
+				color: white;
+				width: 20px;
+				height: 20px;
+				@include md {
+					width: 24px;
+					height: 24px;
+				}
+			}
+		}
+
+		&-price {
+			font-weight: 400;
+
+			line-height: 100%;
+			letter-spacing: -0.02em;
+			color: rgba(0, 0, 0, 0.5);
+
+			font-size: 18px;
+			@include sm {
+				font-size: 18px;
+			}
+		}
+	}
+
+	[data-cart-additional] {
+		position: relative;
+		z-index: 10;
+	}
+}

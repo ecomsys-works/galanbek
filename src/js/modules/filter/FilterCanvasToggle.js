@@ -18,9 +18,9 @@ export function initFilterCanvasToggle() {
     const toggleCanvas = () => {
         canvas.classList.toggle('active');
         if (canvas.classList.contains('active')) {
-            Overlay.open();
+            Overlay?.open();
         } else {
-            Overlay.close();
+            Overlay?.close();
         }
 
     };
@@ -28,12 +28,12 @@ export function initFilterCanvasToggle() {
 
     const closeCanvas = () => {
         canvas.classList.remove('active');
-        Overlay.close();
+        Overlay?.close();
     };
 
     filterBtn.addEventListener('click', toggleCanvas);
 
     closeBtn?.addEventListener('click', closeCanvas);
 
-    Overlay.el.addEventListener("click", closeCanvas);
+    Overlay?.el.addEventListener("click", closeCanvas);
 }

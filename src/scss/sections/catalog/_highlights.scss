@@ -57,6 +57,19 @@
 		}
 	}
 
+	&-img--desktop{
+		display: none;
+		@include md{
+			display: block;
+		}
+	}
+	&-img--mobile{
+		display: block;
+		@include md{
+			display: none;
+		}
+	}
+
 	/* ================= Ensure cards fill cells ================= */
 	&-card {
 		display: block;
@@ -77,13 +90,6 @@
 		@include xxl {
 			padding: 30px;
 			border-radius: 20px;
-		}
-
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			display: block;
 		}
 
 		&:hover {

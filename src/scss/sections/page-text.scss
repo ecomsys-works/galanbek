@@ -1,0 +1,15 @@
+.page-content {
+	padding-top: 15px;
+	padding-bottom: 100px;
+
+	@include sm {
+		padding-top: 15px;
+	}
+	@include xxl {
+		padding-top: 65px;
+	}
+	@include xxxl {
+		padding-top: 50px;
+		padding-bottom: 150px;
+	}
+}

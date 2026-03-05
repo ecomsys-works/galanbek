@@ -2,7 +2,7 @@
 	<div class="header__inner container">
 		<!-- ================= LEFT BLOCK ================= -->
 		<div class="header__left">
-			<a href="home.html" class="header__logo">
+			<a href="index.html" class="header__logo">
 				<img class="img-responsive" src="../../images/webp/logo-dark.webp" alt="Logo" />
 			</a>
 		</div>
@@ -78,12 +78,12 @@
 		<!-- ================= RIGHT BLOCK ================= -->
 		<div class="header__right">
 			<!-- Локация -->
-			<button class="header__icon-btn header__location">
+			<a href="index.html" class="header__icon-btn header__location">
 				<svg class="icon icon--header-marker">
 					<use href="./icons/symbol/sprite.svg#marker"></use>
 				</svg>
 				<span>Москва</span>
-			</button>
+			</a>
 
 			<!-- Поиск -->
 			<button class="header__icon-btn">
@@ -160,3 +160,5 @@
 		</div>
 	</div>
 </div>
+
+@@include('../components/cart-modal.html')

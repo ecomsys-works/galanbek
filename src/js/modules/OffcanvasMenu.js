@@ -10,24 +10,24 @@ export function initOffcanvasMenu() {
   if (!burger || !offcanvas || !closeBtn) return;
 
   const Overlay = overlay();
-  Overlay.closeClickInit();
+  Overlay?.closeClickInit();
 
   // Открытие канваса
   burger.addEventListener('click', () => {
     offcanvas.classList.add('active');
-    Overlay.open();
+    Overlay?.open();
   });
 
   // Закрытие канваса
   closeBtn.addEventListener('click', () => {
     closeAllSubmenus();
     offcanvas.classList.remove('active');
-    Overlay.close();
+    Overlay?.close();
   });
 
-  Overlay.el.addEventListener("click", () => {
+  Overlay?.el.addEventListener("click", () => {
     offcanvas.classList.remove("active");
-    Overlay.close();
+    Overlay?.close();
   });
 
   // Закрытие всех аккордеонов
