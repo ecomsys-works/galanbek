@@ -58,7 +58,7 @@
             <div class="container header__inner">
                 <!-- ================= LEFT BLOCK ================= -->
                 <div class="header__left">
-                    <a href="home.html" class="header__logo">
+                    <a href="index.html" class="header__logo">
                         <img class="img-responsive" src="./images/webp/logo-dark.webp" alt="Logo">
                     </a>
                 </div>
@@ -134,12 +134,12 @@
                 <!-- ================= RIGHT BLOCK ================= -->
                 <div class="header__right">
                     <!-- Локация -->
-                    <button class="header__icon-btn header__location">
+                    <a href="index.html" class="header__icon-btn header__location">
                         <svg class="icon icon--header-marker">
                             <use href="./icons/symbol/sprite.svg#marker"></use>
                         </svg>
                         <span>Москва</span>
-                    </button>
+                    </a>
 
                     <!-- Поиск -->
                     <button class="header__icon-btn">
@@ -250,6 +250,281 @@
                 </div>
             </div>
         </div>
+
+        <div class="cart-modal-overlay" id="cart-modal">
+            <div class="cart-modal">
+                <!-- HEADER -->
+                <div class="cart-modal__header">
+                    <h2 class="cart-modal__title">Товары в корзине</h2>
+                    <button type="button" class="cart-modal__close">
+                        <svg class="icon--modal-close">
+                            <use href="./icons/symbol/sprite.svg#close"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- SELECT ALL -->
+                <label class="cart-check__label">
+                    <input type="checkbox" class="cart-check__input" name="cart-all">
+                    <span class="cart-check__custom">
+                        <svg class="icon--checkmark-small">
+                            <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
+                        </svg>
+                    </span>
+                    <span class="cart-check__text">Выбрать все</span>
+                </label>
+
+                <!-- PRODUCTS -->
+                <div class="cart-cards">
+                    <!-- 1 -->
+                    <a href="#" class="cart-card">
+                        <div class="cart-card__inner">
+                            <!-- картинка -->
+                            <div class="cart-card__row">
+                                <div class="cart-card__image">
+                                    <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="">
+                                </div>
+                                <!-- заголовок и опции -->
+                                <div class="cart-card__info">
+                                    <div class="cart-card__info-header">
+                                        <h3 class="cart-card__title">Apple iPhone 17 Pro Max 256 Gb (Cosmic Orange)</h3>
+                                        <button type="button" class="cart-card__remove cart-card__remove--xs">
+                                            <svg class="icon--product-remove">
+                                                <use href="./icons/symbol/sprite.svg#close"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <ul class="cart-card__options">
+                                        <li>Объём памяти: <span>256Gb</span></li>
+                                        <li>Цвет: <span>Silver</span></li>
+                                        <li>Sim: <span>eSim+eSim</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- кнопки -->
+                            <div class="cart-card__actions">
+                                <div class="cart-card__counter">
+                                    <button type="button">
+                                        <svg class="icon--modal-counter-plus">
+                                            <use href="./icons/symbol/sprite.svg#plus"></use>
+                                        </svg>
+                                    </button>
+                                    <span>1</span>
+                                    <button type="button">
+                                        <svg class="icon--modal-counter-minus">
+                                            <use href="./icons/symbol/sprite.svg#minus"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="cart-card__price">110 000 ₽</div>
+                                <button type="button" class="cart-card__remove cart-card__remove--md">
+                                    <svg class="icon--product-remove">
+                                        <use href="./icons/symbol/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- 2 -->
+                    <a href="#" class="cart-card">
+                        <div class="cart-card__inner">
+                            <!-- картинка -->
+                            <div class="cart-card__row">
+                                <div class="cart-card__image">
+                                    <img src="./images/webp/catalog-products/AppleMacBookAir13Black.webp" alt="">
+                                </div>
+                                <!-- заголовок и опции -->
+                                <div class="cart-card__info">
+                                    <div class="cart-card__info-header">
+                                        <h3 class="cart-card__title">Apple iPhone 17 Pro Max 256 Gb (Cosmic Orange)</h3>
+                                        <button type="button" class="cart-card__remove cart-card__remove--xs">
+                                            <svg class="icon--product-remove">
+                                                <use href="./icons/symbol/sprite.svg#close"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <ul class="cart-card__options">
+                                        <li>Объём памяти: <span>256Gb</span></li>
+                                        <li>Цвет: <span>Silver</span></li>
+                                        <li>Sim: <span>eSim+eSim</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- кнопки -->
+                            <div class="cart-card__actions">
+                                <div class="cart-card__counter">
+                                    <button type="button">
+                                        <svg class="icon--modal-counter-plus">
+                                            <use href="./icons/symbol/sprite.svg#plus"></use>
+                                        </svg>
+                                    </button>
+                                    <span>1</span>
+                                    <button type="button">
+                                        <svg class="icon--modal-counter-minus">
+                                            <use href="./icons/symbol/sprite.svg#minus"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="cart-card__price">110 000 ₽</div>
+                                <button type="button" class="cart-card__remove cart-card__remove--md">
+                                    <svg class="icon--product-remove">
+                                        <use href="./icons/symbol/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="cart-modal__total cart-modal__total--top">Сумма: <strong>110 000 ₽</strong></div>
+
+                <div class="cart-modal__description">
+                    В нашем магазине действует 100% гарантия самой лучшей цены в городе. Если Вы нашли более выгодное предложение, мы снизим цену.
+                    Остались вопросы? Напишите нашему менеджеру или позвоните в магазин. * стоимость указана с учетом скидки при оплате наличными
+                </div>
+
+                <!-- FORM -->
+                <!-- Name & phone -->
+                <form class="cart-modal__form">
+                    <div class="cart-modal__form-inputs">
+                        <!-- 1 -->
+                        <div class="cart-modal__form-input">
+                            <input type="text" placeholder="Ваше имя" name="cart-name">
+                        </div>
+                        <!-- 2 -->
+                        <div class="cart-modal__form-input">
+                            <img src="./images/webp/ru.webp" alt="RU">
+                            <input type="tel" placeholder="+7 (___) ___-__-__" name="cart-phone" id="phone-mask-1">
+                        </div>
+                    </div>
+                    <!-- gruop -->
+
+                    <!-- delivery -->
+                    <div class="cart-radio">
+                        <h4 class="cart-radio__title">Способ получения</h4>
+                        <div class="cart-radio__labels">
+                            <!-- 1 -->
+                            <label class="cart-radio__label">
+                                <input type="radio" class="cart-radio__input" name="cart-delivery" checked="checked">
+                                <span class="cart-radio__custom">
+                                    <span class="point"></span>
+                                </span>
+                                <span class="cart-radio__text">Из магазина г. Москва, Багратионовский пр. 7, корп. 2, БЦ РУБИН</span>
+                            </label>
+                            <!-- 2 -->
+                            <label class="cart-radio__label">
+                                <input type="radio" class="cart-radio__input" name="cart-delivery">
+                                <span class="cart-radio__custom">
+                                    <span class="point"></span>
+                                </span>
+                                <span class="cart-radio__text">Доставка по Москве</span>
+                            </label>
+                            <!-- 3 -->
+                            <label class="cart-radio__label">
+                                <input type="radio" class="cart-radio__input" name="cart-delivery">
+                                <span class="cart-radio__custom">
+                                    <span class="point"></span>
+                                </span>
+                                <span class="cart-radio__text">Из магазина г. Рязань, Первомайский проспект 33а, 3 этаж, 15 офис</span>
+                            </label>
+                            <!-- 4 -->
+                            <label class="cart-radio__label">
+                                <input type="radio" class="cart-radio__input" name="cart-delivery">
+                                <span class="cart-radio__custom">
+                                    <span class="point"></span>
+                                </span>
+                                <span class="cart-radio__text">Доставка по Рязани</span>
+                            </label>
+                            <!-- 5 -->
+                            <label class="cart-radio__label">
+                                <input type="radio" class="cart-radio__input" name="cart-delivery">
+                                <span class="cart-radio__custom">
+                                    <span class="point"></span>
+                                </span>
+                                <span class="cart-radio__text">Доставка по России и СНГ</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!--promo -->
+                    <div class="cart-modal__form-input">
+                        <input type="text" placeholder="Промокод" name="cart-promo">
+                    </div>
+
+                    <!-- approval -->
+                    <label class="cart-check__label cart-check__label--approval">
+                        <input type="checkbox" class="cart-check__input" name="cart-approval">
+                        <span class="cart-check__custom">
+                            <svg class="icon--checkmark-small">
+                                <use href="./icons/symbol/sprite.svg#checkmark-small"></use>
+                            </svg>
+                        </span>
+                        <span class="cart-check__text cart-check__text--approval">Даю согласие на обработку своих <a href="#">персональных данных</a></span>
+                    </label>
+
+                    <!-- ДОПОЛНИТЕЛЬНО -->
+                    <div class="cart-additional">
+                        <h2 class="cart-additional__title">Дополнительно</h2>
+
+                        <div class="cart-additional__slider swiper">
+                            <div class="swiper-wrapper">
+                                <!-- 1 -->
+                                <div class="swiper-slide">
+                                    <a href="#" class="cart-additional__card">
+                                        <div class="cart-additional__card-image">
+                                            <img src="./images/webp/new-products/AppleIPadAir11.webp" alt="">
+                                        </div>
+                                        <div class="cart-additional__card-group">
+                                            <span class="cart-additional__card-title"> Чехол Magnetic для iPhone 17 Pro Max Прозрачный </span>
+                                            <div class="cart-additional__card-bottom">
+                                                <span class="cart-additional__card-price">990 ₽</span>
+
+                                                <span data-cart-additional="product-id-1" class="cart-additional__card-add">
+                                                    <svg class="icon icon--cart-add">
+                                                        <use href="./icons/symbol/sprite.svg#plus"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- 2 -->
+                                <div class="swiper-slide">
+                                    <a href="#" class="cart-additional__card">
+                                        <div class="cart-additional__card-image">
+                                            <img src="./images/webp/new-products/IphoneAir256GB.webp" alt="">
+                                        </div>
+                                        <div class="cart-additional__card-group">
+                                            <span class="cart-additional__card-title"> Защитное стекло для iPhone Антишпион </span>
+                                            <div class="cart-additional__card-bottom">
+                                                <span class="cart-additional__card-price">800 ₽</span>
+
+                                                <span data-cart-additional="product-id-2" class="cart-additional__card-add">
+                                                    <svg class="icon icon--cart-add">
+                                                        <use href="./icons/symbol/sprite.svg#plus"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ИТОГ -->
+                    <div class="cart-modal__total cart-modal__total--bottom">Итоговая сумма: 116 480 ₽</div>
+
+                    <button type="submit" class="btn btn--dark btn--cart">
+                        <span class="btn__text">Оформить заказ</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
 
         <main class="main">
             <nav class="breadcrumbs" aria-label="Хлебные крошки">
@@ -402,7 +677,7 @@
                     <div class="footer__left">
                         <div class="footer__left-group">
                             <!-- Логотип -->
-                            <a href="home.html" class="footer__logo">
+                            <a href="index.html" class="footer__logo">
                                 <img class="img-responsive" src="./images/webp/logo-light.webp" alt="Logo">
                             </a>
 
@@ -511,10 +786,12 @@
             </div>
         </footer>
 
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+    <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.js"></script>
 
     <script src="./js/main.min.js"></script>
 

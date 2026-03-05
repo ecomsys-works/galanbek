@@ -12,6 +12,7 @@ Modules import
 import { initDesktopMenu } from "./modules/DesktopMenu";    // обработчик дестопного меню
 import { initOffcanvasMenu } from "./modules/OffcanvasMenu";   // обработчик мобильного меню в хедере
 import { initSearchForm } from "./modules/SearchForm";   // обработчик формы поиска
+import { CartModal } from "./modules/CartModal.js";
 
 import { initMapOverlayDesktop } from "./modules/map/MapOverlayDesktop.js";   // обработчик карты для десктопа
 import { initMapOverlayMobile } from "./modules/map/MapOverlayMobile.js";  // обработчик карты для мобилки
@@ -43,6 +44,8 @@ import { RecommendedSwiper } from "./modules/product/RecommendedSwiper.js";
 import { initFancy } from "./modules/FancyBox.js";
 // import { handleForm } from "./modules/product/handleForm.js";
 import { handleCartProduct } from "./modules/product/handleCartProduct.js";
+import { cartSwiper } from "./modules/CartSwiper.js";
+import { headerColorizator } from "./modules/HeaderColorizator.js";
 
 const homePage = document.getElementById('home-page');      // главная
 // const catalogPage = document.getElementById('catalog-page');    // страница основных категорий
@@ -55,6 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
     initDesktopMenu();
     initOffcanvasMenu();
     initSearchForm();
+    CartModal();
+    cartSwiper();
+    
+    headerColorizator({
+        page: 'politico-page'
+    })
+
+    const phoneInput1 = document.getElementById('phone-mask-1');
+    const im1 = new Inputmask("+7 (999) 999-99-99");
+    im1.mask(phoneInput1);
+
 
     /* ------------------------------------------------------------------------------------------------------------------------------
     HOME PAGE
@@ -68,147 +82,147 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ------------------------------------------------------------------------------------------------------------------------------
     CATALOG PRODUCTS PAGE
     --------------------------------------------------------------------------------------------------------------------------------*/
-if (catalogProductsPage) {
-    // -------------------------
-    // БРЕДКРАМБС
-    // -------------------------
-    breadcrumbsColorizator({
-        page: 'catalog-products-page',
-        color: '#ffffff',
-        startBreakpoint: 576,
-        endBreakpoint: 992
-    });
+    if (catalogProductsPage) {
+        // -------------------------
+        // БРЕДКРАМБС
+        // -------------------------
+        breadcrumbsColorizator({
+            page: 'catalog-products-page',
+            color: '#ffffff',
+            startBreakpoint: 576,
+            endBreakpoint: 992
+        });
 
-    // -------------------------
-    // ИНПУТЫ СЛАЙДЕРА
-    // -------------------------
-    const priceMinInput = document.querySelector('[data-price-min]');
-    const priceMaxInput = document.querySelector('[data-price-max]');
-    const DEFAULT_MIN = priceMinInput ? parseInt(priceMinInput.value, 10) : 68390;
-    const DEFAULT_MAX = priceMaxInput ? parseInt(priceMaxInput.value, 10) : 140990;
-    const PRICE_STEP = 500;
+        // -------------------------
+        // ИНПУТЫ СЛАЙДЕРА
+        // -------------------------
+        const priceMinInput = document.querySelector('[data-price-min]');
+        const priceMaxInput = document.querySelector('[data-price-max]');
+        const DEFAULT_MIN = priceMinInput ? parseInt(priceMinInput.value, 10) : 68390;
+        const DEFAULT_MAX = priceMaxInput ? parseInt(priceMaxInput.value, 10) : 140990;
+        const PRICE_STEP = 500;
 
-    // -------------------------
-    // STORE
-    // -------------------------
-    const formId = 'catalogForm';
-    const store = new FilterCheckboxesStore({ formId });
-    const form = document.getElementById(formId);
+        // -------------------------
+        // STORE
+        // -------------------------
+        const formId = 'catalogForm';
+        const store = new FilterCheckboxesStore({ formId });
+        const form = document.getElementById(formId);
 
-    // -------------------------
-    // ЗАГРУЗКА СОХРАНЕННЫХ ЗНАЧЕНИЙ
-    // -------------------------
-    const savedData = store.getFormData ? Object.fromEntries(store.getFormData()) : {};
-    const startMin = savedData.price_min ? parseInt(savedData.price_min, 10) : DEFAULT_MIN;
-    const startMax = savedData.price_max ? parseInt(savedData.price_max, 10) : DEFAULT_MAX;
+        // -------------------------
+        // ЗАГРУЗКА СОХРАНЕННЫХ ЗНАЧЕНИЙ
+        // -------------------------
+        const savedData = store.getFormData ? Object.fromEntries(store.getFormData()) : {};
+        const startMin = savedData.price_min ? parseInt(savedData.price_min, 10) : DEFAULT_MIN;
+        const startMax = savedData.price_max ? parseInt(savedData.price_max, 10) : DEFAULT_MAX;
 
-    if (priceMinInput) priceMinInput.value = startMin;
-    if (priceMaxInput) priceMaxInput.value = startMax;
+        if (priceMinInput) priceMinInput.value = startMin;
+        if (priceMaxInput) priceMaxInput.value = startMax;
 
-    ['sortCatalog', 'sortTypes'].forEach(id => {
-        const select = document.getElementById(id);
-        if (!select) return;
-        const savedValue = savedData[select.name];
-        if (savedValue) select.value = savedValue;
-    });
+        ['sortCatalog', 'sortTypes'].forEach(id => {
+            const select = document.getElementById(id);
+            if (!select) return;
+            const savedValue = savedData[select.name];
+            if (savedValue) select.value = savedValue;
+        });
 
-    // -------------------------
-    // UI ФИЛЬТРОВ
-    // -------------------------
-    initFilterCanvasToggle();
+        // -------------------------
+        // UI ФИЛЬТРОВ
+        // -------------------------
+        initFilterCanvasToggle();
 
-    // Десктопные сортировки
-    initSortDesktopCore({ selectId: 'sortCatalog', dropdownClass: 'default' });
-    initSortDesktopCore({ selectId: 'sortTypes', dropdownClass: 'short' });
+        // Десктопные сортировки
+        initSortDesktopCore({ selectId: 'sortCatalog', dropdownClass: 'default' });
+        initSortDesktopCore({ selectId: 'sortTypes', dropdownClass: 'short' });
 
-    // Мобильная сортировка в канвасе
-    initSortMobileCanvas({ selectId: 'sortCatalog', canvasId: 'filterCanvas' });
+        // Мобильная сортировка в канвасе
+        initSortMobileCanvas({ selectId: 'sortCatalog', canvasId: 'filterCanvas' });
 
-    // -------------------------
-    // ИНИЦИАЛИЗАЦИЯ UI ФИЛЬТРОВ (ЧЕКБОКСЫ)
-    // -------------------------
-    initFilterUI({ formId });
-    syncUIFromForm(form);
+        // -------------------------
+        // ИНИЦИАЛИЗАЦИЯ UI ФИЛЬТРОВ (ЧЕКБОКСЫ)
+        // -------------------------
+        initFilterUI({ formId });
+        syncUIFromForm(form);
 
-    // -------------------------
-    // АККОРДЕОНЫ — ТОЛЬКО ПОСЛЕ ГЕНЕРАЦИИ UI
-    // -------------------------
-    initFilterSidebarAccordion();
-    initFilterCanvasAccordion();
+        // -------------------------
+        // АККОРДЕОНЫ — ТОЛЬКО ПОСЛЕ ГЕНЕРАЦИИ UI
+        // -------------------------
+        initFilterSidebarAccordion();
+        initFilterCanvasAccordion();
 
-    // -------------------------
-    // СЛАЙДЕРЫ ЦЕН
-    // -------------------------
-    const sliderCanvas = initPriceSliders({
-        sliderId: "price-slider-c",
-        minLabelId: "price-c-min-label",
-        maxLabelId: "price-c-max-label",
-        rangeMin: DEFAULT_MIN,
-        rangeMax: DEFAULT_MAX,
-        startMin,
-        startMax,
-        step: PRICE_STEP
-    });
+        // -------------------------
+        // СЛАЙДЕРЫ ЦЕН
+        // -------------------------
+        const sliderCanvas = initPriceSliders({
+            sliderId: "price-slider-c",
+            minLabelId: "price-c-min-label",
+            maxLabelId: "price-c-max-label",
+            rangeMin: DEFAULT_MIN,
+            rangeMax: DEFAULT_MAX,
+            startMin,
+            startMax,
+            step: PRICE_STEP
+        });
 
-    const sliderSidebar = initPriceSliders({
-        sliderId: "price-slider-s",
-        minLabelId: "price-s-min-label",
-        maxLabelId: "price-s-max-label",
-        rangeMin: DEFAULT_MIN,
-        rangeMax: DEFAULT_MAX,
-        startMin,
-        startMax,
-        step: PRICE_STEP
-    });
+        const sliderSidebar = initPriceSliders({
+            sliderId: "price-slider-s",
+            minLabelId: "price-s-min-label",
+            maxLabelId: "price-s-max-label",
+            rangeMin: DEFAULT_MIN,
+            rangeMax: DEFAULT_MAX,
+            startMin,
+            startMax,
+            step: PRICE_STEP
+        });
 
-    // -------------------------
-    // ДЕБАУНС ДЛЯ СИНХРОНИЗАЦИИ СЛАЙДЕРОВ
-    // -------------------------
-    const debounceSync = (() => {
-        let syncTimeout;
-        return () => {
-            clearTimeout(syncTimeout);
-            syncTimeout = setTimeout(() => {
-                const min = parseInt(priceMinInput.value, 10);
-                const max = parseInt(priceMaxInput.value, 10);
+        // -------------------------
+        // ДЕБАУНС ДЛЯ СИНХРОНИЗАЦИИ СЛАЙДЕРОВ
+        // -------------------------
+        const debounceSync = (() => {
+            let syncTimeout;
+            return () => {
+                clearTimeout(syncTimeout);
+                syncTimeout = setTimeout(() => {
+                    const min = parseInt(priceMinInput.value, 10);
+                    const max = parseInt(priceMaxInput.value, 10);
 
-                if (sliderCanvas) {
-                    const [cMin, cMax] = sliderCanvas.get().map(v => Math.round(v));
-                    if (cMin !== min || cMax !== max) sliderCanvas.set([min, max], false);
-                }
-                if (sliderSidebar) {
-                    const [sMin, sMax] = sliderSidebar.get().map(v => Math.round(v));
-                    if (sMin !== min || sMax !== max) sliderSidebar.set([min, max], false);
-                }
+                    if (sliderCanvas) {
+                        const [cMin, cMax] = sliderCanvas.get().map(v => Math.round(v));
+                        if (cMin !== min || cMax !== max) sliderCanvas.set([min, max], false);
+                    }
+                    if (sliderSidebar) {
+                        const [sMin, sMax] = sliderSidebar.get().map(v => Math.round(v));
+                        if (sMin !== min || sMax !== max) sliderSidebar.set([min, max], false);
+                    }
 
-                store.save();
-            }, 500);
+                    store.save();
+                }, 500);
+            };
+        })();
+
+        const onSliderSet = (values) => {
+            const [min, max] = values.map(v => Math.round(v));
+            if (priceMinInput) priceMinInput.value = min;
+            if (priceMaxInput) priceMaxInput.value = max;
+            store.save();
+            debounceSync();
         };
-    })();
 
-    const onSliderSet = (values) => {
-        const [min, max] = values.map(v => Math.round(v));
-        if (priceMinInput) priceMinInput.value = min;
-        if (priceMaxInput) priceMaxInput.value = max;
-        store.save();
-        debounceSync();
-    };
+        if (sliderCanvas) sliderCanvas.on('set', onSliderSet);
+        if (sliderSidebar) sliderSidebar.on('set', onSliderSet);
 
-    if (sliderCanvas) sliderCanvas.on('set', onSliderSet);
-    if (sliderSidebar) sliderSidebar.on('set', onSliderSet);
-
-    // -------------------------
-    // СИНХРОНИЗАЦИЯ СЕЛЕКТОВ
-    // -------------------------
-    ['sortCatalog', 'sortTypes'].forEach(id => {
-        const selects = document.querySelectorAll(`#${id}`);
-        selects.forEach(select => {
-            select.addEventListener('change', () => {
-                store.save();
+        // -------------------------
+        // СИНХРОНИЗАЦИЯ СЕЛЕКТОВ
+        // -------------------------
+        ['sortCatalog', 'sortTypes'].forEach(id => {
+            const selects = document.querySelectorAll(`#${id}`);
+            selects.forEach(select => {
+                select.addEventListener('change', () => {
+                    store.save();
+                });
             });
         });
-    });
-}
+    }
 
     /* ------------------------------------------------------------------------------------------------------------------------------
    CATALOG PRODUCTS PAGE

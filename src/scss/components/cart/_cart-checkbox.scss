@@ -1,0 +1,99 @@
+/* ------------------------------------------------------------------------------------------------------------------------------
+КАСТОМНЫЙ ЧЕКБОКС модалки
+ --------------------------------------------------------------------------------------------------------------------------------*/
+/* Контейнер чекбокса */
+/* Лейбл как inline-flex */
+.cart-check__label {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	position: relative; /* для абсолютного позиционирования галочки */
+
+	margin-bottom: 13px;
+	@include sm {
+		margin-bottom: 20px;
+	}
+	@include md {
+		margin-bottom: 25px;
+	}
+
+	&--approval {
+		margin-bottom: 0px;
+		margin-top: -10px;
+	}
+}
+
+/* Скрываем нативный input */
+.cart-check__input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* Кастомный квадрат */
+.cart-check__custom {
+	width: 18px;
+	height: 18px;
+	border: 1px solid rgb(0, 0, 0, 0.2);
+	border-radius: 2px;
+	background: #f4f4f4;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative; /* для галочки */
+	flex-shrink: 0;
+	transition:
+		background 0.2s,
+		border 0.2s;
+}
+
+/* Галочка по умолчанию скрыта, абсолютная внутри квадрата */
+.cart-check__custom svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 12px; /* под размер квадрата */
+	height: 12px;
+	display: none;
+}
+
+/* Когда checked — показываем галочку и меняем фон */
+.cart-check__input:checked + .cart-check__custom svg {
+	color: rgb(0, 0, 0, 0.8);
+	display: block;
+}
+
+/* Текст рядом */
+.cart-check__text {
+	font-weight: 400;
+	line-height: 100%;
+	letter-spacing: -0.02em;
+	color: #000;
+	a {
+		color: #000;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	font-size: 14px;
+	@include sm {
+		font-size: 16px;
+	}
+
+	&--approval {
+		font-weight: 500;
+		line-height: 100%;
+		letter-spacing: -0.02em;
+		color: #000;
+
+		font-size: 12px;
+		@include sm {
+			font-size: 12px;
+		}
+	}
+}

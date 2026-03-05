@@ -28,10 +28,9 @@ html,
 body {
 	inline-size: 100%;
 	block-size: 100%;
-	background: #f4f4f4;
+	background: #f6f6f6;
 	// overflow-x: hidden;
 }
-
 
 .container {
 	min-width: 320px;
@@ -55,6 +54,17 @@ svg.icon {
 	position: relative;
 	& > img {
 		display: block;
+		position: absolute;
+		inset-block-start: 0%;
+		inset-inline-start: 0%;
+		object-fit: cover;
+		block-size: 100%;
+		inline-size: 100%;
+	}
+}
+.ibg-noblock {
+	position: relative;
+	& > img {
 		position: absolute;
 		inset-block-start: 0%;
 		inset-inline-start: 0%;
