@@ -1,0 +1,62 @@
+/* ------------------------------------------------------------------------------------------------------------------------------
+Навигация свайпера для модалки
+ --------------------------------------------------------------------------------------------------------------------------------*/
+.cart-additional {
+	&__header {
+		position: relative;		
+	}	
+
+	/* ---------------- Arrows ---------------- */
+	&__nav {
+		position: absolute;
+		right: 0;
+		bottom: 0%;
+
+		display: flex;
+		gap: 12px;
+	}
+
+	&__arrow {
+		width: 30px;
+		height: 30px;
+		@include md {
+			width: 44px;
+			height: 44px;
+		}
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 50%;
+		background: #e0e0e0;
+		border: none;
+		cursor: pointer;
+
+		transition: opacity 0.3s ease;
+
+		&.swiper-button-disabled {
+			opacity: 0.4;
+			pointer-events: none;
+		}
+	}
+
+	.icon--slider-angle-left {
+		width: 8px;
+		height: 17px;
+
+		@include md {
+			width: 12px;
+			height: 24px;
+		}
+	}
+	.icon--slider-angle-right {
+		width: 8px;
+		height: 17px;
+
+		@include md {
+			width: 12px;
+			height: 24px;
+		}
+	}
+}

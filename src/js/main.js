@@ -12,7 +12,7 @@ Modules import
 import { initDesktopMenu } from "./modules/DesktopMenu";    // обработчик дестопного меню
 import { initOffcanvasMenu } from "./modules/OffcanvasMenu";   // обработчик мобильного меню в хедере
 import { initSearchForm } from "./modules/SearchForm";   // обработчик формы поиска
-import { CartModal } from "./modules/CartModal.js";
+import { CartModal } from "./modules/cart/CartModal.js";
 
 import { initMapOverlayDesktop } from "./modules/map/MapOverlayDesktop.js";   // обработчик карты для десктопа
 import { initMapOverlayMobile } from "./modules/map/MapOverlayMobile.js";  // обработчик карты для мобилки
@@ -44,10 +44,15 @@ import { RecommendedSwiper } from "./modules/product/RecommendedSwiper.js";
 import { initFancy } from "./modules/FancyBox.js";
 // import { handleForm } from "./modules/product/handleForm.js";
 import { handleCartProduct } from "./modules/product/handleCartProduct.js";
-import { cartSwiper } from "./modules/CartSwiper.js";
+import { cartSwiper } from "./modules/cart/CartSwiper.js";
 import { headerColorizator } from "./modules/HeaderColorizator.js";
 
 import { ScrollAnimations } from "./modules/GSAPScroll.js";
+import { initTownSelect } from './modules/TownSelect.js';
+import { initCardCounterTeleport } from "./modules/cart/CardCounterTeleport.js";
+import { initCartSelectAll } from "./modules/cart/initCartSelectAll.js";
+import { initCartFormValidation } from "./modules/cart/initCartFormValidation.js";
+
 
 const homePage = document.getElementById('home-page');      // главная
 // const catalogPage = document.getElementById('catalog-page');    // страница основных категорий
@@ -67,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
         page: 'politico-page'
     })
 
+
+
     // gsap animation class init
     window.addEventListener('load', () => {
         if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
@@ -81,6 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    initTownSelect({ selectId: 'townSelect' });
+    initCardCounterTeleport({
+        breakpoint: 767
+    });
+    initCartSelectAll();
+    initCartFormValidation();
 
     const phoneInput1 = document.getElementById('phone-mask-1');
     const im1 = new Inputmask("+7 (999) 999-99-99");

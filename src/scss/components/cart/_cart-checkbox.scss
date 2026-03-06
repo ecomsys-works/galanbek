@@ -10,6 +10,7 @@
 	cursor: pointer;
 	position: relative; /* для абсолютного позиционирования галочки */
 
+	
 	margin-bottom: 13px;
 	@include sm {
 		margin-bottom: 20px;

@@ -1,5 +1,5 @@
 <div id="splash-screen">
-    <div class="splash-logo"></div>
+	<div class="splash-logo"></div>
 </div>
 
 <header class="header">
@@ -82,13 +82,22 @@
 		<!-- ================= RIGHT BLOCK ================= -->
 		<div class="header__right">
 			<!-- Локация -->
-			<a href="index.html" class="header__icon-btn header__location">
+			<!-- <a href="index.html" class="header__icon-btn header__location">
 				<svg class="icon icon--header-marker">
 					<use href="./icons/symbol/sprite.svg#marker"></use>
 				</svg>
 				<span>Москва</span>
-			</a>
+			</a> -->
+			<!-- Нативный select для городов -->
+			<select class="town-native" name="town" id="townSelect" data-town-select hidden>
+				<option value="moscow" selected>Москва</option>
+				<option value="ryazan">Рязань</option>				
+			</select>
 
+			<!-- Контейнер кастомного селекта -->
+			<div class="town-desktop" data-town-desktop data-town-id="townSelect">
+				<!-- Контент рендерится через JS -->
+			</div>
 			<!-- Поиск -->
 			<button class="header__icon-btn">
 				<svg class="icon icon--header-search" id="header-search-btn">

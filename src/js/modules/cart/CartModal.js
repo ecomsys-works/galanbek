@@ -28,7 +28,7 @@ export function CartModal() {
     });
 
     // counter +/-
-    cartModalOverlay.querySelectorAll('.cart-card').forEach(card => {
+    cartModalOverlay.querySelectorAll('.cart-card__wrapper').forEach(card => {
         const counter = card.querySelector('.cart-card__counter');
         const span = counter.querySelector('span');
         const btnPlus = counter.querySelector('button:first-child');
@@ -49,10 +49,9 @@ export function CartModal() {
         // удалить товар
         card.querySelectorAll('.cart-card__remove').forEach(el => {
             el.addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log('ljksd')
+                e.preventDefault();               
                 card.remove();
-                localStorage.clear('retailFilters');
+                localStorage.clear('retailCart'); // удаляю все товары в корзине в сторе (а вообще нужно именно этот !! )
             });
         })
     });
